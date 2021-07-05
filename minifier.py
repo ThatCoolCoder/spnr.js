@@ -37,7 +37,7 @@ try:
 except:
     fatalError('Could not open ' + INPUT_FILE)
 
-minifiedSpnr = jsmin(unminifiedSpnr)
+minifiedSpnr = jsmin(unminifiedSpnr, keep_bang_comments=True)
 
 try:
     writeFile(OUTPUT_FILE, minifiedSpnr)
