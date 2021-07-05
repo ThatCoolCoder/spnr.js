@@ -1,0 +1,51 @@
+spnr.FunctionGroup
+spnr.FunctionGroup(initialFunctions=[])
+var functionGroup = new spnr.FunctionGroup([updateEmployees, updateUsers])
+A group of functions that can be called together.
+/src/machineLearning/FunctionGroup.js
+nolink
+
+NEXTSECTION
+
+spnr.FunctionGroup.add()
+spnr.FunctionGroup.add(f)
+functionGroup.add(updateUI)
+Add a new function to the group
+/src/machineLearning/FunctionGroup.js
+nolink
+
+NEXTSECTION
+
+spnr.FunctionGroup.addBulk()
+spnr.FunctionGroup.addBulk(functionArray)
+functionGroup.addBulk([updateRates, updateRetirement])
+Add an array of new functions to the group.
+/src/machineLearning/FunctionGroup.js
+nolink
+
+NEXTSECTION
+
+spnr.FunctionGroup.remove()
+spnr.FunctionGroup.remove(f)
+functionGroup.remove(updateUI)
+Remove ```f``` from the group. Note: a handle to the function to remove is required - passing an identical function will not work.
+/src/machineLearning/FunctionGroup.js
+nolink
+
+NEXTSECTION
+
+spnr.FunctionGroup.removeAll()
+spnr.FunctionGroup.removeAll()
+crntCallbacks.removeAll()
+Remove all functions from the group. Does not delete the functions, so if they are stored to a variable/funtionGroup elsewhere those will not be affected.
+/src/machineLearning/FunctionGroup.js
+nolink
+
+NEXTSECTION
+
+spnr.FunctionGroup.call()
+spnr.FunctionGroup.call()
+functionGroup.call(wages, reports, errors)
+Call all of the functions in the group using the arguments passed. Reads the whole arguments list. In the example shown, each function in the group would be called with the arguments ```wages, reports, errors```.
+/src/machineLearning/FunctionGroup.js
+nolink

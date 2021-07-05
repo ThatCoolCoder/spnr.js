@@ -1,0 +1,1050 @@
+spnr.VERSION
+spnr.VERSION
+var version = spnr.VERSION
+A string representation of the curent spnr version. An example would be ```'v1.1.0'```
+/src/core.js
+nolink
+
+NEXTSECTION
+
+spnr.uniqueId()
+spnr.uniqueId()
+var id = spnr.uniqueId()
+Use spnr.random() (wrapper of Math.random()) to generate a random, unique number, which is converted into a string. Ids are prefixed with an underscore to allow property naming, etc.
+/src/misc.js
+nolink
+
+NEXTSECTION
+
+spnr.randBoolean()
+spnr.randBoolean()
+var shouldThrow = spnr.randBoolean()
+Return either true or false. There is an equal chance of each.
+/src/misc.js
+nolink
+
+NEXTSECTION
+
+spnr.doNothing()
+spnr.doNothing()
+spnr.doNothing()
+Do nothing. Handy for indicating that nothing is supposed to be done in a particular circumstance.
+/src/misc.js
+nolink
+
+NEXTSECTION
+
+spnr.constrain()
+spnr.constrain(num, min, max)
+var clippedResult = constrain(result, minAllowable, maxAllowable)
+Constrain num to the inclusive range from min to max.
+/src/misc.js
+nolink
+
+NEXTSECTION
+
+spnr.wrapAround()
+spnr.wrapAround(num, min, max)
+var angle = spnr.wrapAround(angle, 0, 360);
+Make the number wrap around so that when it is above max it goes back around to min and vice versa. Not working, do not use!
+/src/misc.js
+nolink
+
+NEXTSECTION
+
+spnr.doNTimes()
+spnr.doNTimes(n, func)
+spnr.doNTimes(5, (i) => { newRecords[i] = records[i] });
+Run ```func``` n times. Pass the current loop count (from 0 to ```n - 1```) as an argument to func. Shorthand for ```for (var i = 0; i < n; i ++) func(i);```.
+/src/misc.js
+nolink
+
+NEXTSECTION
+
+spnr.mapNum()
+spnr.mapNum(num, oldMin, oldMax, newMin, newMax)
+var randomNumber = spnr.mapNum(Math.random(), 0, 1, 50, 120)
+Map ```num``` from the range of ```oldMin``` to ```oldMax``` to the range of ```newMin``` to ```newMax```.
+/src/misc.js
+nolink
+
+NEXTSECTION
+
+spnr.arr.removeItem()
+spnr.arr.removeItem(array, item)
+spnr.arr.removeItem(users, userToDelete)
+Try to remove ```item``` from ```array```. If ```array``` doesn't contain ```item```, creates a warning but doesn't break the program.
+/src/arr.js
+nolink
+
+NEXTSECTION
+
+spnr.arr.removeIndex()
+spnr.arr.removeIndex(array, index)
+spnr.arr.removeIndex(users, userIndex)
+Try to remove the item at ```index``` from ```array```. If ```index``` is out of bounds, creates a warning but doesn't break the program.
+/src/arr.js
+nolink
+
+NEXTSECTION
+
+spnr.arr.highestIndex()
+spnr.arr.highestIndex(array=[])
+var highestIndex = spnr.arr.highestIndex([1, 4, 2, 3])
+Return the index of the highest item in the array. In the example given, the output would be 1. If there are multiple lowest items, return the index of the last one. Recommended only for numbers.
+/src/arr.js
+nolink
+
+NEXTSECTION
+
+spnr.arr.lowestIndex()
+spnr.arr.lowestIndex(array=[])
+var lowestIndex = spnr.arr.lowestIndex([4, 1, 4, 2])
+Return the index of the lowest item in the array. In the example given, the output would be 1. If there are multiple lowest items, return the index of the last one. Recommended only for numbers.
+/src/arr.js
+nolink
+
+NEXTSECTION
+
+spnr.arr.choose()
+spnr.arr.choose(array=[])
+var item = spnr.arr.choose(itemList)
+Return a random item from the array. If the array is empty or undefined, returns undefined;
+/src/arr.js
+nolink
+
+NEXTSECTION
+
+spnr.arr.sum()
+spnr.arr.sum(array=[])
+var total = spnr.arr.sum(scores)
+Return the sum of all of the items in the array. If the array is empty or undefined, returns 0. Recommended only for numbers.
+/src/arr.js
+nolink
+
+NEXTSECTION
+
+spnr.arr.product()
+spnr.arr.product(array=[])
+var scoreMultiplier = spnr.arr.product(multipliers)
+Return the product of all of the items in the array. If the array is empty or undefined, returns 1. Recommended only for numbers.
+/src/arr.js
+nolink
+
+NEXTSECTION
+
+spnr.arr.mean()
+spnr.arr.mean(array=[])
+var avgScore = spnr.arr.mean(scores)
+Returns the mean (average) of all of the items in the array. If the array is empty or undefined, returns NaN. Recommended only for numbers.
+/src/arr.js
+nolink
+
+NEXTSECTION
+
+spnr.arr.median()
+spnr.arr.median(array=[])
+var avgScore = spnr.arr.median(scores)
+Returns the median (middle value) of all of the items in the array. If the array is empty or undefined, returns NaN. Recommended only for numbers.
+/src/arr.js
+nolink
+
+NEXTSECTION
+
+spnr.arr.mode()
+spnr.arr.mode(array=[])
+No example as it doesn't run
+Has not been implemented yet due to difficulties (see source for details)
+/src/arr.js
+nolink
+
+NEXTSECTION
+
+spnr.dom.id()
+spnr.dom.id(id)
+var elem = spnr.dom.id('anElementId')
+A shorter way to call document.getElementById(). Returns the element with the id ```id```
+/src/dom.js
+nolink
+
+NEXTSECTION
+
+spnr.dom.viewportWidth()
+spnr.dom.viewportWidth()
+var width = spnr.dom.viewportWidth();
+Get the width of the viewport.
+/src/dom.js
+nolink
+
+NEXTSECTION
+
+spnr.dom.viewportHeight()
+spnr.dom.viewportHeight()
+var height = spnr.dom.viewportHeight();
+Get the height of the viewport.
+/src/dom.js
+nolink
+
+NEXTSECTION
+
+spnr.dom.viewportSize()
+spnr.dom.viewportSize()
+var size = spnr.dom.viewportSize();
+Get the size of the viewport in a spnr vector.
+/src/dom.js
+nolink
+
+NEXTSECTION
+
+spnr.dom.logPara
+spnr.dom.logPara
+var elem = spnr.dom.logPara
+A paragraph element which can be used to log data to. Only created when spnr.dom.logToPara is called. Has access methods spnr.dom.clearLogPara and spnr.dom.logToPara
+/src/dom.js
+nolink
+
+NEXTSECTION
+
+spnr.dom.clearLogPara()
+spnr.dom.clearLogPara();
+spnr.dom.clearLogPara();
+If spnr.dom.logPara is defined, clear it
+/src/dom.js
+nolink
+
+NEXTSECTION
+
+spnr.dom.logToPara()
+spnr.dom.logToPara(data, label='No label');
+spnr.dom.logToPara(testResult, 'Test Result')
+Append to spnr.dom.logPara ```data``` and ```label```, formatted in this way: ```label : data```
+/src/dom.js
+nolink
+
+NEXTSECTION
+
+spnr.dom.delete()
+spnr.dom.delete(id)
+spnr.dom.delete()
+Delete (fully remove) the HTML element with the id ```id```. If no element with the id is found, then nothing will happen.
+/src/dom.js
+nolink
+
+NEXTSECTION
+
+spnr.round()
+spnr.round(num, decimalPlaces=0)
+var result = spnr.round(1.15, 1)
+Round ```num``` so that the amount of decimal places is equal to ```decimalPlaces```. In this example the result would be 1.2.
+/src/math.js
+nolink
+
+NEXTSECTION
+
+spnr.floor()
+spnr.floor(num, decimalPlaces=0)
+var result = spnr.floor(1.15, 1)
+Floor ```num``` so that the amount of decimal places is equal to ```decimalPlaces```. In this example the result would be 1.1.
+/src/math.js
+nolink
+
+NEXTSECTION
+
+spnr.ceiling()
+spnr.ceiling(num, decimalPlaces=0)
+var result = spnr.ceiling(1.15, 1)
+Ceiling ```num``` so that the amount of decimal places is equal to ```decimalPlaces```. In this example the result would be 1.2.
+/src/math.js
+nolink
+
+NEXTSECTION
+
+spnr.randflt()
+spnr.randflt(min, max)
+var result = spnr.randflt(0, 1)
+Returns a random float in the half-open range ```[min, max)```. This includes ```min``` but not ```max```. Possible results in the example would range from 0.0 to 0.999...
+/src/math.js
+nolink
+
+NEXTSECTION
+
+spnr.randint()
+spnr.randint(min, max)
+var result = spnr.randflt(0, 4)
+Returns a random integer in the half-open range ```[min, max)```. This includes ```min``` but not ```max```. Possible results from the example would be [0, 1, 2, 3].
+/src/math.js
+nolink
+
+NEXTSECTION
+
+spnr.sigmoid()
+spnr.sigmoid(x)
+EXAMPLE GOES HERE
+DESCRIPTION GOES HERE. FIND OUT SIGMOID DESCRIPTION.
+/src/math.js
+nolink
+
+NEXTSECTION
+
+spnr.invSigmoid()
+spnr.invSigmoid(x)
+EXAMPLE GOES HERE
+DESCRIPTION GOES HERE. FIND OUT INVERSE SIGMOID DESCRIPTION.
+/src/math.js
+nolink
+
+NEXTSECTION
+
+spnr.degrees()
+spnr.degrees(radians)
+var degrees = spnr.degrees(spnr.PI / 2)
+Convert an angle in radians (```radians```) into an angle in degrees. The example given would return 90.
+/src/math.js
+nolink
+
+NEXTSECTION
+
+spnr.radians()
+spnr.radians(degrees)
+var radians = spnr.radians(90)
+Convert an angle in degrees (```degrees```) into an angle in radians. The example given would return 1.5707963267948966, or PI / 2.
+/src/math.js
+nolink
+
+NEXTSECTION
+
+spnr.mean()
+spnr.mean(a, b)
+var mean = spnr.mean(4, 6)
+Return the arithmetic mean of ```a``` and ```b```. The example given would return 5. May be moved to another module at some point.
+/src/math.js
+nolink
+
+NEXTSECTION
+
+spnr._180DIVPI
+spnr._180DIVPI
+var radians = degrees / spnr._180DIVPI
+The value of 180 divided by ```spnr.PI``` (see spnr Math wrappers). Allows for efficient conversion from degrees to radians and vice versa.
+/src/math.js
+nolink
+
+NEXTSECTION
+
+spnr Math wrappers
+spnr Math wrappers
+var a = spnr.PI
+There is a spnr wrapper around every js Math function/value, EXCEPT for the values that are defined by spnr. An example of a Math method overwritten by spnr is ```spnr.round```, which is not identical to the Math variant.
+/src/core.js
+nolink
+
+NEXTSECTION
+
+spnr.obj.keys()
+spnr.obj.keys(obj)
+spnr.obj.keys(user).forEach(key => console.log(key, user[key]))
+A wrapper for Object.keys(), because who has time to write a capital O.
+/src/obj.js
+nolink
+
+NEXTSECTION
+
+spnr.obj.values()
+spnr.obj.values(obj)
+spnr.obj.keys(user).forEach(value => console.log(value))
+A wrapper for Object.values(), because who has time to write a capital O.
+/src/obj.js
+nolink
+
+NEXTSECTION
+
+spnr.obj.setValues()
+spnr.obj.setValues(obj, values)
+spnr.obj.setValues(userId, newUserIdList)
+A niche function. Sets the values of the existing keys of an object from the ```values``` array. Requires that the object has the same number of keys as the array has items. Also the order might get weird. Recommended not to use.
+/src/obj.js
+nolink
+
+NEXTSECTION
+
+spnr.obj.oneLevelCopy()
+spnr.obj.oneLevelCopy(obj)
+var newUser = spnr.obj.oneLevelCopy(user)
+Deep copy a one-layer object. (in that all of the values of that object are primitives). If the object is multi-layered, then a new object will be formed with references to the objects in the initial object as the values.
+/src/obj.js
+nolink
+
+NEXTSECTION
+
+spnr.str.lowerAlphabet
+spnr.str.lowerAlphabet
+var letter = spnr.choose(spnr.str.lowerAlphabet)
+An array containing all of the lowercase English letters. In the example above, letter would be a random letter from the alphabet. All values: ```['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']```
+/src/str.js
+nolink
+
+NEXTSECTION
+
+spnr.str.upperAlphabet
+spnr.str.upperAlphabet
+var letter = spnr.choose(spnr.str.upperAlphabet)
+An array containing all of the uppercase English letters. In the example above, letter would be a random capital letter from the alphabet. All values: ```['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];```
+/src/str.js
+nolink
+
+NEXTSECTION
+
+spnr.str.digits
+spnr.str.digits
+var number = spnr.choose(spnr.str.digits)
+An array containing all of the digits. In the example above, number would be a random digit. All values: ```['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']```
+/src/str.js
+nolink
+
+NEXTSECTION
+
+spnr.str.symbols
+spnr.str.symbols
+var char = spnr.choose(spnr.str.symbols)
+An array containing all of the symbols on my keyboard. In the example above, char would be a random symbol. All values: ```['~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '[', '{', ']', '}', '\\', '|', ';', ':', '\'', '"', ',', '<', '.', '>', '/', '?']```
+/src/str.js
+nolink
+
+NEXTSECTION
+
+spnr.str.randomFromArray()
+spnr.str.randomFromArray(length=1, charsToUse=[])
+var str = spnr.str.randomFromArray(5, ['1', '2', '3', '4'])
+Produce a random string of length ```length``` in which the leters are chosen randomly from ```charsToUse```. An example output from the example given would be '13421'.
+/src/str.js
+nolink
+
+NEXTSECTION
+
+spnr.str.random()
+spnr.str.random(length=1, lowercaseAllowed=true, uppercaseAllowed=true, digitsAllowed=true, symbolsAllowed=true)
+var str = spnr.str.random(5, true, true, true, false)
+Produce a random string of length ```length```. If ```lowercaseAllowed``` is true, then lowercase letters can be included. The same applies to ```uppercaseAllowed```, ```digitsAllowed``` and ```symbolsAllowed```. An output from the example given might be 'abAjQ'.
+/src/str.js
+nolink
+
+NEXTSECTION
+
+spnr.str.mult()
+spnr.str.mult(str, amount)
+var paddingSpaces = spnr.str.mult(' ', 10)
+Return ```str``` repeated ```amount``` times.
+/src/str.js
+nolink
+
+NEXTSECTION
+
+spnr.str.replaceAll()
+spnr.str.mult(str, pattern, replacement='')
+var cleanedString = spnr.str.replaceAll(userInput, '$ ', '$')
+Replace all instances of ```pattern``` in ```str``` with ```replacement```. If ```replacement``` is undefined then remove all occurences of ```pattern```. Pattern can be a string or a regex. Does not modify ```str```. This is a polyfill for ```String.replaceAll``` and functions identically.
+/src/str.js
+nolink
+
+NEXTSECTION
+
+spnr.v()
+spnr.v(x, y, z=0)
+var v = spnr.v(5, 10)
+Return a three-dimensional vector object with values ```x```, ```y```, ```z```. Can also be used to do two-dimensional vectors by omitting the last argument or setting it to 0. Note that the object which is returned has no prototype and must be acted upon by the ```spnr.v``` functions.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.makeZero()
+spnr.v.makeZero(v);
+spnr.v.makeZero(velocity);
+Set the ```x```, ```y``` and ```z``` values of the vector to 0. Faster than saying ```var myPreExistingVector = spnr.v(0, 0);```.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.random()
+spnr.v.random(min, max, floatsAllowed=true)
+var v = spnr.v.random(spnr.v(0, 0), spnr.v(10, 10), false)
+Create a ```spnr.v``` with x in the range of ```min.x``` to ```max.x```, and the equivalent for ```y``` and ```z```. If ```floatsAllowed``` is false, the components of the output vector will be integers. Otherwise they may be integers or floats.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.prettyPrint()
+spnr.v.prettyPrint(v, verbose=false)
+console.log(spnr.v.prettyPrint(playerPosition));
+Turn ```v``` into a string for debugging or basic display. If verbose is true, the output is in this format: ```spnr.v: {x : 1, y : 2, z : 3}```. Otherwise, output is in this format: ```{x:1,y:2,z:3}```;
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.copy()
+spnr.v.copy(v)
+var v2 = spnr.v.copy(v)
+Deep copy ```v```. Note that this is not a method of the vector - it must be called as ```spnr.v.copy(v)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.equal()
+spnr.v.equal(v1, v2)
+if (spnr.v.equal(v1, v2)) { /* do something */ }
+Check whether ```v1``` and ```v2``` have the same component values. Note that this is not a method of the vector - it must be called as ```spnr.v.equal(v1, v2)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.add()
+spnr.v.add(v1, v2)
+spnr.v.add(v1, spnr.v(0, 1))
+Set the value of ```v1``` to the value of ```v1``` plus the value of ```v2```. Edits ```v1``` but not ```v2```. Note that this is not a method of the vector - it must be called as ```spnr.v.add(v1, v2)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.copyAdd()
+spnr.v.copyAdd(v1, v2)
+var v3 = spnr.v.copyAdd(v1, spnr.v(0, 1))
+Copy ```v1``` then add ```v2``` to the new vector. Returns the new vector. Doesn't edit ```v1``` or ```v2```. Note that this is not a method of the vector - it must be called as ```spnr.v.copyAdd(v1, v2)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.sub()
+spnr.v.sub(v1, v2)
+spnr.v.sub(v1, spnr.v(0, 1))
+Set the value of ```v1``` to the value of ```v1``` minus the value of ```v2```. Edits ```v1``` but not ```v2```. Note that this is not a method of the vector - it must be called as ```spnr.v.sub(v1, v2)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.copySub()
+spnr.v.copySub(v1, v2)
+var v3 = spnr.v.copySub(v1, spnr.v(0, 1))
+Copy ```v1``` then subtract ```v2``` from the new vector. Returns the new vector. Doesn't edit ```v1``` or ```v2```. Note that this is not a method of the vector - it must be called as ```spnr.v.copySub(v1, v2)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.mult()
+spnr.v.mult(v, amount)
+spnr.v.mult(v, 5)
+Set the value of ```v``` to the value of ```v``` times ```amount```. Edits ```v```. Note that this is not a method of the vector - it must be called as ```spnr.v.mult(v, amount)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.copyMult()
+spnr.v.copyMult(v, amount)
+var halfDistance = spnr.v.copyMult(v, 0.5)
+Copy ```v``` then multiply the new vector by ```amount```. Edits ```v```. Note that this is not a method of the vector - it must be called as ```spnr.v.copyMult(v, amount)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.div()
+spnr.v.div(v, amount)
+spnr.v.div(v, 5)
+Set the value of ```v``` to the value of ```v``` divided by ```amount```. Edits ```v```. Note that this is not a method of the vector - it must be called as ```spnr.v.div(v, amount)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.copyDiv()
+spnr.v.copyDiv(v, amount)
+var halfDistance = spnr.v.copyDiv(v, 2)
+Copy ```v``` then divide the new vector by ```amount```. Edits ```v```. Note that this is not a method of the vector - it must be called as ```spnr.v.copyDiv(v, amount)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.magSq()
+spnr.v.magSq(v)
+var distanceSq = spnr.v.magSq(displacement)
+Get the magnitude squared of ```v```. Faster than ```spnr.v.mag()``` as it avoids a square root calc. Note that this is not a method of the vector - it must be called as ```spnr.v.magSq(v)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.mag()
+spnr.v.mag(v)
+var distance = spnr.v.mag(displacement)
+Get the magnitude of ```v```. Slower than ```spnr.v.magSq()``` as it uses a square root calc. Note that this is not a method of the vector - it must be called as ```spnr.v.mag(v)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.distSq()
+spnr.v.distSq(v1, v2)
+var distanceSq = spnr.v.distSq(start, end)
+Get the square of the distance between ```v1``` and ```v2```. Faster than ```spnr.v.dist()``` as it avoids a square root calc. Note that this is not a method of the vector - it must be called as ```spnr.v.distSq(v1, v2)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.dist()
+spnr.v.dist(v1, v2)
+var distance = spnr.v.dist(start, end)
+Get the distance between ```v1``` and ```v2```. Slower than ```spnr.v.distSq()``` as it uses a square root calc. Note that this is not a method of the vector - it must be called as ```spnr.v.dist(v1, v2)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.mean()
+spnr.v.mean(v1, v2)
+var midpoint = spnr.v.mean(start, end)
+Return a new vector which is halfway between ```v1``` and ```v2```. Note that this is not a method of the vector - it must be called as ```spnr.v.mean(v1, v2)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.normalize()
+spnr.v.normalize(v)
+var directionVector = spnr.v.normalize(spnr.v.copy(forceVector))
+Normalize ```v``` (change it so that its magnitude is 1). Edits ```v```. Note that this is not a method of the vector - it must be called as ```spnr.v.normalize(v)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.rotate()
+spnr.v.rotate(v, angle=0, useDegrees=false)
+spnr.v.rotate(rocketVelocity, rocketAngle, true)
+Rotate ```v``` clockwise by ```angle```. Edits ```v```. If ```useDegrees``` is true, then treat ```angle``` as an angle in degrees. If ```useDegrees``` is false or unspecified, treat ```angle``` as an angle in radians. Note that this is not a method of the vector - it must be called as ```spnr.v.rotate(v, angle, useDegrees)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.heading()
+spnr.v.heading(v, useDegrees=false)
+var crntDirection = spnr.v.heading(velocity)
+Return a number which corresponds to the angle in which ```v``` points. If ```useDegrees``` is true, then return an angle in degrees. If ```useDegrees``` is false or unspecified, return an angle in radians. Note that this is not a method of the vector - it must be called as ```spnr.v.heading(v, useDegrees)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.dot()
+spnr.v.dot(v1, v2)
+var dotProduct = spnr.v.dot(pointA, pointB)
+Find the dot product of ```v1``` and ```v2```. I don't really know what that is - search it on the internet. If you do know, make a pull request. Note that this is not a method of the vector - it must be called as ```spnr.v.dot(v1, v2)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.cross()
+spnr.v.cross(v1, v2)
+var crossProduct = spnr.v.cross(pointA, pointB)
+Find the cross product of ```v1``` and ```v2```. I don't really know what that is - search it on the internet. If you do know, make a pull request. Note that this is not a method of the vector - it must be called as ```spnr.v.cross(v1, v2)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.attitude()
+spnr.attitude(heading, pitch, roll)
+var attitude = spnr.attitude(45, 0, 0)
+A three dimensional angle. ```yaw``` is left/right rotation (as in a car driving), ```pitch``` is up/down rotation and ```roll``` is rotating to put the left wing, for instance, down or up
+/src/attitude.js
+nolink
+
+NEXTSECTION
+
+spnr.attitude.copy()
+spnr.attitude.copy(a)
+var attitude2 = spnr.attitude.copy(attitude);
+Deep copy the attitude passed in
+/src/attitude.js
+nolink
+
+NEXTSECTION
+
+spnr.attitude.add()
+spnr.attitude.add(a1, a2)
+spnr.attitude.add(attitude, attitude2);
+Set the value of ```a1``` to the value of ```a1``` plus the value of ```a2```. Edits ```a1``` but not ```a2```.
+/src/attitude.js
+nolink
+
+NEXTSECTION
+
+spnr.attitude.copyAdd()
+spnr.attitude.copyAdd(a1, a2)
+var attitude3 = spnr.attitude.copyAdd(attitude, attitude2);
+Return a new attitude that is the sum of ```a1``` and ```a2```. Doesn't edit ```a1``` or ```a2```.
+/src/attitude.js
+nolink
+
+NEXTSECTION
+
+spnr.attitude.sub()
+spnr.attitude.sub(a1, a2)
+spnr.attitude.sub(attitude, attitude2);
+Set the value of ```a1``` to the value of ```a1``` minus the value of ```a2```. Edits ```a1``` but not ```a2```.
+/src/attitude.js
+nolink
+
+NEXTSECTION
+
+spnr.attitude.copySub()
+spnr.attitude.copySub(a1, a2)
+var attitude3 = spnr.attitude.copySub(attitude, attitude2);
+Return a new attitude that is the difference between ```a1``` and ```a2```. Doesn't edit ```a1``` or ```a2```.
+/src/attitude.js
+nolink
+
+NEXTSECTION
+
+spnr.attitude.mult()
+spnr.attitude.mult(a, amount)
+spnr.attitude.mult(attitude, 2);
+Multiply the heading, pitch and roll components of ```a``` by ```amount```. Edits ```a```.
+/src/attitude.js
+nolink
+
+NEXTSECTION
+
+spnr.attitude.copyMult()
+spnr.attitude.copyMult(a, amount)
+spnr.attitude.copyMult(attitude, 2);
+Return a new attitude that is equivalent to ```a``` multiplied by ```amount``` in the same manner as spnr.attitude.mult. Doesn't edit ```a```.
+/src/attitude.js
+nolink
+
+NEXTSECTION
+
+spnr.attitude.div()
+spnr.attitude.div(a, amount)
+spnr.attitude.div(attitude, 2);
+Divide the heading, pitch and roll components of ```a``` by ```amount```. Edits ```a```.
+/src/attitude.js
+nolink
+
+NEXTSECTION
+
+spnr.attitude.copyDiv()
+spnr.attitude.copyDiv(a, amount)
+spnr.attitude.copyDiv(attitude, 2);
+Return a new attitude that is equivalent to ```a``` divided by ```amount``` in the same manner as spnr.attitude.div. Doesn't edit ```a```.
+/src/attitude.js
+nolink
+
+NEXTSECTION
+
+spnr.MouseWatcher
+spnr.MouseWatcher(elem=document)
+var watcher = new spnr.MouseWatcher(canvas);
+Create a watcher to watch the mouse and get info like position. Everything is relative to ```elem```
+/src/MouseWatcher.js
+nolink
+
+NEXTSECTION
+
+spnr.MouseWatcher.position
+spnr.MouseWatcher.position
+var mousePos = watcher.position
+The position of the mouse relative to the ```watcher.elem``` set in constructor
+/src/MouseWatcher.js
+nolink
+
+NEXTSECTION
+
+spnr.MouseWatcher.mouseDown
+spnr.MouseWatcher.mouseDown
+var canJump = watcher.mouseDown
+Boolean that states whether the mouse is down in ```watcher.elem```. Note: this only tracks mouse, not touchscreen. For a boolean responding to both mouse and touchscree, see ```spnr.MouseWatcher.pointerDown```.
+/src/MouseWatcher.js
+nolink
+
+NEXTSECTION
+
+spnr.MouseWatcher.touchDown
+spnr.MouseWatcher.touchDown
+var canJump = watcher.mouseDown
+Boolean that states whether the touchscreen is being touched in ```watcher.elem```. Note: this only tracks the touchscreen, not mouse For a boolean responding to both mouse and touchscree, see ```spnr.MouseWatcher.pointerDown```.
+/src/MouseWatcher.js
+nolink
+
+NEXTSECTION
+
+spnr.MouseWatcher.pointerDown
+spnr.MouseWatcher.pointerDown
+var canJump = watcher.pointerDown
+Boolean that states whether the mouse is down or the screen is touched in ```watcher.elem```. Note: this tracks both mouse and touchscreen. For individual listeners, see ```spnr.MouseWatcher.mouseDown``` and ```spnr.MouseWatcher.touchDown```.
+/src/MouseWatcher.js
+nolink
+
+NEXTSECTION
+
+spnr.MouseWatcher.onPointerDown
+spnr.MouseWatcher.onPointerDown
+watcher.onPointerDown.add(jump)
+A spnr.FunctionGroup that is called when a click or tap starts on ```watcher.elem```.
+/src/MouseWatcher.js
+nolink
+
+NEXTSECTION
+
+spnr.MouseWatcher.onPointerUp
+spnr.MouseWatcher.onPointerUp
+watcher.onPointerUp.add(jump)
+A spnr.FunctionGroup that is called when a click or tap ends on ```watcher.elem```.
+/src/MouseWatcher.js
+nolink
+
+NEXTSECTION
+
+spnr.MouseWatcher.onMouseDown
+spnr.MouseWatcher.onMouseDown
+watcher.onMouseDown.add(jump)
+A spnr.FunctionGroup that is called when a click starts on ```watcher.elem```. Is not called by touchscreen taps - for that see ```spnr.MouseWatcher.onPointerDown``` or ```spnr.MouseWatcher.onTouchStart```.
+/src/MouseWatcher.js
+nolink
+
+NEXTSECTION
+
+spnr.MouseWatcher.onMouseUp
+spnr.MouseWatcher.onMouseUp
+watcher.onMouseUp.add(jump)
+A spnr.FunctionGroup that is called when a click ends on ```watcher.elem```. Is not called by touchscreen taps - for that see ```spnr.MouseWatcher.onPointerUp``` or ```spnr.MouseWatcher.onTouchEnd```.
+/src/MouseWatcher.js
+nolink
+
+NEXTSECTION
+
+spnr.MouseWatcher.onTouchStart
+spnr.MouseWatcher.onTouchStart
+watcher.onTouchStart.add(jump)
+A spnr.FunctionGroup that is called when a touchscreen tap starts on ```watcher.elem```. Is not called by mouse clicks - for that see ```spnr.MouseWatcher.onPointerDown``` or ```spnr.MouseWatcher.onMouseDown```.
+/src/MouseWatcher.js
+nolink
+
+NEXTSECTION
+
+spnr.MouseWatcher.onTouchEnd
+spnr.MouseWatcher.onTouchEnd
+watcher.onTouchEnd.add(jump)
+A spnr.FunctionGroup that is called when a touchscreen tap ends on ```watcher.elem```. Is not called by mouse clicks - for that see ```spnr.MouseWatcher.onPointerUp``` or ```spnr.MouseWatcher.onMouseUp```.
+/src/MouseWatcher.js
+nolink
+
+NEXTSECTION
+
+spnr.KeyWatcher
+spnr.KeyWatcher(elem=document)
+var keyWatcher = new spnr.KeyWatcher(mainDiv)
+Create a KeyWatcher object that watches ```elem```. If elem is undefined, then it watches ```document```.
+/src/KeyWatcher.js
+nolink
+
+NEXTSECTION
+
+spnr.KeyWatcher.keyIsDown
+spnr.KeyWatcher.keyIsDown(code)
+var shouldJump = keyWatcher.keyIsDown('ArrowUp')
+Check if the key that has the code ```code``` is currently pressed. (The codes are those matching to ```event.code``` in an event listener)
+/src/KeyWatcher.js
+nolink
+
+NEXTSECTION
+
+spnr.FunctionGroup
+spnr.FunctionGroup(initialFunctions=[])
+var functionGroup = new spnr.FunctionGroup([updateEmployees, updateUsers])
+A group of functions that can be called together.
+/src/machineLearning/FunctionGroup.js
+nolink
+
+NEXTSECTION
+
+spnr.FunctionGroup.add()
+spnr.FunctionGroup.add(f)
+functionGroup.add(updateUI)
+Add a new function to the group
+/src/machineLearning/FunctionGroup.js
+nolink
+
+NEXTSECTION
+
+spnr.FunctionGroup.addBulk()
+spnr.FunctionGroup.addBulk(functionArray)
+functionGroup.addBulk([updateRates, updateRetirement])
+Add an array of new functions to the group.
+/src/machineLearning/FunctionGroup.js
+nolink
+
+NEXTSECTION
+
+spnr.FunctionGroup.remove()
+spnr.FunctionGroup.remove(f)
+functionGroup.remove(updateUI)
+Remove ```f``` from the group. Note: a handle to the function to remove is required - passing an identical function will not work.
+/src/machineLearning/FunctionGroup.js
+nolink
+
+NEXTSECTION
+
+spnr.FunctionGroup.removeAll()
+spnr.FunctionGroup.removeAll()
+crntCallbacks.removeAll()
+Remove all functions from the group. Does not delete the functions, so if they are stored to a variable/funtionGroup elsewhere those will not be affected.
+/src/machineLearning/FunctionGroup.js
+nolink
+
+NEXTSECTION
+
+spnr.FunctionGroup.call()
+spnr.FunctionGroup.call()
+functionGroup.call(wages, reports, errors)
+Call all of the functions in the group using the arguments passed. Reads the whole arguments list. In the example shown, each function in the group would be called with the arguments ```wages, reports, errors```.
+/src/machineLearning/FunctionGroup.js
+nolink
+
+NEXTSECTION
+
+spnr.NeuralNetwork
+spnr.NeuralNetwork()
+var network = new spnr.NeuralNetwork()
+A generic neural network class
+/src/machineLearning/NeuralNetwork.js
+nolink
+
+NEXTSECTION
+
+spnr.NeuralNetwork.createInputLayer()
+spnr.NeuralNetwork.createInputLayer(size)
+network.addInputLayer(5)
+Create the input layer for the neural network with ```size``` neurons. Will overwrite an existing input layer if there is one in that network already.
+src/machineLearning/NeuralNetwork.js
+nolink
+
+NEXTSECTION
+
+spnr.NeuralNetwork.addHiddenLayer()
+spnr.NeuralNetwork.addHiddenLayer(size)
+network.addHiddenLayer(10)
+Add a new hidden layer to the neural network with ```size``` neurons. Appends to the list of hidden layers.
+/src/machineLearning/NeuralNetwork.js
+nolink
+
+NEXTSECTION
+
+spnr.NeuralNetwork.createOutputLayer()
+spnr.NeuralNetwork.createOutputLayer(size)
+network.createOutputLayer(2)
+Add the output layer for the neural network with ```size``` neurons. Will overwrite an existing output layer if there is one in that network already.
+/src/machineLearning/NeuralNetwork.js
+nolink
+
+NEXTSECTION
+
+spnr.NeuralNetwork.connect()
+spnr.NeuralNetwork.connect()
+network.connect()
+Connect all of the neurons in the network together. Not recommended to call it multiple times if the network has been changed.
+/src/machineLearning/NeuralNetwork.js
+nolink
+
+NEXTSECTION
+
+spnr.NeuralNetwork.activate()
+spnr.NeuralNetwork.activate(input)
+var results = network.activate([0, 1])
+Activate the neural network using ```input```.
+/src/machineLearning/NeuralNetwork.js
+nolink
+
+NEXTSECTION
+
+spnr.NeuralNetwork.train()
+spnr.NeuralNetwork.train(dataset, iterations=1)
+network.train([{ inputs: [0,0], outputs: [0] }, { inputs: [0,1], outputs: [1] }, { inputs: [1,0], outputs: [1] }, { inputs: [1,1], outputs: [0] }])
+Train the network using ```dataset``` ```iterations``` times.
+/src/machineLearning/NeuralNetwork.js
+nolink
+
+NEXTSECTION
+
+spnr.NeuralNetwork.propagate()
+spnr.NeuralNetwork.propagate(target)
+network.propagate([0, 1])
+Propagate how wrong you were (should this be in the public API or is it the network's private data?)
+/src/machineLearning/NeuralNetwork.js
+nolink
+
+NEXTSECTION
+
+spnr.NeuralNetwork.saveTraining()
+spnr.NeuralNetwork.saveTraining()
+var savedTraining = network.saveTraining()
+Return a nested array containing the network's current state.
+/src/machineLearning/NeuralNetwork.js
+nolink
+
+NEXTSECTION
+
+spnr.NeuralNetwork.loadTraining()
+spnr.NeuralNetwork.loadTraining(savedTraining)
+network.loadTraining(savedTraining)
+Load the training from a nested array in the form exported by ```spnr.NeuralNetwork.saveTraining()```. The network that is loading the training must have already had its layers created and connected. Fails if the network that saved the training doesn't have the same layer sizes and amounts as the one receiving the training.
+/src/machineLearning/NeuralNetwork.js
+nolink
+
+NEXTSECTION
+
+spnr.Neuron
+spnr.Neuron(bias=spnr.randflt(-1, 1))
+var neuron = new spnr.Neuron(0.2)
+A generic neuron class. Designed to primarily be used by spnr.neuralNetwork. ```bias``` shouldn't ever need to be set.
+/src/machineLearning/Neuron.js
+nolink
+
+NEXTSECTION
+
+spnr.Neuron.connect()
+spnr.Neuron.connect(neuron, weight=spnr.randflt(0, 1))
+neuron.connect(neuron2, 0.3325)
+Form a connection between neuron being called (```neuron``` in the example) and the neuron being passed in (```neuron2``` in the example) such that neuron being called outputs to the neuron being passed.
+/src/machineLearning/Neuron.js
+nolink
+
+NEXTSECTION
+
+spnr.Neuron.activate()
+spnr.Neuron.activate(input)
+var result = neuron.activate(input)
+Activate the neuron. Not recommended to call this directly. In short, read ```input```, find which neuron it was sent from, use the weight to change the value and then save the output before returning it.
+/src/machineLearning/Neuron.js
+nolink
+
+NEXTSECTION
+
+spnr.Neuron.propagate()
+spnr.Neuron.propagate(target, rate=0.3)
+neuron.propagate(0.5, 0.5)
+Propagate the wrongness. Not recommended to call this directly. In short, read ```target```, find what you did wrong and change the weights, then make the other neurons change some weights. It's really confusing.
+/src/machineLearning/Neuron.js
+nolink

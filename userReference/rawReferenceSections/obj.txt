@@ -1,0 +1,33 @@
+spnr.obj.keys()
+spnr.obj.keys(obj)
+spnr.obj.keys(user).forEach(key => console.log(key, user[key]))
+A wrapper for Object.keys(), because who has time to write a capital O.
+/src/obj.js
+nolink
+
+NEXTSECTION
+
+spnr.obj.values()
+spnr.obj.values(obj)
+spnr.obj.keys(user).forEach(value => console.log(value))
+A wrapper for Object.values(), because who has time to write a capital O.
+/src/obj.js
+nolink
+
+NEXTSECTION
+
+spnr.obj.setValues()
+spnr.obj.setValues(obj, values)
+spnr.obj.setValues(userId, newUserIdList)
+A niche function. Sets the values of the existing keys of an object from the ```values``` array. Requires that the object has the same number of keys as the array has items. Also the order might get weird. Recommended not to use.
+/src/obj.js
+nolink
+
+NEXTSECTION
+
+spnr.obj.oneLevelCopy()
+spnr.obj.oneLevelCopy(obj)
+var newUser = spnr.obj.oneLevelCopy(user)
+Deep copy a one-layer object. (in that all of the values of that object are primitives). If the object is multi-layered, then a new object will be formed with references to the objects in the initial object as the values.
+/src/obj.js
+nolink

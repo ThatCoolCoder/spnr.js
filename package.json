@@ -1,0 +1,11 @@
+{
+  "name": "spnr",
+  "version": "1.5.0",
+  "description": "A multipurpose, flexible, and fast JavaScript library for the frontend",
+  "main": "cdn/latest/spnr.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "thatcoolcoder",
+  "license": "MIT"
+}

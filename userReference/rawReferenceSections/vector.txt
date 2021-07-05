@@ -1,0 +1,213 @@
+spnr.v()
+spnr.v(x, y, z=0)
+var v = spnr.v(5, 10)
+Return a three-dimensional vector object with values ```x```, ```y```, ```z```. Can also be used to do two-dimensional vectors by omitting the last argument or setting it to 0. Note that the object which is returned has no prototype and must be acted upon by the ```spnr.v``` functions.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.makeZero()
+spnr.v.makeZero(v);
+spnr.v.makeZero(velocity);
+Set the ```x```, ```y``` and ```z``` values of the vector to 0. Faster than saying ```var myPreExistingVector = spnr.v(0, 0);```.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.random()
+spnr.v.random(min, max, floatsAllowed=true)
+var v = spnr.v.random(spnr.v(0, 0), spnr.v(10, 10), false)
+Create a ```spnr.v``` with x in the range of ```min.x``` to ```max.x```, and the equivalent for ```y``` and ```z```. If ```floatsAllowed``` is false, the components of the output vector will be integers. Otherwise they may be integers or floats.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.prettyPrint()
+spnr.v.prettyPrint(v, verbose=false)
+console.log(spnr.v.prettyPrint(playerPosition));
+Turn ```v``` into a string for debugging or basic display. If verbose is true, the output is in this format: ```spnr.v: {x : 1, y : 2, z : 3}```. Otherwise, output is in this format: ```{x:1,y:2,z:3}```;
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.copy()
+spnr.v.copy(v)
+var v2 = spnr.v.copy(v)
+Deep copy ```v```. Note that this is not a method of the vector - it must be called as ```spnr.v.copy(v)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.equal()
+spnr.v.equal(v1, v2)
+if (spnr.v.equal(v1, v2)) { /* do something */ }
+Check whether ```v1``` and ```v2``` have the same component values. Note that this is not a method of the vector - it must be called as ```spnr.v.equal(v1, v2)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.add()
+spnr.v.add(v1, v2)
+spnr.v.add(v1, spnr.v(0, 1))
+Set the value of ```v1``` to the value of ```v1``` plus the value of ```v2```. Edits ```v1``` but not ```v2```. Note that this is not a method of the vector - it must be called as ```spnr.v.add(v1, v2)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.copyAdd()
+spnr.v.copyAdd(v1, v2)
+var v3 = spnr.v.copyAdd(v1, spnr.v(0, 1))
+Copy ```v1``` then add ```v2``` to the new vector. Returns the new vector. Doesn't edit ```v1``` or ```v2```. Note that this is not a method of the vector - it must be called as ```spnr.v.copyAdd(v1, v2)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.sub()
+spnr.v.sub(v1, v2)
+spnr.v.sub(v1, spnr.v(0, 1))
+Set the value of ```v1``` to the value of ```v1``` minus the value of ```v2```. Edits ```v1``` but not ```v2```. Note that this is not a method of the vector - it must be called as ```spnr.v.sub(v1, v2)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.copySub()
+spnr.v.copySub(v1, v2)
+var v3 = spnr.v.copySub(v1, spnr.v(0, 1))
+Copy ```v1``` then subtract ```v2``` from the new vector. Returns the new vector. Doesn't edit ```v1``` or ```v2```. Note that this is not a method of the vector - it must be called as ```spnr.v.copySub(v1, v2)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.mult()
+spnr.v.mult(v, amount)
+spnr.v.mult(v, 5)
+Set the value of ```v``` to the value of ```v``` times ```amount```. Edits ```v```. Note that this is not a method of the vector - it must be called as ```spnr.v.mult(v, amount)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.copyMult()
+spnr.v.copyMult(v, amount)
+var halfDistance = spnr.v.copyMult(v, 0.5)
+Copy ```v``` then multiply the new vector by ```amount```. Edits ```v```. Note that this is not a method of the vector - it must be called as ```spnr.v.copyMult(v, amount)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.div()
+spnr.v.div(v, amount)
+spnr.v.div(v, 5)
+Set the value of ```v``` to the value of ```v``` divided by ```amount```. Edits ```v```. Note that this is not a method of the vector - it must be called as ```spnr.v.div(v, amount)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.copyDiv()
+spnr.v.copyDiv(v, amount)
+var halfDistance = spnr.v.copyDiv(v, 2)
+Copy ```v``` then divide the new vector by ```amount```. Edits ```v```. Note that this is not a method of the vector - it must be called as ```spnr.v.copyDiv(v, amount)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.magSq()
+spnr.v.magSq(v)
+var distanceSq = spnr.v.magSq(displacement)
+Get the magnitude squared of ```v```. Faster than ```spnr.v.mag()``` as it avoids a square root calc. Note that this is not a method of the vector - it must be called as ```spnr.v.magSq(v)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.mag()
+spnr.v.mag(v)
+var distance = spnr.v.mag(displacement)
+Get the magnitude of ```v```. Slower than ```spnr.v.magSq()``` as it uses a square root calc. Note that this is not a method of the vector - it must be called as ```spnr.v.mag(v)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.distSq()
+spnr.v.distSq(v1, v2)
+var distanceSq = spnr.v.distSq(start, end)
+Get the square of the distance between ```v1``` and ```v2```. Faster than ```spnr.v.dist()``` as it avoids a square root calc. Note that this is not a method of the vector - it must be called as ```spnr.v.distSq(v1, v2)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.dist()
+spnr.v.dist(v1, v2)
+var distance = spnr.v.dist(start, end)
+Get the distance between ```v1``` and ```v2```. Slower than ```spnr.v.distSq()``` as it uses a square root calc. Note that this is not a method of the vector - it must be called as ```spnr.v.dist(v1, v2)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.mean()
+spnr.v.mean(v1, v2)
+var midpoint = spnr.v.mean(start, end)
+Return a new vector which is halfway between ```v1``` and ```v2```. Note that this is not a method of the vector - it must be called as ```spnr.v.mean(v1, v2)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.normalize()
+spnr.v.normalize(v)
+var directionVector = spnr.v.normalize(spnr.v.copy(forceVector))
+Normalize ```v``` (change it so that its magnitude is 1). Edits ```v```. Note that this is not a method of the vector - it must be called as ```spnr.v.normalize(v)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.rotate()
+spnr.v.rotate(v, angle=0, useDegrees=false)
+spnr.v.rotate(rocketVelocity, rocketAngle, true)
+Rotate ```v``` clockwise by ```angle```. Edits ```v```. If ```useDegrees``` is true, then treat ```angle``` as an angle in degrees. If ```useDegrees``` is false or unspecified, treat ```angle``` as an angle in radians. Note that this is not a method of the vector - it must be called as ```spnr.v.rotate(v, angle, useDegrees)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.heading()
+spnr.v.heading(v, useDegrees=false)
+var crntDirection = spnr.v.heading(velocity)
+Return a number which corresponds to the angle in which ```v``` points. If ```useDegrees``` is true, then return an angle in degrees. If ```useDegrees``` is false or unspecified, return an angle in radians. Note that this is not a method of the vector - it must be called as ```spnr.v.heading(v, useDegrees)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.dot()
+spnr.v.dot(v1, v2)
+var dotProduct = spnr.v.dot(pointA, pointB)
+Find the dot product of ```v1``` and ```v2```. I don't really know what that is - search it on the internet. If you do know, make a pull request. Note that this is not a method of the vector - it must be called as ```spnr.v.dot(v1, v2)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink
+
+NEXTSECTION
+
+spnr.v.cross()
+spnr.v.cross(v1, v2)
+var crossProduct = spnr.v.cross(pointA, pointB)
+Find the cross product of ```v1``` and ```v2```. I don't really know what that is - search it on the internet. If you do know, make a pull request. Note that this is not a method of the vector - it must be called as ```spnr.v.cross(v1, v2)```. This helps avoid method loss when converting to JSON and back.
+/src/vector.js
+nolink

@@ -1,0 +1,69 @@
+spnr.VERSION
+spnr.VERSION
+var version = spnr.VERSION
+A string representation of the curent spnr version. An example would be ```'v1.1.0'```
+/src/core.js
+nolink
+
+NEXTSECTION
+
+spnr.uniqueId()
+spnr.uniqueId()
+var id = spnr.uniqueId()
+Use spnr.random() (wrapper of Math.random()) to generate a random, unique number, which is converted into a string. Ids are prefixed with an underscore to allow property naming, etc.
+/src/misc.js
+nolink
+
+NEXTSECTION
+
+spnr.randBoolean()
+spnr.randBoolean()
+var shouldThrow = spnr.randBoolean()
+Return either true or false. There is an equal chance of each.
+/src/misc.js
+nolink
+
+NEXTSECTION
+
+spnr.doNothing()
+spnr.doNothing()
+spnr.doNothing()
+Do nothing. Handy for indicating that nothing is supposed to be done in a particular circumstance.
+/src/misc.js
+nolink
+
+NEXTSECTION
+
+spnr.constrain()
+spnr.constrain(num, min, max)
+var clippedResult = constrain(result, minAllowable, maxAllowable)
+Constrain num to the inclusive range from min to max.
+/src/misc.js
+nolink
+
+NEXTSECTION
+
+spnr.wrapAround()
+spnr.wrapAround(num, min, max)
+var angle = spnr.wrapAround(angle, 0, 360);
+Make the number wrap around so that when it is above max it goes back around to min and vice versa. Not working, do not use!
+/src/misc.js
+nolink
+
+NEXTSECTION
+
+spnr.doNTimes()
+spnr.doNTimes(n, func)
+spnr.doNTimes(5, (i) => { newRecords[i] = records[i] });
+Run ```func``` n times. Pass the current loop count (from 0 to ```n - 1```) as an argument to func. Shorthand for ```for (var i = 0; i < n; i ++) func(i);```.
+/src/misc.js
+nolink
+
+NEXTSECTION
+
+spnr.mapNum()
+spnr.mapNum(num, oldMin, oldMax, newMin, newMax)
+var randomNumber = spnr.mapNum(Math.random(), 0, 1, 50, 120)
+Map ```num``` from the range of ```oldMin``` to ```oldMax``` to the range of ```newMin``` to ```newMax```.
+/src/misc.js
+nolink

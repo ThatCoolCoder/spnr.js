@@ -1,0 +1,87 @@
+spnr.NeuralNetwork
+spnr.NeuralNetwork()
+var network = new spnr.NeuralNetwork()
+A generic neural network class
+/src/machineLearning/NeuralNetwork.js
+nolink
+
+NEXTSECTION
+
+spnr.NeuralNetwork.createInputLayer()
+spnr.NeuralNetwork.createInputLayer(size)
+network.addInputLayer(5)
+Create the input layer for the neural network with ```size``` neurons. Will overwrite an existing input layer if there is one in that network already.
+src/machineLearning/NeuralNetwork.js
+nolink
+
+NEXTSECTION
+
+spnr.NeuralNetwork.addHiddenLayer()
+spnr.NeuralNetwork.addHiddenLayer(size)
+network.addHiddenLayer(10)
+Add a new hidden layer to the neural network with ```size``` neurons. Appends to the list of hidden layers.
+/src/machineLearning/NeuralNetwork.js
+nolink
+
+NEXTSECTION
+
+spnr.NeuralNetwork.createOutputLayer()
+spnr.NeuralNetwork.createOutputLayer(size)
+network.createOutputLayer(2)
+Add the output layer for the neural network with ```size``` neurons. Will overwrite an existing output layer if there is one in that network already.
+/src/machineLearning/NeuralNetwork.js
+nolink
+
+NEXTSECTION
+
+spnr.NeuralNetwork.connect()
+spnr.NeuralNetwork.connect()
+network.connect()
+Connect all of the neurons in the network together. Not recommended to call it multiple times if the network has been changed.
+/src/machineLearning/NeuralNetwork.js
+nolink
+
+NEXTSECTION
+
+spnr.NeuralNetwork.activate()
+spnr.NeuralNetwork.activate(input)
+var results = network.activate([0, 1])
+Activate the neural network using ```input```.
+/src/machineLearning/NeuralNetwork.js
+nolink
+
+NEXTSECTION
+
+spnr.NeuralNetwork.train()
+spnr.NeuralNetwork.train(dataset, iterations=1)
+network.train([{ inputs: [0,0], outputs: [0] }, { inputs: [0,1], outputs: [1] }, { inputs: [1,0], outputs: [1] }, { inputs: [1,1], outputs: [0] }])
+Train the network using ```dataset``` ```iterations``` times.
+/src/machineLearning/NeuralNetwork.js
+nolink
+
+NEXTSECTION
+
+spnr.NeuralNetwork.propagate()
+spnr.NeuralNetwork.propagate(target)
+network.propagate([0, 1])
+Propagate how wrong you were (should this be in the public API or is it the network's private data?)
+/src/machineLearning/NeuralNetwork.js
+nolink
+
+NEXTSECTION
+
+spnr.NeuralNetwork.saveTraining()
+spnr.NeuralNetwork.saveTraining()
+var savedTraining = network.saveTraining()
+Return a nested array containing the network's current state.
+/src/machineLearning/NeuralNetwork.js
+nolink
+
+NEXTSECTION
+
+spnr.NeuralNetwork.loadTraining()
+spnr.NeuralNetwork.loadTraining(savedTraining)
+network.loadTraining(savedTraining)
+Load the training from a nested array in the form exported by ```spnr.NeuralNetwork.saveTraining()```. The network that is loading the training must have already had its layers created and connected. Fails if the network that saved the training doesn't have the same layer sizes and amounts as the one receiving the training.
+/src/machineLearning/NeuralNetwork.js
+nolink

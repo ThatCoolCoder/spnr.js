@@ -1,0 +1,87 @@
+spnr.attitude()
+spnr.attitude(heading, pitch, roll)
+var attitude = spnr.attitude(45, 0, 0)
+A three dimensional angle. ```yaw``` is left/right rotation (as in a car driving), ```pitch``` is up/down rotation and ```roll``` is rotating to put the left wing, for instance, down or up
+/src/attitude.js
+nolink
+
+NEXTSECTION
+
+spnr.attitude.copy()
+spnr.attitude.copy(a)
+var attitude2 = spnr.attitude.copy(attitude);
+Deep copy the attitude passed in
+/src/attitude.js
+nolink
+
+NEXTSECTION
+
+spnr.attitude.add()
+spnr.attitude.add(a1, a2)
+spnr.attitude.add(attitude, attitude2);
+Set the value of ```a1``` to the value of ```a1``` plus the value of ```a2```. Edits ```a1``` but not ```a2```.
+/src/attitude.js
+nolink
+
+NEXTSECTION
+
+spnr.attitude.copyAdd()
+spnr.attitude.copyAdd(a1, a2)
+var attitude3 = spnr.attitude.copyAdd(attitude, attitude2);
+Return a new attitude that is the sum of ```a1``` and ```a2```. Doesn't edit ```a1``` or ```a2```.
+/src/attitude.js
+nolink
+
+NEXTSECTION
+
+spnr.attitude.sub()
+spnr.attitude.sub(a1, a2)
+spnr.attitude.sub(attitude, attitude2);
+Set the value of ```a1``` to the value of ```a1``` minus the value of ```a2```. Edits ```a1``` but not ```a2```.
+/src/attitude.js
+nolink
+
+NEXTSECTION
+
+spnr.attitude.copySub()
+spnr.attitude.copySub(a1, a2)
+var attitude3 = spnr.attitude.copySub(attitude, attitude2);
+Return a new attitude that is the difference between ```a1``` and ```a2```. Doesn't edit ```a1``` or ```a2```.
+/src/attitude.js
+nolink
+
+NEXTSECTION
+
+spnr.attitude.mult()
+spnr.attitude.mult(a, amount)
+spnr.attitude.mult(attitude, 2);
+Multiply the heading, pitch and roll components of ```a``` by ```amount```. Edits ```a```.
+/src/attitude.js
+nolink
+
+NEXTSECTION
+
+spnr.attitude.copyMult()
+spnr.attitude.copyMult(a, amount)
+spnr.attitude.copyMult(attitude, 2);
+Return a new attitude that is equivalent to ```a``` multiplied by ```amount``` in the same manner as spnr.attitude.mult. Doesn't edit ```a```.
+/src/attitude.js
+nolink
+
+NEXTSECTION
+
+spnr.attitude.div()
+spnr.attitude.div(a, amount)
+spnr.attitude.div(attitude, 2);
+Divide the heading, pitch and roll components of ```a``` by ```amount```. Edits ```a```.
+/src/attitude.js
+nolink
+
+NEXTSECTION
+
+spnr.attitude.copyDiv()
+spnr.attitude.copyDiv(a, amount)
+spnr.attitude.copyDiv(attitude, 2);
+Return a new attitude that is equivalent to ```a``` divided by ```amount``` in the same manner as spnr.attitude.div. Doesn't edit ```a```.
+/src/attitude.js
+nolink
