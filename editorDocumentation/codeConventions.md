@@ -1,6 +1,7 @@
 ## Code Writing Conventions for spnr.js
 
-[Back to README](/README.md)  
+[Back to README](/README.md)
+
 [Back to editor documentation contents](MAIN.md)
 
 #### Simple guidelines
@@ -10,5 +11,5 @@
 - As JavaScript has no method of declaring functions and methods private, prefix private methods/functions with an underscore. If you are unsure whether to make something public or private, choose public as some people may need to use it.
 
 
-#### Spnr.js 'modules'
+#### Organising spnr.js 'modules'
 Each object/thing in the form ```spnr.<something>``` can be considered a module. These modules can either be objects with methods (eg: ```spnr.arr```) or classes (eg: ```spnr.NeuralNetwork```). No spnr modules should be considered private. Some are primarily designed to be used by other modules (eg: ```spnr.Neuron``` is designed for use with ```spnr.NeuralNetwork```), however, some users might still find it handy to manipulate neurons themselves instead of a network.

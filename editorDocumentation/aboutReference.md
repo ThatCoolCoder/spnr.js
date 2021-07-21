@@ -1,6 +1,7 @@
 ## About the spnr.js reference
 
 [Back to README](/README.md)
+
 [Back to editor documentation contents](MAIN.md)
 
 #### Overview
