@@ -15,5 +15,5 @@ Note: up to and including version 1.4, this library was known as wrk.js, but had
 #### Main Contents:
 - [Get started](tutorials/getStarted.md)
 - [More about spnr.js](editorDocumentation/aboutSpnr.md)
-- [Online user reference manual (currently unavailble)](https://naltonsoftware.com/spnrReference/)
+- [Online user reference manual](https://naltonsoftware.com/spnrReference/)
 - [Information for editors](editorDocumentation/MAIN.md)
