@@ -38,7 +38,7 @@ spnr.GameEngine.ParticleEffect = class extends spnr.GameEngine.Entity {
         super(name, localPosition, localAngle);
         this.emitterData = emitterData;
         this.looping = looping;
-        this.deleteWhenFinished = false;
+        this.deleteWhenFinished = deleteWhenFinished;
     }
 
     play() {
