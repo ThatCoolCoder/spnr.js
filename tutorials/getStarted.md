@@ -7,7 +7,13 @@ To use spnr.js in your project there are two options: link to a CDN (content del
 
 #### Linking to a CDN
 
-Unfortunately, due to technical difficulties there is not currently a spnr.js CDN. For the time being, you must download a copy.
+To link to a CDN, add a script tag like this to your HTML document. (it doesn't matter where it goes as long as it is before your other scripts)
+
+```html
+<script src="https://unpkg.com/spnr/cdn/latest/spnr.min.js"></script>
+```
+
+If you want to target a specific version, replace `latest` with a version such as `1.5.0`. Note that the earliest version in the CDN is `1.5.0`. If for some reason you don't want the minified version, replace `spnr.min.js` with `spnr.js`.
 
 #### Downloading spnr.js
 
@@ -15,7 +21,7 @@ To download a stable version of spnr.js, go to the [GitHub release page](https:/
 
 ## First project
 
-Download spnr.js and put it in a folder. Create a HTML page in that folder and write this in it:
+Create a HTML page and write this in it:
 
 ```html
 <!DOCTYPE html>
@@ -31,7 +37,7 @@ Download spnr.js and put it in a folder. Create a HTML page in that folder and w
         <p id="output2"></p>
     </body>
     
-    <script src="spnr.js"></script>
+    <script src="https://unpkg.com/spnr/cdn/latest/spnr.min.js"></script>
     <script>
         // Say hello
         spnr.internalLog('spnr.js example');

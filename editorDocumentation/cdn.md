@@ -1,6 +1,7 @@
 ## The cdn folder of spnr.js
 
-[Back to README](/README.md)  
+[Back to README](/README.md)
+
 [Back to editor documentation contents](MAIN.md)
 
 #### Brief Description
