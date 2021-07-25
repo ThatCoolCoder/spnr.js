@@ -11,6 +11,7 @@ This folder contains all information needed to edit and maintain spnr.js.
 - `/tests` is an informal folder used for testing spnr
 - `/userReference` holds instructions on using spnr
 - `/tutorials` holds more in-depth tutorials
+- `/build` is a folder to hold the output of compiling spnr
 
 #### Contents of editor documentation:
 - [Some more information about spnr.js](aboutSpnr.md)
