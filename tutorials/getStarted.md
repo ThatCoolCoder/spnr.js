@@ -49,9 +49,9 @@ Create a HTML page and write this in it:
         // Display the mouse position on the page;
         var mouseWatcher = new spnr.MouseWatcher();
         setInterval(() => {
-            var position = mouseWatcher.position();
+            var position = mouseWatcher.position;
             var para = spnr.dom.id('output2');
-            para.innerText = `Mouse position: ${position.x}, ${position.y}`;
+            para.innerText = `Mouse position: ${spnr.v.prettyPrint(position)}`;
         }, 250);
     </script>
 
