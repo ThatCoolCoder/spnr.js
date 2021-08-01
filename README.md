@@ -4,7 +4,7 @@
 
 ## A multipurpose, flexible, and fast JavaScript library for the frontend
 
-Note: up to and including version 1.4, this library was known as wrk.js, but had to be renamed due to a naming conflict. Apart from the name change, version 1.5 of spnr.js is near-identical to wrk.js v1.4.
+Up to and including version 1.4, this library was known as wrk.js, but had to be renamed due to a naming conflict. Apart from the name change, version 1.5 of spnr.js is near-identical to wrk.js v1.4.
 
 #### Goals:
 - Be fast through simplicity
