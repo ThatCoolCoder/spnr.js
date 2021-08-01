@@ -1,2 +1,5 @@
 .VSCodeCounter
 __pycache__/
+
+build/*
+!build/.gitkeep

@@ -1,25 +1,25 @@
-## About the spnr.js reference
+# About the spnr.js reference
 
-[Back to README](/README.md)
+[Back to README](../README.md)
 
-[Back to editor documentation contents](MAIN.md)
+[Back to editor documentation contents](README.md)
 
-#### Overview
+## Overview
 The spnr.js user reference is stored in `/userReference`. Every public feature or constant of spnr.js is documented here. The basic reference is stored as a series of text files in `/userReference/rawReferenceSections`. Each of the text files corresponds roughly to one JS source file. These seperate files are then appended together using `/userReference/rawReferenceSections/rawReferenceCompiler.py`. From here, different programs can be used to make reference manuals in different formats, eg HTML or markdown.
 
-#### Editing the raw reference
+## Editing the raw reference
 1. Find the file in `/userReference/rawReferenceSections/` that corresponds to the feature that you are documenting.
 2. Add the feature, following the syntax in [Reference syntax](#reference-syntax)
 3. Make sure that the raw reference file you edited in is listed in `/userReference/rawReferenceFiles.txt`
 4. Run `/userReference/rawReferenceCompiler.py` to join all of the sections together
 
-#### Updating the html reference
+## Updating the html reference
 
 1. Make sure that `/userReference/rawReference.txt` is up to date by following the instructions above.
 2. Update the version number in `/userReference/htmlContentsTemplate.html` to the current spnr version
 3. Run `/userReference/htmlReferenceMaker.py`
 
-#### Reference syntax
+## Reference syntax
 At its most basic, the reference is stored as a series of text files in `/reference/rawReferenceSections/`. Each one corresponds roughly to a JS source file. The files are made up of sections.
 
 Each section in the files is one feature/function of spnr.js. The sections are seperated by 

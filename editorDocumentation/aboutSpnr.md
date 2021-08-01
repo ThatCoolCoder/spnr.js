@@ -1,12 +1,12 @@
-## About spnr.js
+# About spnr.js
 
-[Back to README](/README.md)
+[Back to README](../README.md)
 
-[Back to editor documentation contents](MAIN.md)
+[Back to editor documentation contents](README.md)
 
 Written by ThatCoolCoder/That-Cool-Coder
 
-#### History
+## History
 
 I createdspnr.js out of frustration with p5.js, especially with the vector system. Working with the vectors was easy enough, but saving them to JSON and reading them back was difficult - vectors would contain a pointer to the whole p5 instance, making them cyclic. To fix this, I created a project called [sp5](https://replit.com/@ThatCoolCoder/sp5#sp5.js) on repl.it (now replit.com). While this project had many bad design decisions, in it I designed the vector system that is used in spnr.js. Once I had gotten the vector system working, I decided to start fresh and created a new repl called wrk.js. Over about a week, I set up an organisation system and moved all the vector code from sp5 across. Soon after, in early June 2020, I transferred the project to GitHub, where it has remained since.
 
@@ -16,7 +16,7 @@ At the end of October 2020, I started working on wrk.js a lot more. For the next
 
 At about this time I discovered that there was a HTTP benchmarking tool called wrk, and a JavaScript interface called wrk.js. However, I didn't do anything to fix this for a while. It was only when submitting a game made with itch.io that I decided I had to fix this naming conflict. The site asked me what tools I used to create the game, and I considered adding wrk, but I realised that it would create too much confusion if I added wrk to the itch.io tool list. At this point I halted development and waited until I thought up a new name.
 
-#### Why that name?
+## Why that name?
 
 In all honesty, the name wrk.js was inspired by Calbabreaker's library hlp.js. I had been trying to come up with a good name that was both short meaningful, and the idea of taking a four letter word and compressing it was perfect. I chose to shorten the word 'work' because the idea was that this library would do all of the difficult unpleasant work for you, allowing you to focus on programming your application, not utility functions.
 

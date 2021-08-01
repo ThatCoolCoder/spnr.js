@@ -12,7 +12,7 @@ def readFile(pathToFile):
 
 input('Did you remember to update both version numbers in /src/core.js (enter to compile)')
 
-INPUT_FILES = readFile('inputFiles.txt').split('\n') # A list of files to join together
+INPUT_FILES = readFile('scripts/inputFiles.txt').split('\n') # A list of files to join together
 OUTPUT_FILE = 'build/spnr.js' # Where to output the compiled product
 
 # Go through the input files and join them together
