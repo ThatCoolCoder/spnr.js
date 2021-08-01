@@ -1917,12 +1917,15 @@ spnr.GameEngine.ParticleEffect = class extends spnr.GameEngine.Entity {
 
     timer = 0;
     playing = false;
-    particlesRemaining = false;
+    particlesRemaining = 0;
+    hasPlayed = false;
 
-    constructor(name, localPosition, localAngle, emitterData, looping=false) {
+    constructor(name, localPosition, localAngle, emitterData, looping=false,
+        deleteWhenFinished=false) {
         super(name, localPosition, localAngle);
         this.emitterData = emitterData;
         this.looping = looping;
+        this.deleteWhenFinished = deleteWhenFinished;
     }
 
     play() {
@@ -1980,6 +1983,7 @@ spnr.GameEngine.ParticleEffect = class extends spnr.GameEngine.Entity {
 
     update() {
         if (this.playing) {
+            // Everything in here is run in the nominal playing state
             if (this.particlesRemaining > 0) {
                 this.timer -= spnr.GameEngine.deltaTime;
                 if (this.timer < 0) {
@@ -1987,12 +1991,21 @@ spnr.GameEngine.ParticleEffect = class extends spnr.GameEngine.Entity {
                     this.timer = this.emitterData.interval;
                 }
             }
+            // Everything in here is run on the frame where playing finishes
             else {
+                this.hasPlayed = true;
+
                 // Make it loop
                 if (this.looping) this.play()
                 // Otherwise just quit
                 else this.playing = false;
             }
+        }
+
+        // Delete when finished
+        if (this.deleteWhenFinished && this.children.length == 0
+            && this.hasPlayed) {
+            this.parent.removeChild(this);
         }
     }
 }
