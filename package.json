@@ -1,6 +1,6 @@
 {
   "name": "spnr",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "description": "A multipurpose, flexible, and fast JavaScript library",
   "main": "cdn/latest/spnr.min.js",
   "scripts": {
