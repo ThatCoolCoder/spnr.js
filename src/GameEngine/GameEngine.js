@@ -7,6 +7,7 @@ spnr.GameEngine = class {
     static globalScale;
 
     static crntScene;
+    static crntCanvasSizer;
 
     // Time since last frame in seconds
     static deltaTime;
@@ -56,6 +57,10 @@ spnr.GameEngine = class {
 
         this.pixiApp.renderer.resize(this.canvasSize.x * this.globalScale,
             this.canvasSize.y * this.globalScale)
+    }
+
+    static selectCanvasSizer(canvasSizer=null) {
+        this.crntCanvasSizer = canvasSizer;
     }
 
     static setGlobalScale(scale) {
@@ -176,13 +181,17 @@ spnr.GameEngine = class {
     }
 
     // Main method
-    // -------------
+    // -----------
 
     static update() {
         this.deltaTime = this.pixiApp.ticker.elapsedMS / 1000;
 
         if (this.crntScene != null) {
             this.crntScene.internalUpdate();
+        }
+
+        if (this.crntCanvasSizer != null) {
+            this.crntCanvasSizer.updateCanvasSize();
         }
     }
 }

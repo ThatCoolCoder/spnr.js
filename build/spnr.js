@@ -1073,6 +1073,7 @@ spnr.GameEngine = class {
     static globalScale;
 
     static crntScene;
+    static crntCanvasSizer;
 
     // Time since last frame in seconds
     static deltaTime;
@@ -1122,6 +1123,10 @@ spnr.GameEngine = class {
 
         this.pixiApp.renderer.resize(this.canvasSize.x * this.globalScale,
             this.canvasSize.y * this.globalScale)
+    }
+
+    static selectCanvasSizer(canvasSizer=null) {
+        this.crntCanvasSizer = canvasSizer;
     }
 
     static setGlobalScale(scale) {
@@ -1242,13 +1247,17 @@ spnr.GameEngine = class {
     }
 
     // Main method
-    // -------------
+    // -----------
 
     static update() {
         this.deltaTime = this.pixiApp.ticker.elapsedMS / 1000;
 
         if (this.crntScene != null) {
             this.crntScene.internalUpdate();
+        }
+
+        if (this.crntCanvasSizer != null) {
+            this.crntCanvasSizer.updateCanvasSize();
         }
     }
 }
@@ -2007,6 +2016,58 @@ spnr.GameEngine.ParticleEffect = class extends spnr.GameEngine.Entity {
             && this.hasPlayed) {
             this.parent.removeChild(this);
         }
+    }
+}
+
+spnr.GameEngine.AbstractCanvasSizer = class {
+    updateCanvasSize() {
+        throw Error('Method "calcCanvasSize" not overwritten in class ' + 
+            'extending from AbstractCanvasSizer');
+    }
+}
+
+spnr.GameEngine.FixedARCanvasSizer = class extends spnr.GameEngine.AbstractCanvasSizer {
+    constructor(targetSize, padding, minScale=0, maxScale=Infinity) {
+        super();
+        this.targetSize = spnr.v.copy(targetSize);
+        this.padding = spnr.v.copy(padding);
+        this.minScale = minScale;
+        this.maxScale = maxScale;
+    }
+
+    updateCanvasSize() {
+        var targetAspectRatio = this.targetSize.x / this.targetSize.y;
+        var availableArea = spnr.v.copySub(spnr.dom.viewportSize(), this.padding);
+    
+        var availableAspectRatio = availableArea.x / availableArea.y;
+    
+        // If the target is 'wider' than the window
+        if (targetAspectRatio > availableAspectRatio) {
+            var sizeMult = availableArea.x / this.targetSize.x;
+        }
+        // If the target is 'taller' than the window
+        else {
+            var sizeMult = availableArea.y / this.targetSize.y;
+        }
+        spnr.GameEngine.setCanvasSize(this.targetSize);
+        spnr.GameEngine.setGlobalScale(sizeMult);
+    }
+}
+
+spnr.GameEngine.FillPageCanvasSizer = class extends spnr.GameEngine.AbstractCanvasSizer {
+    constructor(padding, targetScale=null) {
+        super();
+        this.padding = spnr.v.copy(padding);
+        this.targetScale = targetScale;
+    }
+
+    updateCanvasSize() {
+        var size = spnr.v.copySub(spnr.dom.viewportSize(), this.padding);
+        if (this.targetScale != null) {
+            spnr.v.div(size, this.targetScale);
+            spnr.GameEngine.setGlobalScale(this.targetScale);
+        }
+        spnr.GameEngine.setCanvasSize(size);
     }
 }
 
