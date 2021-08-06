@@ -69,7 +69,7 @@ spnr.GameEngine = class {
             this.pixiApp.stage.scale.set(this.globalScale, this.globalScale);
         }
         if (this.canvasSize != undefined) {
-            this.setCanvasSize(this.canvasSize);
+            this.setCanvasSize(this.canvasSize); // resize actual canvas
         }
     }
 
@@ -193,5 +193,7 @@ spnr.GameEngine = class {
         if (this.crntCanvasSizer != null) {
             this.crntCanvasSizer.updateCanvasSize();
         }
+
+        this.mouse.scale = this.globalScale; // update mouse position scale
     }
 }

@@ -1,6 +1,7 @@
 spnr.MouseWatcher = class {
-    constructor(elem=document) {
+    constructor(elem=document, scale=1) {
         this.elem = elem;
+        this.scale = scale;
 
         this.position = spnr.v(0, 0);
 
@@ -11,8 +12,8 @@ spnr.MouseWatcher = class {
         this.onMouseMove = new spnr.FunctionGroup();
         this.elem.addEventListener('mousemove', e => {
             var rect = e.target.getBoundingClientRect();
-            this.position.x = e.x - rect.left;
-            this.position.y = e.y - rect.top;
+            this.position.x = (e.x - rect.left) / this.scale;
+            this.position.y = (e.y - rect.top) / this.scale;
             this.onMouseMove.call(this.position, e);
         });
         
