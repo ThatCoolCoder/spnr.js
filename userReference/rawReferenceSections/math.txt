@@ -88,6 +88,40 @@ nolink
 
 NEXTSECTION
 
+spnr.constrain()
+spnr.constrain(num, min, max)
+var clippedResult = spnr.constrain(result, minAllowable, maxAllowable)
+Constrain num to the inclusive range from min to max.
+/src/math.js
+nolink
+
+NEXTSECTION
+
+spnr.convergeValue()
+spnr.convergeValue(num, target, maxIncrement)
+var nextPosition = spnr.convergeValue(crntPosition, targetPosition, maxSpeed)
+Converge ```num``` towards ```target``` by taking a step of size maxIncrement. If the distance to ```target``` is less than ```maxIncrement```, ```target``` is returned. Very useful for calculating friction without overshooting and wobbling around the 0 point. Will not diverge value if ```maxIncrement``` is negative.
+/src/math.js
+nolink
+
+NEXTSECTION
+
+spnr.mapNum()
+spnr.mapNum(num, oldMin, oldMax, newMin, newMax)
+var randomNumber = spnr.mapNum(Math.random(), 0, 1, 50, 120)
+Map ```num``` from the range of ```oldMin``` to ```oldMax``` to the range of ```newMin``` to ```newMax```.
+/src/math.js
+nolink
+
+NEXTSECTION
+
+spnr.wrapAround()
+spnr.wrapAround(num, min, max)
+var angle = spnr.wrapAround(angle, 0, 360);
+Make the number wrap around so that when it is above max it goes back around to min and vice versa. Not working, do not use!
+/src/math.js
+nolink
+
 spnr._180DIVPI
 spnr._180DIVPI
 var radians = degrees / spnr._180DIVPI

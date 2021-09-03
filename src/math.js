@@ -48,7 +48,40 @@ spnr.radians = function(degrees) {
     return degrees / spnr._180DIVPI;
 }
 
-// Should this be in math? !FIXME
 spnr.mean = function(a, b) {
     return (a + b) / 2;
+}
+
+spnr.constrain = function(num, min, max) {
+    // Constrain num between min and max
+
+    return Math.max(min, Math.min(num, max))
+}
+
+spnr.convergeValue = function(num, target, maxIncrement) {
+    // Converge num towards target by taking a step of size maxIncrement
+    // If the distance to target is less than maxIncrement, num is set to target
+
+    var delta = target - num;
+    if (spnr.abs(delta) > spnr.abs(maxIncrement)) {
+        return num + spnr.sign(delta) * spnr.abs(maxIncrement);
+    }
+    else return num;
+}
+
+spnr.wrapAround = function(num, min, max) {
+    // Make num wrap around from min to max and max to min if it goes over
+    // Not complete !FIXME! if num < min is not correct! and it's also wrong if num > max
+
+    var diff = max - min;
+    if (num > max) num = num % diff + min;
+    if (num < min) num = max;
+    return num;
+}
+
+spnr.mapNum = function(num, oldMin, oldMax, newMin, newMax) {
+    // Map num from the range [oldMin, oldMax] to the range [newMin, newMaxs]
+    var slope = (newMax -  newMin) / (oldMax - oldMin);
+    var output = newMin + slope * (num - oldMin);
+    return output;
 }

@@ -88,7 +88,7 @@ spnr.arr.mean = function(array=[]) {
 
 spnr.arr.median = function(array=[]) {
     // Get the item in the middle of the array
-    // (works for arrays of any type)
+    // (only intended for numbers)
 
     // If it's even find the two middle numbers and find their mean
     if (array.length % 2 == 0) {
@@ -103,4 +103,36 @@ spnr.arr.median = function(array=[]) {
     }
 }
 
-spnr.arr.mode = function(){}; // do nothing because thinking about whether this should do objects and strings, not just numbers !FIXME
+spnr.arr.mode = function(array=[]) {
+    // Get the most common item(s) in the array
+    // Returns an array of the most common items,
+    // an empty array if the input is empty
+    
+    // Because objects can't be used as object keys,
+    // use two arrays to emulate an object
+    var commonalityKeys = [];
+    var commonalityValues = [];
+    for (var item of array) {
+        if (commonalityKeys.includes(item)) {
+            commonalityValues[commonalityKeys.indexOf(item)] ++;
+        }
+        else {
+            commonalityKeys.push(item);
+            commonalityValues.push(1);
+        }
+    }
+
+    var highestCommonalityItems = [];
+    var highestCommonality = 0;
+    for (var idx = 0; idx < commonalityValues.length; idx ++) {
+        var commonalityValue = commonalityValues[idx];
+        if (commonalityValue > highestCommonality) {
+            highestCommonality = commonalityValue;
+            highestCommonalityItems = [];
+        }
+        if (commonalityValue == highestCommonality) {
+            highestCommonalityItems.push(commonalityKeys[idx]);
+        }
+    }
+    return highestCommonalityItems;
+}

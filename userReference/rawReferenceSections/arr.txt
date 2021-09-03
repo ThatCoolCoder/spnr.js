@@ -19,7 +19,7 @@ NEXTSECTION
 spnr.arr.highestIndex()
 spnr.arr.highestIndex(array=[])
 var highestIndex = spnr.arr.highestIndex([1, 4, 2, 3])
-Return the index of the highest item in the array. In the example given, the output would be 1. If there are multiple lowest items, return the index of the last one. Recommended only for numbers.
+Return the index of the highest item in ```array```. In the example given, the output would be 1. If there are multiple lowest items, return the index of the last one. Recommended only for numbers.
 /src/arr.js
 nolink
 
@@ -28,7 +28,7 @@ NEXTSECTION
 spnr.arr.lowestIndex()
 spnr.arr.lowestIndex(array=[])
 var lowestIndex = spnr.arr.lowestIndex([4, 1, 4, 2])
-Return the index of the lowest item in the array. In the example given, the output would be 1. If there are multiple lowest items, return the index of the last one. Recommended only for numbers.
+Return the index of the lowest item in ```array```. In the example given, the output would be 1. If there are multiple lowest items, return the index of the last one. Recommended only for numbers.
 /src/arr.js
 nolink
 
@@ -37,7 +37,7 @@ NEXTSECTION
 spnr.arr.choose()
 spnr.arr.choose(array=[])
 var item = spnr.arr.choose(itemList)
-Return a random item from the array. If the array is empty or undefined, returns undefined;
+Return a random item from ```array```. If ```array``` is empty or undefined, returns undefined;
 /src/arr.js
 nolink
 
@@ -46,7 +46,7 @@ NEXTSECTION
 spnr.arr.sum()
 spnr.arr.sum(array=[])
 var total = spnr.arr.sum(scores)
-Return the sum of all of the items in the array. If the array is empty or undefined, returns 0. Recommended only for numbers.
+Return the sum of all of the items in ```array```. If ```array``` is empty or undefined, returns 0. Recommended only for numbers.
 /src/arr.js
 nolink
 
@@ -55,7 +55,7 @@ NEXTSECTION
 spnr.arr.product()
 spnr.arr.product(array=[])
 var scoreMultiplier = spnr.arr.product(multipliers)
-Return the product of all of the items in the array. If the array is empty or undefined, returns 1. Recommended only for numbers.
+Return the product of all of the items in ```array```. If ```array``` is empty or undefined, returns 1. Recommended only for numbers.
 /src/arr.js
 nolink
 
@@ -64,7 +64,7 @@ NEXTSECTION
 spnr.arr.mean()
 spnr.arr.mean(array=[])
 var avgScore = spnr.arr.mean(scores)
-Returns the mean (average) of all of the items in the array. If the array is empty or undefined, returns NaN. Recommended only for numbers.
+Returns the mean (average) of all of the items in ```array```. If ```array``` is empty or undefined, returns NaN. Recommended only for numbers.
 /src/arr.js
 nolink
 
@@ -73,7 +73,7 @@ NEXTSECTION
 spnr.arr.median()
 spnr.arr.median(array=[])
 var avgScore = spnr.arr.median(scores)
-Returns the median (middle value) of all of the items in the array. If the array is empty or undefined, returns NaN. Recommended only for numbers.
+Returns the median (middle value) of all of the items in ```array```. If ```array``` is empty or undefined, returns NaN. Recommended only for numbers.
 /src/arr.js
 nolink
 
@@ -81,7 +81,7 @@ NEXTSECTION
 
 spnr.arr.mode()
 spnr.arr.mode(array=[])
-No example as it doesn't run
-Has not been implemented yet due to difficulties (see source for details)
+var mostCommonScores = spnr.arr.mode(scores)
+Return a list containing the equal most common items in ```array```. If ```array``` is empty, returns an empty array. Works for all types, uses strict equality checking (```===```).
 /src/arr.js
 nolink
