@@ -10,7 +10,7 @@ To use spnr.js in your project there are two options: link to a CDN (content del
 To link to a CDN, add a script tag like this to your HTML document. (it doesn't matter where it goes as long as it is before your other scripts)
 
 ```html
-<script src="https://unpkg.com/spnr/cdn/latest/spnr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/spnr/cdn/latest/spnr.min.js"></script>
 ```
 
 If you want to target a specific version, replace `latest` with a version such as `1.5.0`. Note that the earliest version in the CDN is `1.5.0`. If for some reason you don't want the minified version, replace `spnr.min.js` with `spnr.js`.
