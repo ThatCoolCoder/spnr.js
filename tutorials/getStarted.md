@@ -21,7 +21,7 @@ To download a stable version of spnr.js, go to the [GitHub release page](https:/
 
 ## First project
 
-Create a HTML page and write this in it:
+To start, create an empty HTML file and JavaScript file. In the HTML file, we'll put the general boilerplate.
 
 ```html
 <!DOCTYPE html>
@@ -32,28 +32,10 @@ Create a HTML page and write this in it:
     </head>
 
     <body>
-        <h1>spnr.js example</h1>
-        <p id="output1"></p>
-        <p id="output2"></p>
     </body>
     
     <script src="https://unpkg.com/spnr/cdn/latest/spnr.min.js"></script>
-    <script>
-        // Say hello
-        spnr.internalLog('spnr.js example');
-
-        // Write some random symbols to the document
-        var para = spnr.dom.id('output1');
-        para.innerText = spnr.str.randomSymbols(50);
-
-        // Display the mouse position on the page;
-        var mouseWatcher = new spnr.MouseWatcher();
-        setInterval(() => {
-            var position = mouseWatcher.position;
-            var para = spnr.dom.id('output2');
-            para.innerText = `Mouse position: ${spnr.v.prettyPrint(position)}`;
-        }, 250);
-    </script>
-
 </html>
 ```
+
+If you open this file in a browser and open the console, you should see a spnr.js greeting.

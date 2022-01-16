@@ -1,5 +1,5 @@
 /*! (exclamation mark preserves comment)
-spnr.js v1.6.1
+spnr.js v$$spnr-version$$
 
 MIT License
 
@@ -41,7 +41,7 @@ if (window.spnr !== undefined) {
 }
 else {
     var spnr = {}; // Create an object to be the basis of spnr
-    spnr.VERSION = 'v1.6.1';
+    spnr.VERSION = 'v$$spnr-version$$';
     spnr.consoleLogHeader = '  🔧🔧 ';
     spnr.consoleLogStyling = 'background-color: #9cc8ff; display: block';
     window.spnr = spnr; // Make it global

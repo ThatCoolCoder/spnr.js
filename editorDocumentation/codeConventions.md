@@ -6,7 +6,7 @@
 
 ## Simple guidelines
 - 4 spaces indentation
-- Don't sacrifice readibility unless you HAVE TO for efficiency (include a more readable but functionally identical copy in a block comment above with a note)
+- Don't sacrifice readibility unless except in the case of a performance-critical section of code which has been proven to be a lot faster by obscuring it (include a more readable but functionally identical copy in a block comment above in that case)
 - If you have to leave a piece of code half-baked for some reason, put a comment near it that contains ```!FIXME``` so it can be found in a search-and-replace and fixed
 - As JavaScript has no method of declaring functions and methods private, prefix private methods/functions with an underscore. If you are unsure whether to make something public or private, choose public as some people may need to use it.
 

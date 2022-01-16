@@ -8,10 +8,7 @@ There is no strict release schedule for spnr.js - a new release is made if a cri
 
 ## Step 1: Update version number
 
-Choose a new version number according to [Semantic versioning](https://semver.org/). Then insert it into the following files:
-- `/src/core.js` (there are two places this it is used in this file - in the license comment and in defining `spnr.VERSION`).
-- `/userReference/htmlContentsTemplate.html`.
-- `/package.json`.
+Choose a new version number according to [Semantic versioning](https://semver.org/). Then insert it into `/package.json`.
 
 ## Step 2: Build and minify
 
@@ -46,7 +43,7 @@ None
 
 New Features:
 - Use dot points if there's anything to write in these sections.
-- Otherwise just write "none".
+- Otherwise just write "none", as seen in the API Changes and Bugfixes sections
 
 Bugfixes:
 None

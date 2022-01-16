@@ -8,7 +8,7 @@ There are a number of utility scripts used in spnr.js. They are located in the `
 
 ## Compiling
 
-spnr.js is written in vanilla JavaScript with no fancy buildsystem. Instead it's "compiled" by a small Python program - `/scripts/compiler.py`. It reads a list of files to append to each other from `/scripts/inputFiles.txt`. Upon running, it will ask to make sure that you have updated the version numbers as needed (press CTRL+C to quit at this stage). It will write the compiled library to `/build/spnr.js`.
+spnr.js is written in vanilla JavaScript with no fancy buildsystem. Instead it's "compiled" by a small Python program - `/scripts/compiler.py`. It reads a list of files to append to each other from `/scripts/inputFiles.txt`. While doing this, it also replaces all instances of `$$spnr-version$$` with the version from `package.json` It will write the compiled library to `/build/spnr.js`.
 
 ## Minifying
 
