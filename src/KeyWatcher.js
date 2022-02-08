@@ -1,4 +1,11 @@
+/**
+ * A currently very basic class that keeps track of what keys are currently pressed 
+ */
 spnr.KeyWatcher = class {
+    /**
+     * Create a new KeyWatcher
+     * @param {Element} [d=document] elem - Element to watch. Defaults to whole document. 
+     */
     constructor(elem=document) {
         this.elem = elem;
 
@@ -15,6 +22,11 @@ spnr.KeyWatcher = class {
         });
     }
 
+    /**
+     * Check whether a key is down
+     * @param {string} code - key.code of the key to be checked
+     * @returns {boolean}
+     */
     keyIsDown(code) {
         if (this.keysDown[code] != undefined) return this.keysDown[code];
         else return false;
