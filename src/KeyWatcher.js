@@ -4,7 +4,7 @@
 spnr.KeyWatcher = class {
     /**
      * Create a new KeyWatcher
-     * @param {Element} [d=document] elem - Element to watch. Defaults to whole document. 
+     * @param {Element} [elem=document] elem - Element to watch. Defaults to whole document. 
      */
     constructor(elem=document) {
         this.elem = elem;

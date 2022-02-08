@@ -50,7 +50,7 @@ spnr.dom.clearLogPara = function() {
 /**
  * Log data to the DOM. Useful for situations where data is being created fast and it would be unreadable in the console, such as game physics.
  * @param {any} data - data to log
- * @param {string} [d=No Label] label - optional label for the log.
+ * @param {string} [label=No Label] label - optional label for the log.
  */
 spnr.dom.logToPara = function(data, label='No label') {
     if (spnr.dom.logPara === undefined) {

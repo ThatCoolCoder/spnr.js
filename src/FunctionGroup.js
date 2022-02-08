@@ -7,7 +7,7 @@
 spnr.FunctionGroup = class {
     /**
      * Create a new function group
-     * @param {function[]} [o] f - Array of functions to initialise with
+     * @param {function[]} [o] initialFunctions - Array of functions to initialise with
     */
     constructor(initialFunctions = []) {
         this.functions = new Set(initialFunctions);
