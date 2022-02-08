@@ -1,3 +1,10 @@
+/** Create a new attitude object.
+ * @namespace
+ * @param {number} heading - heading of the new attitude
+ * @param {number} pitch - heading of the new attitude
+ * @param {number} roll - heading of the new attitude
+ * @returns {Object}
+ */
 spnr.attitude = function(heading, pitch, roll) {
     return {heading : heading, pitch : pitch, roll : roll};
 }
