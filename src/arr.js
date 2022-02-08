@@ -1,6 +1,12 @@
-// Create an empty object to add methods to
+/** spnr.js array operations
+ * @namespace
+ */
 spnr.arr = {};
 
+/** Remove first instance of item from array. If item is not found, writes warning in console.
+ * @param {Array} array - array to edit
+ * @param {any} item - item to search for and remove
+ */
 spnr.arr.removeItem = function(array, item) {
     var index = array.indexOf(item);
     if (index == -1) {
@@ -11,6 +17,10 @@ spnr.arr.removeItem = function(array, item) {
     }
 }
 
+/** Remove item at index from array
+ * @param {Array} array - array to edit
+ * @param {number} index - index of item to remove
+ */
 spnr.arr.removeIndex = function(array, index) {
     if (index < 0 || index >= array.length) {
         spnr.internalWarn(`Could not remove item at ${index} from array as the index is out of bounds`);
@@ -20,10 +30,11 @@ spnr.arr.removeIndex = function(array, index) {
     }
 }
 
+/** Find the index of the highest item in the array. If there are multiple equal highest items, returns the index of the last one.
+ * @param {number[]} array - array to search in
+ * @return {number} the index of the highest item.
+ */
 spnr.arr.highestIndex = function(array=[]) {
-    // Find the index of the highest number in the array
-    // (only intended for numbers)
-
     var highestIdx = null;
     var highestItem = 0;
     array.forEach((item, i) => {
@@ -35,10 +46,11 @@ spnr.arr.highestIndex = function(array=[]) {
     return highestIdx;
 }
 
+/**  Find the index of the lowest item in the array. If there are multiple equal lowest items, returns the index of the last one.
+ * @param {number[]} array - array to search in
+ * @return {number} the index of the lowest item.
+ */
 spnr.arr.lowestIndex = function(array=[]) {
-    // Find the index of the lowest number in the array
-    // (only intended for numbers)
-
     var lowestIdx = null;
     var lowestItem = 0;
     array.forEach((item, i) => {
@@ -50,46 +62,51 @@ spnr.arr.lowestIndex = function(array=[]) {
     return lowestIdx;
 }
 
+/** Choose a random item from the array
+ * @param {Array} array - array to choose from
+ * @returns {any} a random item
+ */
 spnr.arr.choose = function(array=[]) {
-    // Choose a random item from the array
-    // (only intended for numbers)
-
     return array[spnr.randint(0, array.length)];
 }
 
+/** Get the sum of the items in the array
+ * @param {number[]} array - array to sum
+ * @returns {number} sum of the values in the array
+ */
 spnr.arr.sum = function(array=[]) {
-    // Get the total of all of the items in the array added together
-    // (only intended for numbers)
-
     var sum = array.reduce(function(a, b){
         return a + b;
     }, 0);
     return sum;
 }
 
+/** Get the product (multiplied values) of the items in the array
+ * @param {number[]} array - array to multiply
+ * @returns {number} product of the values in the array
+ */
 spnr.arr.product = function(array=[]) {
-    // Get the total of all of the items in the array multiplied together
-    // (only intended for numbers)
-
     var product = array.reduce(function(a, b){
         return a * b;
     }, 1);
     return product;
 }
 
+/** Get the mean (average) of the items in the array
+ * @param {number[]} array - array to average
+ * @returns {number} mean of the values in the array
+ */
 spnr.arr.mean = function(array=[]) {
-    // Get the mean (average) value of all of the items in the array
-    // (only intended for numbers)
-
     var sum = spnr.arr.sum(array);
     var mean = sum / array.length;
     return mean;
 }
 
+/** Get the median (middle value) of the array. If the array has even length, return the mean of the two central elements.
+ * @param {number[]} array - array to average
+ * @returns {number} median of the values in the array
+ */
 spnr.arr.median = function(array=[]) {
-    // Get the item in the middle of the array
-    // (only intended for numbers)
-
     // If it's even find the two middle numbers and find their mean
     if (array.length % 2 == 0) {
         var justBelowMiddle = array[array.length / 2 - 1];
@@ -103,10 +120,11 @@ spnr.arr.median = function(array=[]) {
     }
 }
 
+/** Get the mode (most common value(s)) of the array. Returns an array of most common values, in case there are multiple modal values
+ * @param {any[]} array - array to average
+ * @returns {any[]} array of the most common items. If input array is empty, an empty array
+ */
 spnr.arr.mode = function(array=[]) {
-    // Get the most common item(s) in the array
-    // Returns an array of the most common items,
-    // an empty array if the input is empty
     
     // Because objects can't be used as object keys,
     // use two arrays to emulate an object

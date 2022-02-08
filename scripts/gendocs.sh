@@ -1,0 +1,1 @@
+jsdoc build/spnr.js -d userDocs

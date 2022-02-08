@@ -40,6 +40,9 @@ if (window.spnr !== undefined) {
     }
 }
 else {
+    /** Namespace containing all of spnr.js
+     * @namespace
+     */
     var spnr = {}; // Create an object to be the basis of spnr
     spnr.VERSION = 'v$$spnr-version$$';
     spnr.consoleLogHeader = '  🔧🔧 ';
@@ -56,11 +59,17 @@ else {
     });
 }
 
+/** Log to console with spnr.js styling
+ * @param {string} message
+*/
 spnr.internalLog = function(message) {
     var fullMessage = '%c' + spnr.consoleLogHeader + message;
     console.log(fullMessage, spnr.consoleLogStyling);
 }
 
+/** Warn to console with spnr.js styling 
+ * @param {string} message
+*/
 spnr.internalWarn = function(message) {
     var fullMessage = `${spnr.consoleLogHeader} spnr.js warning:\n  ${message}`;
     console.warn(fullMessage);
