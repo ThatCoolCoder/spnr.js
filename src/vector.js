@@ -3,17 +3,45 @@
 // Vector operations are often the slowest thing in an application,
 // so making them fast is critical
 
+/**
+ * Three-dimensional vector class.
+ * @typedef {Object} Vector
+ * @property {number} x - The x component of the vector
+ * @property {number} y - The y component of the vector
+ * @property {number} z - The z component of the vector
+ */
+
+
+/**
+ * Create a new spnr.js vector
+ * @namespace
+ * @param {number} x
+ * @param {number} y
+ * @param {number} z
+ * @returns {Vector}
+ */
 spnr.v = function(x, y, z=0) {
     // simple and (hopefully) fast
     return {x : x, y : y, z : z};
 }
 
+/**
+ * Set all of the axis of the vector to zero. Modifies the vector.
+ * @param {Vector} v 
+ */
 spnr.v.makeZero = function(v) {
     v.x = 0;
     v.y = 0;
     v.z = 0;
 }
 
+/**
+ * Create a new vector with random values inside a certain range. The x val of the new vector will be between min.x and max.x, the same applies for the other axes.
+ * @param {Vector} min - vector containing minimum values for each dimension
+ * @param {Vector} max - vector containing maximum values for each dimension
+ * @param {boolean} [floatsAllowed=true] - whether values of the vector can be floats.
+ * @returns {Vector}
+ */
 spnr.v.random = function(min, max, floatsAllowed=true) {
     if (floatsAllowed) {
         return new spnr.v(spnr.randflt(min.x, max.x),
@@ -27,10 +55,21 @@ spnr.v.random = function(min, max, floatsAllowed=true) {
     }
 }
 
+/**
+ * Deep copy the vector
+ * @param {Vector} v - vector to copy
+ * @returns {Vector}
+ */
 spnr.v.copy = function(v) {
     return spnr.v(v.x, v.y, v.z);
 }
 
+/**
+ * Format a vector as a string, mainly for debugging
+ * @param {Vector} v - vector to format
+ * @param {boolean} [verbose=false]
+ * @returns {string}
+ */
 spnr.v.prettyPrint = function(v, verbose=false) {
     if (verbose) {
         return `spnr.v: {x : ${v.x}, y : ${v.y}, z : ${v.z}}`;
@@ -39,17 +78,33 @@ spnr.v.prettyPrint = function(v, verbose=false) {
         return `{x:${v.x},y:${v.y},z:${v.z}}`;
     }
 }
-
+/**
+ * Whether the values of two vectors are equal
+ * @param {Vector} v1 
+ * @param {Vector} v2 
+ * @returns {boolean}
+ */
 spnr.v.equal = function(v1, v2) {
     return (v1.x == v2.x && v1.y == v2.y && v1.z == v1.z);
 }
 
+/**
+ * Add v2 to v1. Modifies v1.
+ * @param {Vector} v1 
+ * @param {Vector} v2 
+ */
 spnr.v.add = function(v1, v2) {
     v1.x += v2.x;
     v1.y += v2.y;
     v1.z += v2.z;
 }
 
+/**
+ * Add v2 to a copy of v1. Doesn't modify v1 or v2.
+ * @param {Vector} v1 
+ * @param {Vector} v2 
+ * @returns {Vector}
+ */
 spnr.v.copyAdd = function(v1, v2) {
     var v3 = spnr.v(
         v1.x + v2.x,
@@ -58,12 +113,23 @@ spnr.v.copyAdd = function(v1, v2) {
     return v3;
 }
 
+/**
+ * Subtract v2 from v1. Modifies v1.
+ * @param {Vector} v1 
+ * @param {Vector} v2 
+ */
 spnr.v.sub = function(v1, v2) {
     v1.x -= v2.x;
     v1.y -= v2.y;
     v1.z -= v2.z;
 }
 
+/**
+ * Subtract v2 from a copy of v1. Doesn't modify v1 or v2.
+ * @param {Vector} v1 
+ * @param {Vector} v2 
+ * @returns {Vector}
+ */
 spnr.v.copySub = function(v1, v2) {
     var v3 = spnr.v(
         v1.x - v2.x,
@@ -72,12 +138,23 @@ spnr.v.copySub = function(v1, v2) {
     return v3;
 }
 
+/**
+ * Multiply a vector by a scalar value. Modifies the vector.
+ * @param {Vector} v 
+ * @param {number} amount 
+ */
 spnr.v.mult = function(v, amount) {
     v.x *= amount;
     v.y *= amount;
     v.z *= amount;
 }
 
+/**
+ * Multiply a vector by a scalar value. Doesn't modify the vector.
+ * @param {Vector} v 
+ * @param {number} amount 
+ * @returns {Vector}
+ */
 spnr.v.copyMult = function(v, amount) {
     var v2 = spnr.v(
         v.x * amount,
@@ -86,12 +163,23 @@ spnr.v.copyMult = function(v, amount) {
     return v2;
 }
 
+/**
+ * Divide a vector by a scalar value. Modifies the vector.
+ * @param {Vector} v 
+ * @param {number} amount 
+ */
 spnr.v.div = function(v, amount) {
     v.x /= amount;
     v.y /= amount;
     v.z /= amount;
 }
 
+/**
+ * Divide a vector by a scalar value. Doesn't modify the vector.
+ * @param {Vector} v 
+ * @param {number} amount 
+ * @returns {Vector}
+ */
 spnr.v.copyDiv = function(v, amount) {
     var v2 = spnr.v(
         v.x / amount,
@@ -100,14 +188,30 @@ spnr.v.copyDiv = function(v, amount) {
     return v2;
 }
 
+/**
+ * Get the magnitude (length) of the vector.
+ * @param {Vector} v 
+ * @returns {number}
+ */
 spnr.v.magSq = function(v) {
     return v.x ** 2 + v.y ** 2 + v.z ** 2;
 }
 
+/**
+ * Get the magnitude (length) squared of the vector.
+ * @param {Vector} v 
+ * @returns {number}
+ */
 spnr.v.mag = function(v) {
     return spnr.sqrt(v.x ** 2 + v.y ** 2 + v.z ** 2);
 }
 
+/**
+ * Get the distance squared between two vectors.
+ * @param {Vector} v1 
+ * @param {Vector} v2 
+ * @returns {number}
+ */
 spnr.v.distSq = function(v1, v2) {
     var displacementX = v2.x - v1.x;
     var displacementY = v2.y - v1.y;
@@ -115,6 +219,12 @@ spnr.v.distSq = function(v1, v2) {
     return displacementX ** 2 + displacementY ** 2 + displacementZ ** 2;
 }
 
+/**
+ * Get the distance between two vectors.
+ * @param {Vector} v1 
+ * @param {Vector} v2 
+ * @returns {number}
+ */
 spnr.v.dist = function(v1, v2) {
     var displacementX = v2.x - v1.x;
     var displacementY = v2.y - v1.y;
@@ -122,6 +232,12 @@ spnr.v.dist = function(v1, v2) {
     return spnr.sqrt(displacementX ** 2 + displacementY ** 2 + displacementZ ** 2);
 }
 
+/**
+ * Find the midpoint of the two vectors
+ * @param {Vector} v1 
+ * @param {Vector} v2 
+ * @returns {Vectors}
+ */
 spnr.v.mean = function(v1, v2) {
     var halfDisplacementX = (v2.x - v1.x) / 2;
     var halfDisplacementY = (v2.y - v1.y) / 2;
@@ -133,6 +249,10 @@ spnr.v.mean = function(v1, v2) {
         v1.z + halfDisplacementZ);
 }
 
+/**
+ * Normalize a vector, settings its magnitude to 1 without affecting rotation. Modifies the vector.
+ * @param {Vector} v
+ */
 spnr.v.normalize = function(v) {
     var mag = spnr.sqrt(v.x ** 2 + v.y ** 2 + v.z ** 2)
     v.x /= mag;
@@ -140,6 +260,12 @@ spnr.v.normalize = function(v) {
     v.z /= mag;
 }
 
+/**
+ * Rotate a vector by a certain amount. Modifies the vector
+ * @param {Vector} v 
+ * @param {number} angle - angle to rotate the vector by
+ * @param {boolean} [useDegrees=false] - whether the angle provided is in degrees or radians. If this value is not provided then defaults to radians.
+ */
 spnr.v.rotate = function(v, angle=0, useDegrees=false) {
     if (useDegrees) {
         angle /= spnr._180DIVPI;
@@ -156,12 +282,24 @@ spnr.v.rotate = function(v, angle=0, useDegrees=false) {
     v.x = newX;
 }
 
+/**
+ * Get the heading (direction) of the vector
+ * @param {Vector} v 
+ * @param {boolean} [useDegrees=false] - whether to return the angle in radians or degrees. Defaults to radians. 
+ * @returns {number}
+ */
 spnr.v.heading = function(v, useDegrees=false) {
     var heading = spnr.atan2(v.y, v.x);
     if (useDegrees) heading *= spnr._180DIVPI;
     return heading;
 }
 
+/**
+ * Get the dot product of two vectors
+ * @param {Vector} v1 
+ * @param {Vector} v2 
+ * @returns {number}
+ */
 spnr.v.dot = function(v1, v2) {
     var result = v1.x * v2.x;
     result += v1.y * v2.y;
@@ -169,6 +307,12 @@ spnr.v.dot = function(v1, v2) {
     return result;
 }
 
+/**
+ * Get the cross product of two vectors
+ * @param {Vector} v1 
+ * @param {Vector} v2 
+ * @returns {Vector}
+ */
 spnr.v.cross = function(v1, v2) {
     var crossP = spnr.v(0, 0, 0);
     crossP.x = v1.y * v2.z - v1.z * v2.y;
