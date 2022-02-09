@@ -50,35 +50,62 @@ spnr.Sound = class {
 }
 */
 
+/**
+ * Class to load and play audio
+ */
 spnr.Sound = class {
+    /**
+     * Create a new Sound
+     * @param {string} url - url to load the audio from
+     */
     constructor(url) {
         this.url = url;
         this.audio = new Audio(url);
     }
 
+    /**
+     * Start the audio playing (non-blocking)
+     */
     play() {
         this.audio.play();
     }
 
+    /**
+     * Stop the audio playing and return to start
+     */
     stop() {
         this.audio.pause();
         this.audio.currentTime = 0;
+
+        /**
+         * @private
+         */
         this.onended = () => {};
     }
 
+    /**
+     * Stop the audio but don't reset playthrough position
+     */
     pause() {
         this.audio.pause();
     }
 
+    /** 
+     * Start looping the audio (non-blocking)
+    */
     loop() {
         this.play();
         this.onended = () => this.play();
     }
-
     set onended(val) {
         this.audio.onended = val;
     }
 
+    /**
+     * Create an independent copy of this Sound. Currently does that by refetching the URL (although browser might have cached it).
+     * In future there are plans to make this reuse the same sound data.
+     * @returns {Sound}
+     */
     copy() {
         return new spnr.Sound(this.url);
     }
