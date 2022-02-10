@@ -14,7 +14,7 @@ spnr.js is written in vanilla JavaScript with no fancy buildsystem. Instead it's
 
 To minify spnr.js, use the script `/scripts/minifier.py`.
 
-Due to some of the advanced syntax used in `spnr.GameEngine`, most mainstream JS minifiers will not be able to minify spnr.js. Fortunately, [rjsmin.py](https://github.com/ndparker/rjsmin) works. To use, install rjsmin with `pip install rjsmin` and run `/scripts/minifier.py` with Python >= 3.4.
+Due to some of the advanced syntax used in `spnr.GameEngine`, most mainstream JS minifiers will not be able to minify spnr.js. Fortunately, [rjsmin.py](https://github.com/ndparker/rjsmin) works. To use, install rjsmin with `pip install rjsmin` and run `/scripts/minifier.py` with Python >= 3.4. (update: this syntax has been removed because it broke Safari compatibility. Updating to a different minifier is probably a good thing to do)
 
 By default, this script will source spnr from `/build/spnr.js` and write to `/build/spnr.min.js`. If you want to use different input/output files, you can specify them using command line arguments like so: 
 ```python scripts/minifier.py inputFile.js outputFile.min.js```

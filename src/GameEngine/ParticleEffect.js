@@ -29,10 +29,6 @@ spnr.GameEngine.ParticleEffect = class extends spnr.GameEngine.Entity {
     }
     */
 
-    timer = 0;
-    playing = false;
-    particlesRemaining = 0;
-    hasPlayed = false;
 
     constructor(name, localPosition, localAngle, emitterData, looping=false,
         deleteWhenFinished=false) {
@@ -40,6 +36,12 @@ spnr.GameEngine.ParticleEffect = class extends spnr.GameEngine.Entity {
         this.emitterData = emitterData;
         this.looping = looping;
         this.deleteWhenFinished = deleteWhenFinished;
+
+
+        this.timer = 0;
+        this.playing = false;
+        this.particlesRemaining = 0;
+        this.hasPlayed = false;
     }
 
     play() {

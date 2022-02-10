@@ -1,8 +1,6 @@
 spnr.GameEngine.Particle = class extends spnr.GameEngine.DrawableEntity {
     // This class is only designed to be used internally by spnr.GameEngine.ParticleEffect
 
-    static airFrictionMult = 0.001;
-
     constructor(name, localPosition, localAngle, texture, size,
             velocity, timeToLive, effectorStrengths) {
         super(name, localPosition, localAngle, texture, size);
@@ -10,6 +8,7 @@ spnr.GameEngine.Particle = class extends spnr.GameEngine.DrawableEntity {
         this.velocity = spnr.v.copy(velocity);
         this.timeToLive = timeToLive;
         this.effectorStrengths = effectorStrengths;
+        this.airFrictionMult = 0.001;
 
         this.acceleration = spnr.v(0, 0);
     }
@@ -24,7 +23,7 @@ spnr.GameEngine.Particle = class extends spnr.GameEngine.DrawableEntity {
             var dragAmount = spnr.v.mag(this.velocity);
             dragAmount *= dragAmount;
             dragAmount *= this.effectorStrengths.airFriction *
-                spnr.GameEngine.Particle.airFrictionMult;
+                this.airFrictionMult;
 
             var dragVector = spnr.v.copy(this.velocity);
             spnr.v.normalize(dragVector);

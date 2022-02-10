@@ -1,17 +1,4 @@
 spnr.GameEngine = class {
-    static pixiApp;
-    static canvasSize;
-    
-    static globalPosition;
-    static globalAngle;
-    static globalScale;
-
-    static crntScene;
-    static crntCanvasSizer;
-
-    // Time since last frame in seconds
-    static deltaTime;
-
     static init(canvasSize, globalScale, backgroundColor=0x000000) {
         spnr.internalWarn('spnr.GameEngine is an undocumented, untested festure. Use with caution');
         
