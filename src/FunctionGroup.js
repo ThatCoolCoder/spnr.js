@@ -3,7 +3,7 @@
  * Technically the functions don't have to accept the same parameters,
  * but weird things may happen if they don't.
  * Useful for things like listeners and callbacks.
- * @typedef
+ * @class
 */
 spnr.FunctionGroup = class {
     /**

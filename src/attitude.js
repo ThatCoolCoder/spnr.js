@@ -1,6 +1,7 @@
 /**
- * Type representing Euler angles.
+ * Type representing Euler angles. Not a real class in that you can't instantiate one directly - instead use spnr.attitude(x, y, z).
  * @typedef {Object} Attitude
+ * @memberof spnr
  * @property {number} heading - The heading of the attitude 
  * @property {number} pitch - The pitch of the attitude
  * @property {number} roll - The roll of the attitude
@@ -12,7 +13,7 @@
  * @param {number} heading - heading of the new attitude
  * @param {number} pitch - heading of the new attitude
  * @param {number} roll - heading of the new attitude
- * @returns {Attitude}
+ * @returns {spnr.Attitude}
  */
 spnr.attitude = function(heading, pitch, roll) {
     return {heading : heading, pitch : pitch, roll : roll};
@@ -20,8 +21,8 @@ spnr.attitude = function(heading, pitch, roll) {
 
 /**
  * Deep-copy an attitude object
- * @param {Attitude} a 
- * @returns {Attitude}
+ * @param {spnr.Attitude} a 
+ * @returns {spnr.Attitude}
  */
 spnr.attitude.copy = function(a) {
     return spnr.attitude(a.heading, a.pitch, a.roll);
@@ -29,8 +30,8 @@ spnr.attitude.copy = function(a) {
 
 /**
  * Add the components of a2 to a1. Modifies a1
- * @param {Attitude} a1 
- * @param {Attitude} a2 
+ * @param {spnr.Attitude} a1 
+ * @param {spnr.Attitude} a2 
  */
 spnr.attitude.add = function(a1, a2) {
     a1.heading += a2.heading;
@@ -40,9 +41,9 @@ spnr.attitude.add = function(a1, a2) {
 
 /**
  * Add the components of a2 to a1. Doesn't modify either attitude
- * @param {Attitude} a1 
- * @param {Attitude} a2
- * @returns {Attitude} a new attitude equalling a1 + a2
+ * @param {spnr.Attitude} a1 
+ * @param {spnr.Attitude} a2
+ * @returns {spnr.Attitude} a new attitude equalling a1 + a2
  */
 spnr.attitude.copyAdd = function(a1, a2) {
     var a3 = spnr.attitude.copy(a1);
@@ -52,8 +53,8 @@ spnr.attitude.copyAdd = function(a1, a2) {
 
 /**
  * Subtract the components of a2 from a1. Modifies a1
- * @param {Attitude} a1 
- * @param {Attitude} a2 
+ * @param {spnr.Attitude} a1 
+ * @param {spnr.Attitude} a2 
  */
 spnr.attitude.sub = function(a1, a2) {
     a1.heading -= a2.heading;
@@ -63,9 +64,9 @@ spnr.attitude.sub = function(a1, a2) {
 
 /**
  * Subtract the components of a2 from a1. Doesn't modify either attitude
- * @param {Attitude} a1 
- * @param {Attitude} a2
- * @returns {Attitude} a new attitude equalling a1 - a2
+ * @param {spnr.Attitude} a1 
+ * @param {spnr.Attitude} a2
+ * @returns {spnr.Attitude} a new attitude equalling a1 - a2
  */
 spnr.attitude.copySub = function(a1, a2) {
     var a3 = spnr.attitude.copy(a1);
@@ -75,7 +76,7 @@ spnr.attitude.copySub = function(a1, a2) {
 
 /**
  * k an attitude by a scalar value. Modifies a.
- * @param {Attitude} a 
+ * @param {spnr.Attitude} a 
  * @param {number} amount 
  */
 spnr.attitude.mult = function(a, amount) {
@@ -86,9 +87,9 @@ spnr.attitude.mult = function(a, amount) {
 
 /**
  * Multiply an attitude by a scalar value. Doesn't modify a.
- * @param {Attitude} a 
+ * @param {spnr.Attitude} a 
  * @param {number} amount 
- * @returns {Attitude} a new attitude equalling a * amount
+ * @returns {spnr.Attitude} a new attitude equalling a * amount
  */
 spnr.attitude.copyMult = function(a, amount) {
     var a2 = spnr.attitude.copy(a);
@@ -98,7 +99,7 @@ spnr.attitude.copyMult = function(a, amount) {
 
 /**
  * Divide an attitude by a scalar value. Modifies a.
- * @param {Attitude} a 
+ * @param {spnr.Attitude} a 
  * @param {number} amount 
  */
 spnr.attitude.div = function(a, amount) {
@@ -109,9 +110,9 @@ spnr.attitude.div = function(a, amount) {
 
 /**
  * Divide an attitude by a scalar value. Doesn't modify a.
- * @param {Attitude} a 
+ * @param {spnr.Attitude} a 
  * @param {number} amount 
- * @returns {Attitude} a new attitude equalling a / amount
+ * @returns {spnr.Attitude} a new attitude equalling a / amount
  */
 spnr.attitude.copyDiv = function(a, amount) {
     var a2 = spnr.attitude.copy(a);

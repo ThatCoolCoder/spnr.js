@@ -1,4 +1,15 @@
+/**
+ * Lightweight code-only game engine using PIXI.js for rendering.
+ * If using, you must include PIXI version 5 or greater in your project and then run {@link spnr.GameEngine.setGlobalScale}.
+ * @namespace
+ */
 spnr.GameEngine = class {
+    /**
+     * Initialize the game engine
+     * @param {spnr.Vector} canvasSize - initial canvas size. See {@link spnr.GameEngine.setCanvasSize} for details on canvas sizing
+     * @param {number} globalScale - scale multiplier for the canvas size
+     * @param {number} backgroundColor - background color in hex format. eg 0xff0000 is red.
+     */
     static init(canvasSize, globalScale, backgroundColor=0x000000) {
         spnr.internalWarn('spnr.GameEngine is an undocumented, untested festure. Use with caution');
         
@@ -19,6 +30,9 @@ spnr.GameEngine = class {
     // Pixi stuff and canvas stuff
     // ---------------------------
 
+    /**
+     * @private
+     */
     static createPixiApp(canvasSize, backgroundColor) {
         this.pixiApp = new PIXI.Application({
             width : canvasSize.x * this.globalScale,
@@ -36,7 +50,14 @@ spnr.GameEngine = class {
         this.setGlobalScale(this.globalScale);
     }
 
+    /**
+     * Set the canvas size. Note that the true canvas size will be different - see {@link spnr.GameEngine.setGlobalScale} for details.
+     * @param {spnr.Vector} size - new size
+     */
     static setCanvasSize(size) {
+        /**
+         * todo: make jsdoc pick this up
+         */
         this.canvasSize = spnr.v.copy(size);
 
         this.pixiApp.view.width = this.canvasSize.x * this.globalScale;
@@ -46,10 +67,19 @@ spnr.GameEngine = class {
             this.canvasSize.y * this.globalScale)
     }
 
+    /**
+     * Choose an automatic canvas sizer to use. Greatly recommended to use as it adapts to different window sizes.
+     * @param {spnr.GameEngine.canvasSizers.AbstractCanvasSizer} canvasSizer 
+     */
     static selectCanvasSizer(canvasSizer=null) {
         this.crntCanvasSizer = canvasSizer;
     }
 
+    /**
+     * Set the global scale of the canvas. From the viewpoint of an entity on the canvas, it will still be the same width in pixels.
+     * However, the size of the canvas displayed to the user will be increased.
+     * @param {number} scale 
+     */
     static setGlobalScale(scale) {
         this.globalScale = scale;
         if (this.pixiApp != undefined) {
@@ -66,10 +96,18 @@ spnr.GameEngine = class {
         }
     }
 
+    /**
+     * Background color of the canvas. See {@link spnr.GameEngine.init} for color details
+     * @readonly
+     */
     static get backgroundColor() {
         return this.pixiApp.renderer.backgroundColor;
     }
 
+    /**
+     * Set the background color
+     * @param {number} color 
+     */
     static setBackgroundColor(color) {
         this.pixiApp.renderer.backgroundColor = color;
     }
@@ -77,6 +115,10 @@ spnr.GameEngine = class {
     // Scenes
     // ------
 
+    /**
+     * Select the current scene of the game engine
+     * @param {*} scene 
+     */
     static selectScene(scene) {
         this.deselectCrntScene();
         

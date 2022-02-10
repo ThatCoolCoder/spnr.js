@@ -6,6 +6,7 @@
 /**
  * Three-dimensional vector class.
  * @typedef {Object} Vector
+ * @memberof spnr
  * @property {number} x - The x component of the vector
  * @property {number} y - The y component of the vector
  * @property {number} z - The z component of the vector
@@ -18,7 +19,7 @@
  * @param {number} x
  * @param {number} y
  * @param {number} z
- * @returns {Vector}
+ * @returns {spnr.Vector}
  */
 spnr.v = function(x, y, z=0) {
     // simple and (hopefully) fast
@@ -27,7 +28,7 @@ spnr.v = function(x, y, z=0) {
 
 /**
  * Set all of the axis of the vector to zero. Modifies the vector.
- * @param {Vector} v 
+ * @param {spnr.Vector} v 
  */
 spnr.v.makeZero = function(v) {
     v.x = 0;
@@ -37,10 +38,10 @@ spnr.v.makeZero = function(v) {
 
 /**
  * Create a new vector with random values inside a certain range. The x val of the new vector will be between min.x and max.x, the same applies for the other axes.
- * @param {Vector} min - vector containing minimum values for each dimension
- * @param {Vector} max - vector containing maximum values for each dimension
+ * @param {spnr.Vector} min - vector containing minimum values for each dimension
+ * @param {spnr.Vector} max - vector containing maximum values for each dimension
  * @param {boolean} [floatsAllowed=true] - whether values of the vector can be floats.
- * @returns {Vector}
+ * @returns {spnr.Vector}
  */
 spnr.v.random = function(min, max, floatsAllowed=true) {
     if (floatsAllowed) {
@@ -57,8 +58,8 @@ spnr.v.random = function(min, max, floatsAllowed=true) {
 
 /**
  * Deep copy the vector
- * @param {Vector} v - vector to copy
- * @returns {Vector}
+ * @param {spnr.Vector} v - vector to copy
+ * @returns {spnr.Vector}
  */
 spnr.v.copy = function(v) {
     return spnr.v(v.x, v.y, v.z);
@@ -66,7 +67,7 @@ spnr.v.copy = function(v) {
 
 /**
  * Format a vector as a string, mainly for debugging
- * @param {Vector} v - vector to format
+ * @param {spnr.Vector} v - vector to format
  * @param {boolean} [verbose=false]
  * @returns {string}
  */
@@ -80,8 +81,8 @@ spnr.v.prettyPrint = function(v, verbose=false) {
 }
 /**
  * Whether the values of two vectors are equal
- * @param {Vector} v1 
- * @param {Vector} v2 
+ * @param {spnr.Vector} v1 
+ * @param {spnr.Vector} v2 
  * @returns {boolean}
  */
 spnr.v.equal = function(v1, v2) {
@@ -90,8 +91,8 @@ spnr.v.equal = function(v1, v2) {
 
 /**
  * Add v2 to v1. Modifies v1.
- * @param {Vector} v1 
- * @param {Vector} v2 
+ * @param {spnr.Vector} v1 
+ * @param {spnr.Vector} v2 
  */
 spnr.v.add = function(v1, v2) {
     v1.x += v2.x;
@@ -101,9 +102,9 @@ spnr.v.add = function(v1, v2) {
 
 /**
  * Add v2 to a copy of v1. Doesn't modify v1 or v2.
- * @param {Vector} v1 
- * @param {Vector} v2 
- * @returns {Vector}
+ * @param {spnr.Vector} v1 
+ * @param {spnr.Vector} v2 
+ * @returns {spnr.Vector}
  */
 spnr.v.copyAdd = function(v1, v2) {
     var v3 = spnr.v(
@@ -115,8 +116,8 @@ spnr.v.copyAdd = function(v1, v2) {
 
 /**
  * Subtract v2 from v1. Modifies v1.
- * @param {Vector} v1 
- * @param {Vector} v2 
+ * @param {spnr.Vector} v1 
+ * @param {spnr.Vector} v2 
  */
 spnr.v.sub = function(v1, v2) {
     v1.x -= v2.x;
@@ -126,9 +127,9 @@ spnr.v.sub = function(v1, v2) {
 
 /**
  * Subtract v2 from a copy of v1. Doesn't modify v1 or v2.
- * @param {Vector} v1 
- * @param {Vector} v2 
- * @returns {Vector}
+ * @param {spnr.Vector} v1 
+ * @param {spnr.Vector} v2 
+ * @returns {spnr.Vector}
  */
 spnr.v.copySub = function(v1, v2) {
     var v3 = spnr.v(
@@ -140,7 +141,7 @@ spnr.v.copySub = function(v1, v2) {
 
 /**
  * Multiply a vector by a scalar value. Modifies the vector.
- * @param {Vector} v 
+ * @param {spnr.Vector} v 
  * @param {number} amount 
  */
 spnr.v.mult = function(v, amount) {
@@ -151,9 +152,9 @@ spnr.v.mult = function(v, amount) {
 
 /**
  * Multiply a vector by a scalar value. Doesn't modify the vector.
- * @param {Vector} v 
+ * @param {spnr.Vector} v 
  * @param {number} amount 
- * @returns {Vector}
+ * @returns {spnr.Vector}
  */
 spnr.v.copyMult = function(v, amount) {
     var v2 = spnr.v(
@@ -165,7 +166,7 @@ spnr.v.copyMult = function(v, amount) {
 
 /**
  * Divide a vector by a scalar value. Modifies the vector.
- * @param {Vector} v 
+ * @param {spnr.Vector} v 
  * @param {number} amount 
  */
 spnr.v.div = function(v, amount) {
@@ -176,9 +177,9 @@ spnr.v.div = function(v, amount) {
 
 /**
  * Divide a vector by a scalar value. Doesn't modify the vector.
- * @param {Vector} v 
+ * @param {spnr.Vector} v 
  * @param {number} amount 
- * @returns {Vector}
+ * @returns {spnr.Vector}
  */
 spnr.v.copyDiv = function(v, amount) {
     var v2 = spnr.v(
@@ -190,7 +191,7 @@ spnr.v.copyDiv = function(v, amount) {
 
 /**
  * Get the magnitude (length) of the vector.
- * @param {Vector} v 
+ * @param {spnr.Vector} v 
  * @returns {number}
  */
 spnr.v.magSq = function(v) {
@@ -199,7 +200,7 @@ spnr.v.magSq = function(v) {
 
 /**
  * Get the magnitude (length) squared of the vector.
- * @param {Vector} v 
+ * @param {spnr.Vector} v 
  * @returns {number}
  */
 spnr.v.mag = function(v) {
@@ -208,8 +209,8 @@ spnr.v.mag = function(v) {
 
 /**
  * Get the distance squared between two vectors.
- * @param {Vector} v1 
- * @param {Vector} v2 
+ * @param {spnr.Vector} v1 
+ * @param {spnr.Vector} v2 
  * @returns {number}
  */
 spnr.v.distSq = function(v1, v2) {
@@ -221,8 +222,8 @@ spnr.v.distSq = function(v1, v2) {
 
 /**
  * Get the distance between two vectors.
- * @param {Vector} v1 
- * @param {Vector} v2 
+ * @param {spnr.Vector} v1 
+ * @param {spnr.Vector} v2 
  * @returns {number}
  */
 spnr.v.dist = function(v1, v2) {
@@ -234,8 +235,8 @@ spnr.v.dist = function(v1, v2) {
 
 /**
  * Find the midpoint of the two vectors
- * @param {Vector} v1 
- * @param {Vector} v2 
+ * @param {spnr.Vector} v1 
+ * @param {spnr.Vector} v2 
  * @returns {Vectors}
  */
 spnr.v.mean = function(v1, v2) {
@@ -251,7 +252,7 @@ spnr.v.mean = function(v1, v2) {
 
 /**
  * Normalize a vector, settings its magnitude to 1 without affecting rotation. Modifies the vector.
- * @param {Vector} v
+ * @param {spnr.Vector} v
  */
 spnr.v.normalize = function(v) {
     var mag = spnr.sqrt(v.x ** 2 + v.y ** 2 + v.z ** 2)
@@ -262,7 +263,7 @@ spnr.v.normalize = function(v) {
 
 /**
  * Rotate a vector by a certain amount. Modifies the vector
- * @param {Vector} v 
+ * @param {spnr.Vector} v 
  * @param {number} angle - angle to rotate the vector by
  * @param {boolean} [useDegrees=false] - whether the angle provided is in degrees or radians. If this value is not provided then defaults to radians.
  */
@@ -284,7 +285,7 @@ spnr.v.rotate = function(v, angle=0, useDegrees=false) {
 
 /**
  * Get the heading (direction) of the vector
- * @param {Vector} v 
+ * @param {spnr.Vector} v 
  * @param {boolean} [useDegrees=false] - whether to return the angle in radians or degrees. Defaults to radians. 
  * @returns {number}
  */
@@ -296,8 +297,8 @@ spnr.v.heading = function(v, useDegrees=false) {
 
 /**
  * Get the dot product of two vectors
- * @param {Vector} v1 
- * @param {Vector} v2 
+ * @param {spnr.Vector} v1 
+ * @param {spnr.Vector} v2 
  * @returns {number}
  */
 spnr.v.dot = function(v1, v2) {
@@ -309,9 +310,9 @@ spnr.v.dot = function(v1, v2) {
 
 /**
  * Get the cross product of two vectors
- * @param {Vector} v1 
- * @param {Vector} v2 
- * @returns {Vector}
+ * @param {spnr.Vector} v1 
+ * @param {spnr.Vector} v2 
+ * @returns {spnr.Vector}
  */
 spnr.v.cross = function(v1, v2) {
     var crossP = spnr.v(0, 0, 0);
