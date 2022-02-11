@@ -90,6 +90,10 @@ spnr.GameEngine = class {
         }
     }
 
+    /**
+     * Remove all items from the pixi app (clear canvas)
+     * @private
+     */
     static removeChildrenFromPixiApp() {
         while(this.pixiApp.stage.children.length > 0) { 
             this.pixiApp.stage.removeChild(this.pixiApp.stage.children[0]);
@@ -130,6 +134,9 @@ spnr.GameEngine = class {
         }
     }
 
+    /**
+     * Set the current scene to nothing, displaying just the background color
+     */
     static deselectCrntScene() {
         if (this.crntScene != null) {
             this.crntScene.deselect();
@@ -142,6 +149,10 @@ spnr.GameEngine = class {
     // Entity lookup
     // -------------
 
+    /**
+     * Get a flattened list of all the entities in the scene
+     * @returns {spnr.GameEngine.Entity[]}
+     */
     static get entitiesInScene() {
         if (this.crntScene != null) {
             return this.crntScene.flattenedChildList;
@@ -151,8 +162,12 @@ spnr.GameEngine = class {
         }
     }
 
+    /**
+     * Get all entities with a specific name
+     * @param {string} name - name of the entities to find
+     * @returns {spnr.GameEngine.Entity[]}
+     */
     static getEntitiesWithName(name) {
-        // Get all entities in the scene with name
         var searchResults = [];
         this.entitiesInScene.forEach(entity => {
             if (entity.name == name) searchResults.push(entity);
@@ -160,9 +175,12 @@ spnr.GameEngine = class {
         return searchResults;
     }
 
+    /**
+     * Get all entities without a specific name. Not sure why you'd want it. 
+     * @param {string} name 
+     * @returns {spnr.GameEngine.Entity[]}
+     */
     static getEntitiesWithoutName(name) {
-        // Get all entities in the scene without name
-        // (not sure why you'd want it)
         var searchResults = [];
         this.entitiesInScene.forEach(entity => {
             if (entity.name != name) searchResults.push(entity);
@@ -170,8 +188,12 @@ spnr.GameEngine = class {
         return searchResults;
     }
 
+    /**
+     * Get all entities with one or more of a set of names
+     * @param {string[]} names 
+     * @returns {spnr.GameEngine.Entity[]}
+     */
     static getEntitiesWithNames(names) {
-        // Get all the entities in the scene with one of names
         var searchResults = [];
         this.entitiesInScene.forEach(entity => {
             // Use for...of to allow break
@@ -185,8 +207,12 @@ spnr.GameEngine = class {
         return searchResults;
     }
 
+    /**
+     * Get all entities with a specific tag
+     * @param {string} tag 
+     * @returns {spnr.GameEngine.Entity[]}
+     */
     static getEntitiesWithTag(tag) {
-        // Get all of the entities in the scene tagged with tag
         var searchResults = [];
         this.entitiesInScene.forEach(entity => {
             if (entity.tags.includes(tag)) searchResults.push(entity);
@@ -194,8 +220,12 @@ spnr.GameEngine = class {
         return searchResults;
     }
 
+    /**
+     * Get all entities with one or more of a set of tags
+     * @param {string[]} tags 
+     * @returns {spnr.GameEngine.Entity[]}
+     */
     static getEntitiesWithTags(tags) {
-        // Get all of the entities in the scene tagged with tag
         var searchResults = [];
         this.entitiesInScene.forEach(entity => {
             // Use for...of to allow break

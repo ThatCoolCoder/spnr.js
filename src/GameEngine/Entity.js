@@ -1,4 +1,15 @@
+/**
+ * Basic entity in the game engine. Can be parented to a scene or other entities.
+ * Not very useful on its own, designed to be extended to add behaviour
+ * @class
+ */
 spnr.GameEngine.Entity = class {
+    /**
+     * Create a new entity.
+     * @param {string} name - name of the entity. Doesn't have to be unique but setting a good name can help with debugging. 
+     * @param {spnr.Vector} localPosition - position of the entity relative to parent
+     * @param {number} localAngle - rotation of the entity relative to parent. Rotation is applied after position.
+     */
     constructor(name, localPosition, localAngle) {
         this.rename(name);
 
@@ -15,18 +26,35 @@ spnr.GameEngine.Entity = class {
     // Misc
     // ----
 
+    /**
+     * Set name
+     * @param {string} name - new name 
+     */
     rename(name) {
         this.name = name;
     }
 
+    /**
+     * Add a tag to the entity. Tags are useful for looking up entities of a specific type - see {@link spnr.GameEngine.getEntitiesWithTag}.
+     * An entity can have multiple tags. You can add the same tag multiple times but why would you want to.
+     * @param {string} tag 
+     */
     addTag(tag) {
         this.tags.push(tag);
     }
 
+    /**
+     * Add multiple tags to the entity at once
+     * @param {string[]} tagArray 
+     */
     addTags(tagArray) {
         this.tags.push(...tagArray);
     }
 
+    /**
+     * Remove a tag from the entity. If the tag has been added multiple times, then it will only remove one instance of the tag.
+     * @param {string[]} tag 
+     */
     removeTag(tag) {
         spnr.arr.removeItem(this.tags, tag);
     }
@@ -34,17 +62,38 @@ spnr.GameEngine.Entity = class {
     // Position
     // --------
 
-    /** Try not to use this extensively because it's recursive and laggy */
+    
+    /**
+     * Get the global position of the entity, relative to the canvas.
+     * Avoid where possible it very much because it's recursive and thus slow.
+     * (future improvements include adding a cache)
+     * @type {spnr.Vector}
+     * @readonly
+     */
     get globalPosition() {
         var rotatedLocalPosition = spnr.v.copy(this.localPosition);
         spnr.v.rotate(rotatedLocalPosition, this.parent.localAngle);
         return spnr.v.copyAdd(this.parent.globalPosition, rotatedLocalPosition);
     }
 
+    /**
+     * Set the position of this entity relative to its parent.
+     * @param {spnr.Vector} position 
+     */
     setLocalPosition(position) {
+        /**
+         * Local position of this entity relative to parent
+         * @member
+         * @readonly
+         */
         this.localPosition = spnr.v.copy(position);
     }
 
+    /**
+     * Set the global position of this entity.
+     * Avoid where possible because it's recursive and thus slow.
+     * @param {spnr.Vector} position 
+     */
     setGlobalPosition(position) {
         this.setLocalPosition(spnr.v.copySub(position, this.parent.globalPosition));
     }
@@ -52,14 +101,33 @@ spnr.GameEngine.Entity = class {
     // Angle
     // -----
 
+    /**
+     * Get the global angle of this entity, relative to the canvas.
+     * Avoid where possible because it's recursive and thus slow.
+     * @type {number}
+     * @readonly
+     */
     get globalAngle() {
         return this.parent.globalAngle + this.localAngle;
     }
 
+    /**
+     * Set the local angle of this entity, relative to the parent
+     * @param {number} angle 
+     */
     setLocalAngle(angle) {
+        /**
+         * Local rotation of this entity relative to parent
+         * @member
+         * @readonly
+         */
         this.localAngle = angle;
     }
 
+    /**
+     * Set the global angle of this entity
+     * @param {*} angle 
+     */
     setGlobalAngle(angle) {
         this.setLocalAngle(angle - this.parent.globalAngle);
     }
@@ -67,10 +135,19 @@ spnr.GameEngine.Entity = class {
     // Pixi and adding to scene
     // ------------------------
 
+    /**
+     * Whether this entity is currently in a scene
+     * @type {boolean}
+     */
     get isInScene() {
         return this.containingScene != null;
     }
 
+    /**
+     * Set a direct reference to the scene that this is in
+     * @private
+     * @param {spnr.GameEngine.Scene} scene 
+     */
     setContainingScene(scene) {
         // do nothing except add children - overwrite in drawable entities
         this.containingScene = scene;
@@ -80,13 +157,21 @@ spnr.GameEngine.Entity = class {
         this.setChildrensContainingScene(scene);
     }
 
-    /** Do not call directly, call through spnr.GameEngine.Entity.setContainingScene */
+    /**
+     * Set the containing scene for the entity's children. Call through {@link spnr.GameEngine.Entity.setContainingScene}
+     * @private
+     * @param {spnr.GameEngine.Scene} scene 
+     */
     setChildrensContainingScene(scene) {
         this.children.forEach(child => {
             child.setContainingScene(scene);
         });
     }
 
+    /**
+     * Called when is removed from a scene
+     * @private
+     */
     removeFromContainingScene() {
         this.removeChildrenFromContainingScene();
         if (this.containingScene != null) {
@@ -95,6 +180,10 @@ spnr.GameEngine.Entity = class {
         this.containingScene = null;
     }
 
+    /**
+     * Called when is removed from a scene. Call through {@link spnr.GameEngine.Entity.removeFromContainingScene}
+     * @private
+     */
     removeChildrenFromContainingScene() {
         this.children.forEach(child => {
             child.removeFromContainingScene();
@@ -104,6 +193,9 @@ spnr.GameEngine.Entity = class {
     // Children/parents
     // ----------------
 
+    /**
+     * Remove all children from this scene
+     */
     removeChildren() {
         // While there are children, remove the first child
         while (this.children.length > 0) {
@@ -111,6 +203,11 @@ spnr.GameEngine.Entity = class {
         }
     }
 
+    /**
+     * Add a child entity.
+     * @param {spnr.GameEngine.Entity} entity 
+     * @returns {boolean} - whether the entity was  added (if false, it means the entity was already a child)
+     */
     addChild(entity) {
         // If the entity is already a child, then don't do anything
         if (this.children.includes(entity)) {
@@ -124,6 +221,11 @@ spnr.GameEngine.Entity = class {
         }
     }
 
+    /**
+     * Remove a specific entity from this
+     * @param {spnr.GameEngine.Entity} entity 
+     * @returns {boolean} - whether the entity was removed (if false, it means the entity was not a child to begin with)
+     */
     removeChild(entity) {
         var indexOfEntity = this.children.indexOf(entity);
 
@@ -140,6 +242,11 @@ spnr.GameEngine.Entity = class {
         }
     }
 
+    /**
+     * Set the parent of the entity. Called through {@link spnr.GameEngine.Entity.addChild}.
+     * @param {spnr.GameEngine.Entity} parent 
+     * @private
+     */
     setParent(parent) {
         this.parent = parent;
 
@@ -155,6 +262,10 @@ spnr.GameEngine.Entity = class {
         }
     }
 
+    /**
+     * Unset the parent of the entity. Called through {@link spnr.GameEngine.Entity.removeChild}
+     * @private
+     */
     removeParent() {
         this.setParent(null);
         this.setContainingScene(null);
@@ -162,17 +273,28 @@ spnr.GameEngine.Entity = class {
 
     // Update
 
+    /**
+     * Update the children of the entity
+     * @private
+     */
     updateChildren() {
         this.children.forEach(child => {
             child.internalUpdate();
         });
     }
 
+    /**
+     * Internal update method called by the engine
+     * @private
+     */
     internalUpdate() {
         this.updateChildren();
         this.update();
     }
 
-    // To be overwritten by the libarry user - just here as a safety
+    /**
+     * Update method called every frame. Override this to add behaviour to entities.
+     * @virtual
+     */
     update() { }
 }
