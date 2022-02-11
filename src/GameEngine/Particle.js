@@ -1,6 +1,20 @@
+/**
+ * Particle in a particle effect. Designed to be used by spnr.GameEngine.ParticleEffect
+ * @class
+ * @extends {spnr.GameEngine.DrawableEntity}
+ */
 spnr.GameEngine.Particle = class extends spnr.GameEngine.DrawableEntity {
-    // This class is only designed to be used internally by spnr.GameEngine.ParticleEffect
-
+    /**
+     * Create a new particle.
+     * @param {string} name 
+     * @param {spnr.Vector} localPosition 
+     * @param {number} localAngle 
+     * @param {spnr.GameEngine.Texture} texture 
+     * @param {spnr.Vector} size 
+     * @param {spnr.Vector} velocity 
+     * @param {number} timeToLive
+     * @param {object} effectorStrengths - see {@link spnr.GameEngine.ParticleEffect for info about this}
+     */
     constructor(name, localPosition, localAngle, texture, size,
             velocity, timeToLive, effectorStrengths) {
         super(name, localPosition, localAngle, texture, size);
@@ -13,6 +27,10 @@ spnr.GameEngine.Particle = class extends spnr.GameEngine.DrawableEntity {
         this.acceleration = spnr.v(0, 0);
     }
 
+    /**
+     * Feel the effector forces
+     * @private
+     */
     feelEffectors() {
         if (this.effectorStrengths.gravity) {
             var forceVector = spnr.v(0, this.effectorStrengths.gravity);
@@ -32,6 +50,10 @@ spnr.GameEngine.Particle = class extends spnr.GameEngine.DrawableEntity {
         }
     }
 
+    /**
+     * Do not override, contains the actual logic of the particles
+     * @private
+     */
     update() {
         if (this.timeToLive < 0) this.parent.removeChild(this);
 

@@ -1,6 +1,7 @@
 /**
  * Circular collider type. Currently the only collider implemented
  * @class
+ * @extends {spnr.GameEngine.BaseCollider}
  */
 spnr.GameEngine.CircleCollider = class extends spnr.GameEngine.BaseCollider {
     /**

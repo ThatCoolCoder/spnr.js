@@ -5,6 +5,7 @@ spnr.GameEngine.colliderTypes = {
 /**
  * Base collider for spnr.GameEngine.
  * Colliders aren't really implemented yet so this documentation is a placeholder.
+ * @class
  */
 spnr.GameEngine.BaseCollider = class extends spnr.GameEngine.Entity {
     constructor(name, type, localPosition, localAngle) {

@@ -1,4 +1,18 @@
+/**
+ * Label/text class
+ * @class
+ * @extends {spnr.GameEngine.Entity}
+ */
 spnr.GameEngine.Label = class extends spnr.GameEngine.Entity {
+    /**
+     * Create a new label
+     * @param {string} name 
+     * @param {string} text 
+     * @param {spnr.Vector} localPosition 
+     * @param {number} localAngle 
+     * @param {object} format - see {@link https://pixijs.io/pixi-text-style/}
+     * @param {spnr.Vector} anchor - position of drawn text relative to origin. From 0,0 to 1,1 
+     */
     constructor(name, text, localPosition, localAngle,
         format={}, anchor=spnr.v(0.5, 0.5)) {
         super(name, localPosition, localAngle);
@@ -8,6 +22,10 @@ spnr.GameEngine.Label = class extends spnr.GameEngine.Entity {
         this.setAnchor(anchor);
     }
 
+    /**
+     * @private
+     * @param {spnr.GameEngine.Scene} scene 
+     */
     setContainingScene(scene) {
         this.containingScene = scene;
         if (scene != null) {
@@ -17,6 +35,9 @@ spnr.GameEngine.Label = class extends spnr.GameEngine.Entity {
         }
     }
 
+    /**
+     * @private
+     */
     removeFromContainingScene() {
         if (this.containingScene != null) {
             this.containingScene.pixiContainer.removeChild(this.textSprite);
@@ -25,8 +46,17 @@ spnr.GameEngine.Label = class extends spnr.GameEngine.Entity {
         }
         this.containingScene = null;
     }
-
+    /**
+     * Set the format/styling of the text.
+     * @param {object} format - see {@link https://pixijs.io/pixi-text-style/} 
+     */
     setTextFormat(format) {
+        /**
+         * see {@link https://pixijs.io/pixi-text-style/}
+         * @member
+         * @type {object}
+         * @readonly
+         */
         this.textFormat = spnr.obj.oneLevelCopy(format);
         
         // Protection for before the text is set
@@ -36,6 +66,10 @@ spnr.GameEngine.Label = class extends spnr.GameEngine.Entity {
         }
     }
 
+    /**
+     * Set the text. Quite slow so only call if you need to
+     * @param {string} text 
+     */
     setText(text) {
         this.text = text;
 
@@ -53,10 +87,27 @@ spnr.GameEngine.Label = class extends spnr.GameEngine.Entity {
         this.textSprite.anchor.y = position.y;
     }
 
+    /**
+     * Set whether the text is visible
+     * @param {boolean} state 
+     */
     setVisible(state) {
         this.textSprite.visible = state;
     }
 
+    /**
+     * Whether the text is visible
+     * @member
+     * @type {boolean}
+     * @readonly
+     */
+    get visible() {
+        return this.textSprite.visible;
+    }
+
+    /**
+     * @private
+     */
     internalUpdate() {
         this.updateChildren();
         this.update();
@@ -66,9 +117,10 @@ spnr.GameEngine.Label = class extends spnr.GameEngine.Entity {
         this.textSprite.rotation = this.globalAngle + spnr.PI;
     }
 
+    /**
+     * Force-update the text sprite (mainly used by the engine). Quite slow so don't call unless you need to.
+     */
     updateTextSprite() {
-        // Quite slow so don't call if you don't need to
-
         if (this.textSprite != undefined) {
             if (this.textSprite.parent != undefined) {
                 // Remove the old sprite

@@ -1,35 +1,54 @@
+/**
+ * Particle effect class.
+ * 
+ *  Example of emitterData:
+ * ```
+ *  {
+ *      particleTemplate : <a particle template>, (see below)
+ *      shape : <'circle'||'arc'||'line'>,
+ *      amount : <number>,
+ *      delay : <number>, (in seconds)
+ *      interval : <number>, (in seconds)
+ *      minAngle : <number>, (only needed for shape:'arc')
+ *      maxAngle : <number> (only needed for shape:'arc')
+ *  }
+ * ```
+ *  Example of particleTemplate:
+ * ```
+ *  {
+ *      texture : <spnr.GameEngine.Texture>,
+ *      tint : <a hex color>, (optional, defaults to no tint)
+ *      minSize : <spnr.v>,
+ *      maxSize : <spnr.v>,
+ *      minSpeed : <number>,
+ *      maxSpeed : <number>,
+ *      minTimeToLive : <number>, (seconds)
+ *      maxTimeToLive : <number>, (seconds)
+ *      effectorStrengths : {
+ *          airFriction : <number>
+ *          gravity : <number>,
+ *          gravityDirection : <number> (radians)
+ *      }
+ *  }
+ * 
+ * ```
+ * 
+ * @class
+ * @extends {spnr.GameEngine.Entity}
+ */
 spnr.GameEngine.ParticleEffect = class extends spnr.GameEngine.Entity {
-    /*
-    Example of emitterData:
-    {
-        particleTemplate : <a particle template>, (see below)
-        shape : <'circle'||'arc'||'line'>,
-        amount : <number>,
-        delay : <number>, (in seconds)
-        interval : <number>, (in seconds)
-        minAngle : <number>, (only needed for shape:'arc')
-        maxAngle : <number> (only needed for shape:'arc')
-    }
+    /**
 
-    Example of particleTemplate:
-    {
-        texture : <spnr.GameEngine.Texture>,
-        tint : <a hex color>, (optional, defaults to no tint)
-        minSize : <spnr.v>,
-        maxSize : <spnr.v>,
-        minSpeed : <number>,
-        maxSpeed : <number>,
-        minTimeToLive : <number>, (seconds)
-        maxTimeToLive : <number>, (seconds)
-        effectorStrengths : {
-            airFriction : <number>
-            gravity : <number>,
-            gravityDirection : <number> (radians)
-        }
-    }
     */
-
-
+    /**
+     * Create a new particle effect.
+     * @param {string} name 
+     * @param {spnr.Vector} localPosition 
+     * @param {number} localAngle 
+     * @param {object} emitterData 
+     * @param {boolean} [looping=false] 
+     * @param {boolean} [deleteWhenFinished=false] 
+     */
     constructor(name, localPosition, localAngle, emitterData, looping=false,
         deleteWhenFinished=false) {
         super(name, localPosition, localAngle);
@@ -44,6 +63,9 @@ spnr.GameEngine.ParticleEffect = class extends spnr.GameEngine.Entity {
         this.hasPlayed = false;
     }
 
+    /**
+     * Start the effect playing
+     */
     play() {
         // Only remove the children if the effect is non-looping,
         // as removing them spoils the loop illusion
@@ -54,7 +76,10 @@ spnr.GameEngine.ParticleEffect = class extends spnr.GameEngine.Entity {
         this.particlesRemaining = this.emitterData.amount;
     }
 
-    /** Internal method - don't use*/
+    /**
+     * Internal method to add a particle
+     * @private
+    */
     addParticle() {
         var particleTemplate = this.emitterData.particleTemplate;
         if (particleTemplate.tint === undefined) particleTemplate.tint = 0xffffff;
@@ -97,6 +122,10 @@ spnr.GameEngine.ParticleEffect = class extends spnr.GameEngine.Entity {
         }
     }
 
+    /**
+     * Do not override, contains the actual logic
+     * @private
+     */
     update() {
         if (this.playing) {
             // Everything in here is run in the nominal playing state
