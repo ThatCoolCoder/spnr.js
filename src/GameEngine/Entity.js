@@ -82,8 +82,9 @@ spnr.GameEngine.Entity = class {
      */
     setLocalPosition(position) {
         /**
-         * Local position of this entity relative to parent
+         * Local position of this entity relative to parent. In pixels (assuming canvas is not scaled).
          * @member
+         * @type {spnr.Vector}
          * @readonly
          */
         this.localPosition = spnr.v.copy(position);
@@ -117,7 +118,8 @@ spnr.GameEngine.Entity = class {
      */
     setLocalAngle(angle) {
         /**
-         * Local rotation of this entity relative to parent
+         * Local rotation of this entity relative to parent. In radians.
+         * @type {number}
          * @member
          * @readonly
          */
@@ -126,7 +128,7 @@ spnr.GameEngine.Entity = class {
 
     /**
      * Set the global angle of this entity
-     * @param {*} angle 
+     * @param {number} angle 
      */
     setGlobalAngle(angle) {
         this.setLocalAngle(angle - this.parent.globalAngle);

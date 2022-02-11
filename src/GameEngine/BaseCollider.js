@@ -1,7 +1,3 @@
-/**
- * Types of collider
- * @enum
- */
 spnr.GameEngine.colliderTypes = {
     circle : 'circle'
 }
