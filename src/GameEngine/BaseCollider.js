@@ -1,7 +1,15 @@
+/**
+ * Types of collider
+ * @enum
+ */
 spnr.GameEngine.colliderTypes = {
     circle : 'circle'
 }
 
+/**
+ * Base collider for spnr.GameEngine.
+ * Colliders aren't really implemented yet so this documentation is a placeholder.
+ */
 spnr.GameEngine.BaseCollider = class extends spnr.GameEngine.Entity {
     constructor(name, type, localPosition, localAngle) {
         super(name, localPosition, localAngle);
