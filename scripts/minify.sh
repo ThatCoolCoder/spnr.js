@@ -1,0 +1,1 @@
+uglifyjs build/spnr.js --mangle --compress --webkit -o build/spnr.min.js

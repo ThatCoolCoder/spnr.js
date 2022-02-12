@@ -14,7 +14,7 @@ Choose a new version number according to [Semantic versioning](https://semver.or
 
 This is a brief overview of how to do these tasks. For more detailed instructions, see [utility scripts](utilityScripts.md).
 
-In a terminal, navigate to the root directory of this project. Run `python3 scripts/compiler.py` followed by `python3 scripts/minifier.py`.
+In a terminal, navigate to the root directory of this project. Run `python3 scripts/compile.py` followed by `sh scripts/minifier.sh`.
 
 ## Step 3: Update and build HTML reference
 

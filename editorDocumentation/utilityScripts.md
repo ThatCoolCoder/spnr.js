@@ -8,18 +8,12 @@ There are a number of utility scripts used in spnr.js. They are located in the `
 
 ## Compiling
 
-spnr.js is written in vanilla JavaScript with no fancy buildsystem. Instead it's "compiled" by a small Python program - `/scripts/compiler.py`. It reads a list of files to append to each other from `/scripts/inputFiles.txt`. While doing this, it also replaces all instances of `$$spnr-version$$` with the version from `package.json` It will write the compiled library to `/build/spnr.js`.
+spnr.js is written in vanilla JavaScript with no fancy buildsystem. Instead it's "compiled" by a small Python program - `/scripts/compile.py`. It reads a list of files to append to each other from `/scripts/inputFiles.txt`. While doing this, it also replaces all instances of `$$spnr-version$$` with the version from `package.json` It will write the compiled library to `/build/spnr.js`.
 
 ## Minifying
 
-To minify spnr.js, use the script `/scripts/minifier.py`.
+spnr.js uses uglify-js to minify, so install that first with `npm install -g uglify-js`. Then use the script `/scripts/minify.sh`. It will input `/build/spnr.js` and write to `/build/spnr.min.js`.
 
-Due to some of the advanced syntax used in `spnr.GameEngine`, most mainstream JS minifiers will not be able to minify spnr.js. Fortunately, [rjsmin.py](https://github.com/ndparker/rjsmin) works. To use, install rjsmin with `pip install rjsmin` and run `/scripts/minifier.py` with Python >= 3.4. (update: this syntax has been removed because it broke Safari compatibility. Updating to a different minifier is probably a good thing to do)
+## Generating docs
 
-By default, this script will source spnr from `/build/spnr.js` and write to `/build/spnr.min.js`. If you want to use different input/output files, you can specify them using command line arguments like so: 
-```python scripts/minifier.py inputFile.js outputFile.min.js```
-
-You can specify an input file but output to the default file like this:
-```python scripts/minifier.py inputFile.js```
-
-There is no way to use default input file but specific output file.
+spnr.js hasn't fully moved over to jsdoc yet, but the script that will be used to generate docs with jsdoc is `/scripts/gendocs.sh`. It's a shell file but people on windows can just paste the contents as it does essentially the same thing
