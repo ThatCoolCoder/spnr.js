@@ -153,7 +153,7 @@ spnr.str.replaceAll = function(str, pattern, replacement='') {
 /**
  * Return a shuffled copy of the string
  * @param {string} str 
- * @returns 
+ * @returns {string}
  */
 spnr.str.shuffle = function(str) {
     return spnr.arr.shuffle(str.split('')).join('');

@@ -1,1 +1,1 @@
-uglifyjs build/spnr.js --mangle --compress --webkit -o build/spnr.min.js
+uglifyjs build/spnr.js --mangle --compress --webkit --comments '/^!|@(?:license|preserve)/' -o build/spnr.min.js
