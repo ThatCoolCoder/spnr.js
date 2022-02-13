@@ -20,8 +20,7 @@ version = json.loads(readFile(PACKAGE_FILE))['version']
 
 # Go through the input files and join them together
 output = ''
-for fileIdx in range(len(INPUT_FILES)):
-    filename = INPUT_FILES[fileIdx]
+for filename in INPUT_FILES:
     if len(filename) > 0:
         content = readFile(filename)
         content = content.replace('$$spnr-version$$', version)

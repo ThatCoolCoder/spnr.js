@@ -4,7 +4,7 @@
 
 [Back to editor documentation contents](README.md)
 
-Written by ThatCoolCoder/That-Cool-Coder
+Written by ThatCoolCoder
 
 ## History
 

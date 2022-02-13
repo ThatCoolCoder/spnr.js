@@ -25,7 +25,7 @@ spnr.str.alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split
  */
 spnr.str.digits = '0123456789'.split('');
 /**
- * Array of punctuations in the ASCII
+ * Array of punctuations in ASCII
  * @type {string[]}
  */
 spnr.str.symbols = '~`!@#$%^&*()-_,=+[{]}\\|;:\",<.>/?'.split('');

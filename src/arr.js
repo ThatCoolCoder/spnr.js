@@ -165,3 +165,30 @@ spnr.arr.mode = function(array=[]) {
     }
     return highestCommonalityItems;
 }
+
+/**
+ * Shuffle an array in place using the Kunth-Fisher-Yates algorithm
+ * @param {any[]} array 
+ */
+spnr.arr.shuffleInPlace = function(array) {
+    var newIndices = [];
+    for (var i = 0; i < array.length; i ++) {
+        newIndices[i] = spnr.randint(0, array.length);
+    }
+    for (var i = 0; i < array.length; i ++) {
+        var swapValue = array[i];
+        array[i] = array[newIndices[i]];
+        array[newIndices[i]] = swapValue;
+    }
+}
+
+/**
+ * Return a shuffled copy of an array.
+ * @param {any[]} array - array to shuffle
+ * @returns {any[]}
+ */
+spnr.arr.shuffle = function(array) {
+    var shuffledArray = [].concat(array);
+    spnr.arr.shuffleInPlace(shuffledArray);
+    return shuffledArray;
+}
