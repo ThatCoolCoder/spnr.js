@@ -14,6 +14,6 @@ Up to and including version 1.4, this library was known as wrk.js, but had to be
 
 #### Main Contents:
 - [Get started](tutorials/getStarted.md)
-- [More about spnr.js](editorDocumentation/aboutSpnr.md)
-- [Online user reference manual](https://thatcoolcoder.github.io/spnr.js)
-- [Information for editors](editorDocumentation/README.md)
+- [Online reference](https://thatcoolcoder.github.io/spnr.js)
+- [More about spnr.js](editorDocs/aboutSpnr.md)
+- [Information for editors](editorDocs/README.md)

@@ -9,7 +9,6 @@
   "author": "thatcoolcoder",
   "license": "MIT",
   "dependencies": {
-    "foodoc": "^0.0.9",
     "ink-docstrap": "^1.3.2"
   }
 }
