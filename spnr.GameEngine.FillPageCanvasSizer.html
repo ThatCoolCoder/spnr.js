@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>spnr.js Class: FunctionGroup</title>
+	<title>spnr.js Class: FillPageCanvasSizer</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -72,21 +72,19 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: FunctionGroup</h1>
+	<h1 class="page-title">Class: FillPageCanvasSizer</h1>
 <section>
 
 <header>
     
         <h2>
-            <span class="ancestors"><a href="spnr.html">spnr</a>.</span>
+            <span class="ancestors"><a href="spnr.html">spnr</a><a href="spnr.GameEngine.html">.GameEngine</a>.</span>
         
-        FunctionGroup
+        FillPageCanvasSizer
         </h2>
         
-            <div class="class-description"><p>A collection of functions that can be run together.
-Technically the functions don't have to accept the same parameters,
-but weird things may happen if they don't.
-Useful for things like listeners and callbacks.</p></div>
+            <div class="class-description"><p>Canvas sizer that aims to fill the page as much as possible. Doesn't scale the canvas but instead just expands it.
+Does not maintain aspect ratio</p></div>
         
     
 </header>
@@ -98,7 +96,7 @@ Useful for things like listeners and callbacks.</p></div>
         
 <hr>
 <dt>
-    <h4 class="name" id="FunctionGroup"><span class="type-signature"></span>new FunctionGroup( [o])</h4>
+    <h4 class="name" id="FillPageCanvasSizer"><span class="type-signature"></span>new FillPageCanvasSizer(padding)</h4>
     
     
 </dt>
@@ -106,7 +104,7 @@ Useful for things like listeners and callbacks.</p></div>
 
     
     <div class="description">
-        <p>Create a new function group</p>
+        <p>Create a new sizer</p>
     </div>
     
 
@@ -129,8 +127,6 @@ Useful for things like listeners and callbacks.</p></div>
         <th>Type</th>
 
         
-        <th>Argument</th>
-        
 
         
 
@@ -143,13 +139,13 @@ Useful for things like listeners and callbacks.</p></div>
 
         <tr>
             
-                <td class="name"><code>o</code></td>
+                <td class="name"><code>padding</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Array.&lt;function()></span>
+<span class="param-type"><a href="spnr.html#.Vector">spnr.Vector</a></span>
 
 
 
@@ -157,20 +153,10 @@ Useful for things like listeners and callbacks.</p></div>
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>initialFunctions - Array of functions to initialise with</p></td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -238,6 +224,15 @@ Useful for things like listeners and callbacks.</p></div>
     </div>
 
     
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li><a href="spnr.GameEngine.AbstractCanvasSizer.html">spnr.GameEngine.AbstractCanvasSizer</a></li>
+    </ul>
+
 
     
 
@@ -250,79 +245,35 @@ Useful for things like listeners and callbacks.</p></div>
     
 
     
-        <h3 class="subsection-title">Methods</h3>
+        <h3 class="subsection-title">Members</h3>
 
         <dl>
             
 <hr>
-<dt>
-    <h4 class="name" id="add"><span class="type-signature"></span>add(f)</h4>
-    
+<dt class="name" id="padding">
+    <h4 id="padding"><span class="type-signature"></span>padding<span class="type-signature"> :<a href="spnr.html#.Vector">spnr.Vector</a></span></h4>
+
     
 </dt>
 <dd>
-
     
     <div class="description">
-        <p>Add a function to the group</p>
+        <p>Padding between the edge of the canvas and the page. Used because having no padding will generally overflow in many browsers.
+If the canvas isn't aligned with css, the padding is all on the bottom and right.</p>
     </div>
     
 
     
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
+        <h5>Type:</h5>
+        <ul>
+            <li>
                 
-<span class="param-type">function</span>
+<span class="param-type"><a href="spnr.html#.Vector">spnr.Vector</a></span>
 
 
 
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>function to add</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
+            </li>
+        </ul>
     
 
     
@@ -364,435 +315,13 @@ Useful for things like listeners and callbacks.</p></div>
 	
 </dl>
 
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="addBulk"><span class="type-signature"></span>addBulk(functionArray)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Add an array of functions to the group</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>functionArray</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;function()></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>functions to add</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="call"><span class="type-signature"></span>call()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Call all the functions in the group. Call with arguments that you want to be passed to the functions, eg fg.call(valueToPass)</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="remove"><span class="type-signature"></span>remove(f)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Remove a function from the group</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>function to remove</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="removeAll"><span class="type-signature"></span>removeAll()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Remove all functions from the group</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
 
     
 </dd>
 
         </dl>
+    
+
     
 
     

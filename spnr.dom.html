@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>spnr.js Class: FunctionGroup</title>
+	<title>spnr.js Namespace: dom</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -72,7 +72,7 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: FunctionGroup</h1>
+	<h1 class="page-title">Namespace: dom</h1>
 <section>
 
 <header>
@@ -80,13 +80,8 @@
         <h2>
             <span class="ancestors"><a href="spnr.html">spnr</a>.</span>
         
-        FunctionGroup
+        dom
         </h2>
-        
-            <div class="class-description"><p>A collection of functions that can be run together.
-Technically the functions don't have to accept the same parameters,
-but weird things may happen if they don't.
-Useful for things like listeners and callbacks.</p></div>
         
     
 </header>
@@ -96,9 +91,73 @@ Useful for things like listeners and callbacks.</p></div>
     <div class="container-overview">
     
         
+            <div class="description"><p>spnr.js DOM (html) functions</p></div>
+        
+
+        
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
 <hr>
 <dt>
-    <h4 class="name" id="FunctionGroup"><span class="type-signature"></span>new FunctionGroup( [o])</h4>
+    <h4 class="name" id=".clearLogPara"><span class="type-signature">&lt;static> </span>clearLogPara()</h4>
     
     
 </dt>
@@ -106,7 +165,368 @@ Useful for things like listeners and callbacks.</p></div>
 
     
     <div class="description">
-        <p>Create a new function group</p>
+        <p>Clear the log paragraph</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".delete"><span class="type-signature">&lt;static> </span>delete(id)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Delete an element by its id. If element is not found, does nothing.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>id of element to remove.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".id"><span class="type-signature">&lt;static> </span>id(id)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>A shortening of document.getElementById().</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>id of element to get</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>element with that id. If element is not found, returns null;</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Element</span>
+|
+
+<span class="param-type">null</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".logToPara"><span class="type-signature">&lt;static> </span>logToPara(data [, label])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Log data to the DOM. Useful for situations where data is being created fast and it would be unreadable in the console, such as game physics.</p>
     </div>
     
 
@@ -133,6 +553,8 @@ Useful for things like listeners and callbacks.</p></div>
         
 
         
+        <th>Default</th>
+        
 
         <th class="last">Description</th>
     </tr>
@@ -143,13 +565,49 @@ Useful for things like listeners and callbacks.</p></div>
 
         <tr>
             
-                <td class="name"><code>o</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Array.&lt;function()></span>
+<span class="param-type">any</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>data to log</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>label</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
 
 
 
@@ -169,282 +627,14 @@ Useful for things like listeners and callbacks.</p></div>
             
 
             
-
-            <td class="description last"><p>initialFunctions - Array of functions to initialise with</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        <dl>
-            
-<hr>
-<dt>
-    <h4 class="name" id="add"><span class="type-signature"></span>add(f)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Add a function to the group</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
+                <td class="default">
                 
-<span class="param-type">function</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>function to add</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="addBulk"><span class="type-signature"></span>addBulk(functionArray)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Add an array of functions to the group</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>functionArray</code></td>
-            
-
-            <td class="type">
-            
+                    No Label
                 
-<span class="param-type">Array.&lt;function()></span>
-
-
-
-            
-            </td>
-
+                </td>
             
 
-            
-
-            <td class="description last"><p>functions to add</p></td>
+            <td class="description last"><p>label - optional label for the log.</p></td>
         </tr>
 
     
@@ -512,7 +702,7 @@ Useful for things like listeners and callbacks.</p></div>
             
 <hr>
 <dt>
-    <h4 class="name" id="call"><span class="type-signature"></span>call()</h4>
+    <h4 class="name" id=".viewportHeight"><span class="type-signature">&lt;static> </span>viewportHeight()</h4>
     
     
 </dt>
@@ -520,7 +710,7 @@ Useful for things like listeners and callbacks.</p></div>
 
     
     <div class="description">
-        <p>Call all the functions in the group. Call with arguments that you want to be passed to the functions, eg fg.call(valueToPass)</p>
+        <p>Get the document viewport height</p>
     </div>
     
 
@@ -582,6 +772,30 @@ Useful for things like listeners and callbacks.</p></div>
     
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>height of the viewport</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
 
     
 </dd>
@@ -590,7 +804,7 @@ Useful for things like listeners and callbacks.</p></div>
             
 <hr>
 <dt>
-    <h4 class="name" id="remove"><span class="type-signature"></span>remove(f)</h4>
+    <h4 class="name" id=".viewportSize"><span class="type-signature">&lt;static> </span>viewportSize()</h4>
     
     
 </dt>
@@ -598,7 +812,7 @@ Useful for things like listeners and callbacks.</p></div>
 
     
     <div class="description">
-        <p>Remove a function from the group</p>
+        <p>Get the document viewport size as a spnr.js vector</p>
     </div>
     
 
@@ -607,56 +821,6 @@ Useful for things like listeners and callbacks.</p></div>
     
 
     
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>function to remove</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
     
 
     
@@ -710,6 +874,30 @@ Useful for things like listeners and callbacks.</p></div>
     
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>size of the viewport</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Vector</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
 
     
 </dd>
@@ -718,7 +906,7 @@ Useful for things like listeners and callbacks.</p></div>
             
 <hr>
 <dt>
-    <h4 class="name" id="removeAll"><span class="type-signature"></span>removeAll()</h4>
+    <h4 class="name" id=".viewportWidth"><span class="type-signature">&lt;static> </span>viewportWidth()</h4>
     
     
 </dt>
@@ -726,7 +914,7 @@ Useful for things like listeners and callbacks.</p></div>
 
     
     <div class="description">
-        <p>Remove all functions from the group</p>
+        <p>Get the document viewport width</p>
     </div>
     
 
@@ -788,6 +976,30 @@ Useful for things like listeners and callbacks.</p></div>
     
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>width of the viewport</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
 
     
 </dd>

@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>spnr.js Class: FunctionGroup</title>
+	<title>spnr.js Class: Sound</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -72,7 +72,7 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: FunctionGroup</h1>
+	<h1 class="page-title">Class: Sound</h1>
 <section>
 
 <header>
@@ -80,13 +80,10 @@
         <h2>
             <span class="ancestors"><a href="spnr.html">spnr</a>.</span>
         
-        FunctionGroup
+        Sound
         </h2>
         
-            <div class="class-description"><p>A collection of functions that can be run together.
-Technically the functions don't have to accept the same parameters,
-but weird things may happen if they don't.
-Useful for things like listeners and callbacks.</p></div>
+            <div class="class-description"><p>Class to load and play audio</p></div>
         
     
 </header>
@@ -98,7 +95,7 @@ Useful for things like listeners and callbacks.</p></div>
         
 <hr>
 <dt>
-    <h4 class="name" id="FunctionGroup"><span class="type-signature"></span>new FunctionGroup( [o])</h4>
+    <h4 class="name" id="Sound"><span class="type-signature"></span>new Sound(url)</h4>
     
     
 </dt>
@@ -106,7 +103,7 @@ Useful for things like listeners and callbacks.</p></div>
 
     
     <div class="description">
-        <p>Create a new function group</p>
+        <p>Create a new Sound</p>
     </div>
     
 
@@ -129,8 +126,6 @@ Useful for things like listeners and callbacks.</p></div>
         <th>Type</th>
 
         
-        <th>Argument</th>
-        
 
         
 
@@ -143,13 +138,13 @@ Useful for things like listeners and callbacks.</p></div>
 
         <tr>
             
-                <td class="name"><code>o</code></td>
+                <td class="name"><code>url</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Array.&lt;function()></span>
+<span class="param-type">string</span>
 
 
 
@@ -157,20 +152,10 @@ Useful for things like listeners and callbacks.</p></div>
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>initialFunctions - Array of functions to initialise with</p></td>
+            <td class="description last"><p>url to load the audio from</p></td>
         </tr>
 
     
@@ -256,7 +241,7 @@ Useful for things like listeners and callbacks.</p></div>
             
 <hr>
 <dt>
-    <h4 class="name" id="add"><span class="type-signature"></span>add(f)</h4>
+    <h4 class="name" id="copy"><span class="type-signature"></span>copy()</h4>
     
     
 </dt>
@@ -264,7 +249,8 @@ Useful for things like listeners and callbacks.</p></div>
 
     
     <div class="description">
-        <p>Add a function to the group</p>
+        <p>Create an independent copy of this Sound. Currently does that by refetching the URL (although browser might have cached it).
+In future there are plans to make this reuse the same sound data.</p>
     </div>
     
 
@@ -273,56 +259,6 @@ Useful for things like listeners and callbacks.</p></div>
     
 
     
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>function to add</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
     
 
     
@@ -376,134 +312,26 @@ Useful for things like listeners and callbacks.</p></div>
     
 
     
-
+    <h5>Returns:</h5>
     
-</dd>
+            
 
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
         
-            
-<hr>
-<dt>
-    <h4 class="name" id="addBulk"><span class="type-signature"></span>addBulk(functionArray)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Add an array of functions to the group</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>functionArray</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;function()></span>
+<span class="param-type">Sound</span>
 
 
 
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>functions to add</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
+    </dd>
 </dl>
 
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
+        
 
     
 </dd>
@@ -512,7 +340,7 @@ Useful for things like listeners and callbacks.</p></div>
             
 <hr>
 <dt>
-    <h4 class="name" id="call"><span class="type-signature"></span>call()</h4>
+    <h4 class="name" id="loop"><span class="type-signature"></span>loop()</h4>
     
     
 </dt>
@@ -520,7 +348,7 @@ Useful for things like listeners and callbacks.</p></div>
 
     
     <div class="description">
-        <p>Call all the functions in the group. Call with arguments that you want to be passed to the functions, eg fg.call(valueToPass)</p>
+        <p>Start looping the audio (non-blocking)</p>
     </div>
     
 
@@ -590,7 +418,7 @@ Useful for things like listeners and callbacks.</p></div>
             
 <hr>
 <dt>
-    <h4 class="name" id="remove"><span class="type-signature"></span>remove(f)</h4>
+    <h4 class="name" id="pause"><span class="type-signature"></span>pause()</h4>
     
     
 </dt>
@@ -598,7 +426,7 @@ Useful for things like listeners and callbacks.</p></div>
 
     
     <div class="description">
-        <p>Remove a function from the group</p>
+        <p>Stop the audio but don't reset playthrough position</p>
     </div>
     
 
@@ -607,56 +435,6 @@ Useful for things like listeners and callbacks.</p></div>
     
 
     
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>function to remove</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
     
 
     
@@ -718,7 +496,7 @@ Useful for things like listeners and callbacks.</p></div>
             
 <hr>
 <dt>
-    <h4 class="name" id="removeAll"><span class="type-signature"></span>removeAll()</h4>
+    <h4 class="name" id="play"><span class="type-signature"></span>play()</h4>
     
     
 </dt>
@@ -726,7 +504,85 @@ Useful for things like listeners and callbacks.</p></div>
 
     
     <div class="description">
-        <p>Remove all functions from the group</p>
+        <p>Start the audio playing (non-blocking)</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="stop"><span class="type-signature"></span>stop()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Stop the audio playing and return to start</p>
     </div>
     
 

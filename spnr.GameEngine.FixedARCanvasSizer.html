@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>spnr.js Class: FunctionGroup</title>
+	<title>spnr.js Class: FixedARCanvasSizer</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -72,21 +72,18 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: FunctionGroup</h1>
+	<h1 class="page-title">Class: FixedARCanvasSizer</h1>
 <section>
 
 <header>
     
         <h2>
-            <span class="ancestors"><a href="spnr.html">spnr</a>.</span>
+            <span class="ancestors"><a href="spnr.html">spnr</a><a href="spnr.GameEngine.html">.GameEngine</a>.</span>
         
-        FunctionGroup
+        FixedARCanvasSizer
         </h2>
         
-            <div class="class-description"><p>A collection of functions that can be run together.
-Technically the functions don't have to accept the same parameters,
-but weird things may happen if they don't.
-Useful for things like listeners and callbacks.</p></div>
+            <div class="class-description"><p>Fixed aspect ratio canvas sizer that fills the page by scaling the canvas instead of expanding it.</p></div>
         
     
 </header>
@@ -98,7 +95,7 @@ Useful for things like listeners and callbacks.</p></div>
         
 <hr>
 <dt>
-    <h4 class="name" id="FunctionGroup"><span class="type-signature"></span>new FunctionGroup( [o])</h4>
+    <h4 class="name" id="FixedARCanvasSizer"><span class="type-signature"></span>new FixedARCanvasSizer(targetSize, padding [, minScale] [, maxScale])</h4>
     
     
 </dt>
@@ -106,7 +103,7 @@ Useful for things like listeners and callbacks.</p></div>
 
     
     <div class="description">
-        <p>Create a new function group</p>
+        <p>Create a new sizer. See properties for descriptions of arguments.</p>
     </div>
     
 
@@ -133,6 +130,8 @@ Useful for things like listeners and callbacks.</p></div>
         
 
         
+        <th>Default</th>
+        
 
         <th class="last">Description</th>
     </tr>
@@ -143,13 +142,85 @@ Useful for things like listeners and callbacks.</p></div>
 
         <tr>
             
-                <td class="name"><code>o</code></td>
+                <td class="name"><code>targetSize</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Array.&lt;function()></span>
+<span class="param-type"><a href="spnr.html#.Vector">spnr.Vector</a></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>padding</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="spnr.html#.Vector">spnr.Vector</a></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>minScale</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
 
 
 
@@ -169,8 +240,54 @@ Useful for things like listeners and callbacks.</p></div>
             
 
             
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
 
-            <td class="description last"><p>initialFunctions - Array of functions to initialise with</p></td>
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>maxScale</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    Infinity
+                
+                </td>
+            
+
+            <td class="description last"></td>
         </tr>
 
     
@@ -238,6 +355,15 @@ Useful for things like listeners and callbacks.</p></div>
     </div>
 
     
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li><a href="spnr.GameEngine.AbstractCanvasSizer.html">spnr.GameEngine.AbstractCanvasSizer</a></li>
+    </ul>
+
 
     
 
@@ -250,79 +376,34 @@ Useful for things like listeners and callbacks.</p></div>
     
 
     
-        <h3 class="subsection-title">Methods</h3>
+        <h3 class="subsection-title">Members</h3>
 
         <dl>
             
 <hr>
-<dt>
-    <h4 class="name" id="add"><span class="type-signature"></span>add(f)</h4>
-    
+<dt class="name" id="maxScale">
+    <h4 id="maxScale"><span class="type-signature"></span>maxScale<span class="type-signature"> :number</span></h4>
+
     
 </dt>
 <dd>
-
     
     <div class="description">
-        <p>Add a function to the group</p>
+        <p>Maximum scale of the canvas. If this value is too small, canvas may not expand fully on large screens.</p>
     </div>
     
 
     
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
+        <h5>Type:</h5>
+        <ul>
+            <li>
                 
-<span class="param-type">function</span>
+<span class="param-type">number</span>
 
 
 
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>function to add</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
+            </li>
+        </ul>
     
 
     
@@ -366,91 +447,34 @@ Useful for things like listeners and callbacks.</p></div>
 
 
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
 </dd>
 
         
             
 <hr>
-<dt>
-    <h4 class="name" id="addBulk"><span class="type-signature"></span>addBulk(functionArray)</h4>
-    
+<dt class="name" id="minScale">
+    <h4 id="minScale"><span class="type-signature"></span>minScale<span class="type-signature"> :number</span></h4>
+
     
 </dt>
 <dd>
-
     
     <div class="description">
-        <p>Add an array of functions to the group</p>
+        <p>Minimum scale of the canvas. If this value is too large, canvas may not fit on smaller screens.</p>
     </div>
     
 
     
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>functionArray</code></td>
-            
-
-            <td class="type">
-            
+        <h5>Type:</h5>
+        <ul>
+            <li>
                 
-<span class="param-type">Array.&lt;function()></span>
+<span class="param-type">number</span>
 
 
 
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>functions to add</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
+            </li>
+        </ul>
     
 
     
@@ -494,169 +518,34 @@ Useful for things like listeners and callbacks.</p></div>
 
 
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
 </dd>
 
         
             
 <hr>
-<dt>
-    <h4 class="name" id="call"><span class="type-signature"></span>call()</h4>
-    
+<dt class="name" id="padding">
+    <h4 id="padding"><span class="type-signature"></span>padding<span class="type-signature"> :<a href="spnr.html#.Vector">spnr.Vector</a></span></h4>
+
     
 </dt>
 <dd>
-
     
     <div class="description">
-        <p>Call all the functions in the group. Call with arguments that you want to be passed to the functions, eg fg.call(valueToPass)</p>
+        <p>Padding between the canvas and the edge of the page. If the canvas is not aligned with css, will be all on the bottom right.</p>
     </div>
     
 
     
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="remove"><span class="type-signature"></span>remove(f)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Remove a function from the group</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
+        <h5>Type:</h5>
+        <ul>
+            <li>
                 
-<span class="param-type">function</span>
+<span class="param-type"><a href="spnr.html#.Vector">spnr.Vector</a></span>
 
 
 
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>function to remove</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
+            </li>
+        </ul>
     
 
     
@@ -698,18 +587,6 @@ Useful for things like listeners and callbacks.</p></div>
 	
 </dl>
 
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
 
     
 </dd>
@@ -717,24 +594,29 @@ Useful for things like listeners and callbacks.</p></div>
         
             
 <hr>
-<dt>
-    <h4 class="name" id="removeAll"><span class="type-signature"></span>removeAll()</h4>
-    
+<dt class="name" id="targetSize">
+    <h4 id="targetSize"><span class="type-signature"></span>targetSize<span class="type-signature"> :<a href="spnr.html#.Vector">spnr.Vector</a></span></h4>
+
     
 </dt>
 <dd>
-
     
     <div class="description">
-        <p>Remove all functions from the group</p>
+        <p>Size of the canvas if the scale was 1. Use a sensible value like 800x500</p>
     </div>
     
 
     
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="spnr.html#.Vector">spnr.Vector</a></span>
 
-    
 
-    
+
+            </li>
+        </ul>
     
 
     
@@ -776,23 +658,13 @@ Useful for things like listeners and callbacks.</p></div>
 	
 </dl>
 
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
 
     
 </dd>
 
         </dl>
+    
+
     
 
     
