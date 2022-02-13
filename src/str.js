@@ -149,3 +149,12 @@ spnr.str.replaceAll = function(str, pattern, replacement='') {
         return str;
     }
 }
+
+/**
+ * Return a shuffled copy of the string
+ * @param {string} str 
+ * @returns 
+ */
+spnr.str.shuffle = function(str) {
+    return spnr.arr.shuffle(str.split('')).join('');
+}

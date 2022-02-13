@@ -50,3 +50,13 @@ spnr.obj.oneLevelCopy = function(obj) {
     });
     return newObj;
 }
+
+/**
+ * Whether the object has any keys
+ * @param {object} obj 
+ * @returns {boolean}
+ */
+spnr.obj.isEmpty = function(obj) {
+    if (! obj) return true;
+    return Object.keys(obj).length == 0;
+}
