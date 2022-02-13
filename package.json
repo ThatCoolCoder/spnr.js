@@ -7,5 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "thatcoolcoder",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "foodoc": "^0.0.9",
+    "ink-docstrap": "^1.3.2"
+  }
 }

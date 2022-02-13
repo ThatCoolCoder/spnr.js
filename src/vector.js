@@ -4,7 +4,7 @@
 // so making them fast is critical
 
 /**
- * Three-dimensional vector class.
+ * Three-dimensional vector class. Not a real class in that you can't instantiate one directly - instead use spnr.v(x, y, z).
  * @typedef {Object} Vector
  * @memberof spnr
  * @property {number} x - The x component of the vector

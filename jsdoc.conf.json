@@ -1,0 +1,11 @@
+{
+    "templates": {
+        "systemName": "spnr.js",
+        "copyright": "Spnr.js is licensed under the MIT license",
+        "dateFormat": "YYYY-MM-DD",
+        "theme": "paper"
+    },
+    "plugins": [
+        "plugins/markdown"
+    ]
+}

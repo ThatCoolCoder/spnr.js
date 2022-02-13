@@ -13,7 +13,7 @@ spnr.GameEngine.Particle = class extends spnr.GameEngine.DrawableEntity {
      * @param {spnr.Vector} size 
      * @param {spnr.Vector} velocity 
      * @param {number} timeToLive
-     * @param {object} effectorStrengths - see {@link spnr.GameEngine.ParticleEffect for info about this}
+     * @param {object} effectorStrengths - see {@link spnr.GameEngine.ParticleEffect spnr.GameEngine.ParticleEffect} for info about this
      */
     constructor(name, localPosition, localAngle, texture, size,
             velocity, timeToLive, effectorStrengths) {

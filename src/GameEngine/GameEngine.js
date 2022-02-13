@@ -1,12 +1,12 @@
 /**
  * Lightweight code-only game engine using PIXI.js for rendering.
- * If using, you must include PIXI version 5 or greater in your project and then run {@link spnr.GameEngine.setGlobalScale}.
+ * If using, you must include PIXI version 5 or greater in your project and then run {@link spnr.GameEngine.init}.
  * @namespace
  */
 spnr.GameEngine = class {
     /**
      * Initialize the game engine
-     * @param {spnr.Vector} canvasSize - initial canvas size. See {@link spnr.GameEngine.setCanvasSize} for details on canvas sizing
+     * @param {spnr.Vector} canvasSize - initial canvas size. See {@link spnr.GameEngine.setGlobalScale} for details on canvas scaling and sizing
      * @param {number} globalScale - scale multiplier for the canvas size
      * @param {number} backgroundColor - background color in hex format. eg 0xff0000 is red.
      */
