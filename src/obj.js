@@ -60,3 +60,25 @@ spnr.obj.isEmpty = function(obj) {
     if (! obj) return true;
     return Object.keys(obj).length == 0;
 }
+
+/**
+ * Create an enum-like object from another object.
+ * Useful because you might be too lazy to have distinct keys on the original object so you create it like:
+ * ```
+ * {a : 0, b : 0, c : 0}
+ * ```
+ * and this function returns:
+ * ```
+ * {a : 1, b : 1, c : 1} or {a : 'a', b : 'b', c : 'c'}
+ * ```
+ * Takes an object as an input and not a string of keys because that way intellisense can tell there's an object there
+ * @param {object} obj - object to convert to an enum (is modified)
+ * @param {boolean} stringKeys - whether the keys of the enum should be numbers (0, 1, 2) or strings (the keys of the object)
+ */
+spnr.obj.toEnum = function(obj, stringKeys=false) {
+    var counter = 0;
+    for (var key of Object.keys(obj)) {
+        obj[key] = stringKeys ? key : counter;
+        counter ++;
+    }
+}
