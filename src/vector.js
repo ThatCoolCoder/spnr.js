@@ -255,10 +255,24 @@ spnr.v.mean = function(v1, v2) {
  * @param {spnr.Vector} v
  */
 spnr.v.normalize = function(v) {
-    var mag = spnr.sqrt(v.x ** 2 + v.y ** 2 + v.z ** 2)
+    var mag = spnr.sqrt(v.x ** 2 + v.y ** 2 + v.z ** 2);
     v.x /= mag;
     v.y /= mag;
     v.z /= mag;
+}
+
+/**
+ * Return a normalied copy of a vector. Does not modify the original vector.
+ * @param {spnr.Vector} v 
+ * @returns {spnr.Vector}
+ */
+spnr.v.copyNormalize = function(v) {
+    var mag = spnr.sqrt(v.x ** 2 + v.y ** 2 + v.z ** 2);
+    return spnr.v(
+        v.x / mag,
+        v.y / mag,
+        v.z / mag
+    );
 }
 
 /**
@@ -320,4 +334,35 @@ spnr.v.cross = function(v1, v2) {
     crossP.y = v1.z * v2.x - v1.x * v2.z;
     crossP.z = v1.x * v2.y - v1.y * v2.x;
     return crossP;
+}
+
+/**
+ * Map a vectors components to specific ranges. Modifies the vector.
+ * @param {spnr.Vector} v 
+ * @param {spnr.Vector} oldMin 
+ * @param {spnr.Vector} oldMax 
+ * @param {spnr.Vector} newMin 
+ * @param {spnr.Vector} newMax 
+ */
+spnr.v.map = function(v, oldMin, oldMax, newMin, newMax) {
+    v.x = spnr.mapNum(v.x, oldMin.x, oldMax.x, newMin.x, newMax.x);
+    v.y = spnr.mapNum(v.y, oldMin.y, oldMax.y, newMin.y, newMax.y);
+    v.z = spnr.mapNum(v.z, oldMin.z, oldMax.z, newMin.z, newMax.z);
+}
+
+/**
+ * Return a copy of a vector mapped to a specific range. Doesn't modify the vector.
+ * @param {spnr.Vector} v 
+ * @param {spnr.Vector} oldMin
+ * @param {spnr.Vector} oldMax 
+ * @param {spnr.Vector} newMin 
+ * @param {spnr.Vector} newMax 
+ * @returns 
+ */
+spnr.v.copyMap = function(v, oldMin, oldMax, newMin, newMax) {
+    return spnr.v(
+        spnr.mapNum(v.x, oldMin.x, oldMax.x, newMin.x, newMax.x),
+        spnr.mapNum(v.y, oldMin.y, oldMax.y, newMin.y, newMax.y),
+        spnr.mapNum(v.z, oldMin.z, oldMax.z, newMin.z, newMax.z)
+    );
 }
