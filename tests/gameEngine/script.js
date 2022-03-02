@@ -260,6 +260,7 @@ class PlayScreen extends spnr.GameEngine.Scene {
     constructor() {
         super('main scene',  spnr.v(0, 0), 0);
 
+        this.addChild(new spnr.GameEngine.FrameRateDisplay('Frame rate display', spnr.GameEngine.FrameRateDisplayCorner.bottomRight, spnr.v(40, 20), 5, 1));
         this.createCar();
         this.createControls();
         this.createObstacles();
