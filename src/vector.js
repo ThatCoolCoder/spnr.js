@@ -298,6 +298,25 @@ spnr.v.rotate = function(v, angle=0, useDegrees=false) {
 }
 
 /**
+ * Return a rotated copy of a vector. Doesn't modify the original vector.
+ * @param {spnr.Vector} v - vector to rotate
+ * @param {number} angle - angle to rotate the vector by
+ * @param {boolean} [useDegrees=false] - whether the angle provided is in degrees or radians. If this value is not provided then defaults to radians.
+ * @returns 
+ */
+spnr.v.copyRotate = function(v, angle=0, useDegrees=false) {
+    if (useDegrees) {
+        angle /= spnr._180DIVPI;
+    }
+    
+    var cos = spnr.cos(angle);
+    var sin = spnr.sin(angle);
+
+    return spnr.v(v.x * cos - v.y * sin,
+        v.x * sin + v.y * cos);
+}
+
+/**
  * Get the heading (direction) of the vector
  * @param {spnr.Vector} v 
  * @param {boolean} [useDegrees=false] - whether to return the angle in radians or degrees. Defaults to radians. 

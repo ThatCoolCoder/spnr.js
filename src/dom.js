@@ -32,10 +32,19 @@ spnr.dom.viewportHeight = function() {
 
 /**
  * Get the document viewport size as a spnr.js vector
- * @returns {Vector} size of the viewport
+ * @returns {spnr.Vector} size of the viewport
  */
 spnr.dom.viewportSize = function() {
     return spnr.v(spnr.dom.viewportWidth(), spnr.dom.viewportHeight());
+}
+
+/**
+ * Get the size of a HTML element as a vector.
+ * @param {HTMLElement} element - element to measure
+ * @returns {spnr.Vector}
+ */
+spnr.dom.elementSize = function(element) {
+    return spnr.v(element.clientWidth, element.clientHeight);
 }
 
 /**
