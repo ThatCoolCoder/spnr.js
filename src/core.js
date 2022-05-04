@@ -27,7 +27,10 @@ SOFTWARE.
 
 // Setup spnr instance
 
-if (window.spnr !== undefined) {
+var spnrInBrowser = typeof window !== 'undefined';
+var spnrAlreadyDefined = spnrInBrowser ? window.spnr !== undefined : false;
+
+if (spnrAlreadyDefined) {
 
     // If spnr is already defined, try to use the internal warner to say so
     // In the case that spnr refers to something other than this lib,
@@ -48,13 +51,13 @@ else {
     spnr.VERSION = 'v$$spnr-version$$';
     spnr.consoleLogHeader = '  🔧🔧 ';
     spnr.consoleLogStyling = 'background-color: #9cc8ff; display: block';
-    window.spnr = spnr; // Make it global
+    if (spnrInBrowser) window.spnr = spnr; // Make it global
 
     // Make a 'hello' message
     console.log(`%c  \n${spnr.consoleLogHeader} spnr.js ${spnr.VERSION}  \n  `,
         spnr.consoleLogStyling);
 
-    // Load the 'consts' from math
+    // Load the consts & functions from math
     Object.getOwnPropertyNames(Math).forEach(key => {
         spnr[key] = Math[key];
     });

@@ -31,3 +31,5 @@ src/GameEngine/ParticleEffect.js
 src/GameEngine/canvasSizers/AbstractCanvasSizer.js
 src/GameEngine/canvasSizers/FixedARCanvasSizer.js
 src/GameEngine/canvasSizers/FillPageCanvasSizer.js
+
+src/footer.js
