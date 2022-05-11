@@ -8,7 +8,9 @@ There are a number of utility scripts used in spnr.js. They are located in the `
 
 ## Compiling
 
-spnr.js is written in vanilla JavaScript with no fancy buildsystem. Instead it's "compiled" by a small Python program - `/scripts/compile.py`. It reads a list of files to append to each other from `/scripts/inputFiles.txt`. While doing this, it also replaces all instances of `$$spnr-version$$` with the version from `package.json` It will write the compiled library to `/build/spnr.js`.
+spnr.js is written in vanilla JavaScript with no fancy buildsystem. Instead it's "compiled" by a small Python program - `/scripts/compile.py`. To support the variety of JavaScript import options available, we create a both a `.js` file and `.mjs` file, which differ mostly in exports. The `.js` file is used in regular browser script tags and `require()` imports in node. If it's in node then it sets `module.exports`. The `.mjs` file is used by browsers and node for module JS things. In both exports, browser features are disabled at runtime if the window object is not found.
+
+While doing this, it also replaces all instances of `$$spnr-version$$` with the version from `package.json` It will write the compiled library to `/build/spnr.js` and `/build/spnr.mjs`.
 
 ## Minifying
 
