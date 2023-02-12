@@ -36,10 +36,16 @@ INPUT_FILES = [
     'src/GameEngine/canvasSizers/FixedARCanvasSizer.js',
     'src/GameEngine/canvasSizers/FillPageCanvasSizer.js',
 ]
-JS_FOOTER = 'src/footer.js'
-MJS_FOOTER = 'src/footer.mjs'
-OUTPUT_JS_FILE = 'build/spnr.js' # Where to output the compiled product
-OUTPUT_MJS_FILE = 'build/spnr.mjs' # Where to output the compiled product
+LICENSE = 'src/_license.js'
+
+JS_HEADER = 'src/_header.js'
+MJS_HEADER = 'src/_header.mjs'
+
+JS_FOOTER = 'src/_footer.js'
+MJS_FOOTER = 'src/_footer.mjs'
+
+OUTPUT_JS_FILE = 'build/spnr.js'
+OUTPUT_MJS_FILE = 'build/spnr.mjs'
 
 # file read/write stuff
 def write_file(file_path, contents):
@@ -61,5 +67,5 @@ def compile_spnr(input_files, output_file):
 
 if __name__ == '__main__':
     version = json.loads(read_file(PACKAGE_FILE))['version']
-    compile_spnr(INPUT_FILES + [JS_FOOTER], OUTPUT_JS_FILE)
-    compile_spnr(INPUT_FILES + [MJS_FOOTER], OUTPUT_MJS_FILE)
+    compile_spnr([LICENSE, JS_HEADER, *INPUT_FILES, JS_FOOTER], OUTPUT_JS_FILE)
+    compile_spnr([LICENSE, MJS_HEADER, *INPUT_FILES, MJS_FOOTER], OUTPUT_MJS_FILE)

@@ -1,10 +1,10 @@
 /*@license
 
-spnr.js v1.7.0
+spnr.js v1.8.0
 
 MIT License
 
-Copyright (c) 2022 That-Cool-Coder
+Copyright (c) 2023 That-Cool-Coder
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -25,9 +25,20 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+// inserted at start of compiled spnr (when compiled to .js)
+
+var spnrAsMjs = false;
+
 // Setup spnr instance
 
-if (window.spnr !== undefined) {
+var spnrInBrowser = typeof window !== 'undefined';
+var spnrAlreadyDefined = spnrAsMjs
+    ? false
+    : spnrInBrowser
+        ? window.spnr !== undefined
+        : false;
+
+if (spnrAlreadyDefined) {
 
     // If spnr is already defined, try to use the internal warner to say so
     // In the case that spnr refers to something other than this lib,
@@ -45,16 +56,16 @@ else {
      * @namespace
      */
     var spnr = {}; // Create an object to be the basis of spnr
-    spnr.VERSION = 'v1.7.0';
+    spnr.VERSION = 'v1.8.0';
     spnr.consoleLogHeader = '  🔧🔧 ';
     spnr.consoleLogStyling = 'background-color: #9cc8ff; display: block';
-    window.spnr = spnr; // Make it global
+    if (spnrInBrowser && spnrAsMjs) window.spnr = spnr; // Make it global
 
     // Make a 'hello' message
     console.log(`%c  \n${spnr.consoleLogHeader} spnr.js ${spnr.VERSION}  \n  `,
         spnr.consoleLogStyling);
 
-    // Load the 'consts' from math
+    // Load the consts & functions from math
     Object.getOwnPropertyNames(Math).forEach(key => {
         spnr[key] = Math[key];
     });
@@ -476,10 +487,19 @@ spnr.dom.viewportHeight = function() {
 
 /**
  * Get the document viewport size as a spnr.js vector
- * @returns {Vector} size of the viewport
+ * @returns {spnr.Vector} size of the viewport
  */
 spnr.dom.viewportSize = function() {
     return spnr.v(spnr.dom.viewportWidth(), spnr.dom.viewportHeight());
+}
+
+/**
+ * Get the size of a HTML element as a vector.
+ * @param {HTMLElement} element - element to measure
+ * @returns {spnr.Vector}
+ */
+spnr.dom.elementSize = function(element) {
+    return spnr.v(element.clientWidth, element.clientHeight);
 }
 
 /**
@@ -773,6 +793,28 @@ spnr.obj.isEmpty = function(obj) {
     return Object.keys(obj).length == 0;
 }
 
+/**
+ * Create an enum-like object from another object.
+ * Useful because you might be too lazy to have distinct keys on the original object so you create it like:
+ * ```
+ * {a : 0, b : 0, c : 0}
+ * ```
+ * and this function returns:
+ * ```
+ * {a : 1, b : 1, c : 1} or {a : 'a', b : 'b', c : 'c'}
+ * ```
+ * Takes an object as an input and not a string of keys because that way intellisense can tell there's an object there
+ * @param {object} obj - object to convert to an enum (is modified)
+ * @param {boolean} stringKeys - whether the keys of the enum should be numbers (0, 1, 2) or strings (the keys of the object)
+ */
+spnr.obj.toEnum = function(obj, stringKeys=false) {
+    var counter = 0;
+    for (var key of Object.keys(obj)) {
+        obj[key] = stringKeys ? key : counter;
+        counter ++;
+    }
+}
+
 // You'll notice that a lot of the functions in this file could use the other ones
 // But this carries a severe speed penalty, so I've put things inline if that speeds it up
 // Vector operations are often the slowest thing in an application,
@@ -1030,10 +1072,24 @@ spnr.v.mean = function(v1, v2) {
  * @param {spnr.Vector} v
  */
 spnr.v.normalize = function(v) {
-    var mag = spnr.sqrt(v.x ** 2 + v.y ** 2 + v.z ** 2)
+    var mag = spnr.sqrt(v.x ** 2 + v.y ** 2 + v.z ** 2);
     v.x /= mag;
     v.y /= mag;
     v.z /= mag;
+}
+
+/**
+ * Return a normalied copy of a vector. Does not modify the original vector.
+ * @param {spnr.Vector} v 
+ * @returns {spnr.Vector}
+ */
+spnr.v.copyNormalize = function(v) {
+    var mag = spnr.sqrt(v.x ** 2 + v.y ** 2 + v.z ** 2);
+    return spnr.v(
+        v.x / mag,
+        v.y / mag,
+        v.z / mag
+    );
 }
 
 /**
@@ -1056,6 +1112,25 @@ spnr.v.rotate = function(v, angle=0, useDegrees=false) {
     v.y = v.x * sin + v.y * cos;
     // Read from the temp variable
     v.x = newX;
+}
+
+/**
+ * Return a rotated copy of a vector. Doesn't modify the original vector.
+ * @param {spnr.Vector} v - vector to rotate
+ * @param {number} angle - angle to rotate the vector by
+ * @param {boolean} [useDegrees=false] - whether the angle provided is in degrees or radians. If this value is not provided then defaults to radians.
+ * @returns {spnr.Vector}
+ */
+spnr.v.copyRotate = function(v, angle=0, useDegrees=false) {
+    if (useDegrees) {
+        angle /= spnr._180DIVPI;
+    }
+    
+    var cos = spnr.cos(angle);
+    var sin = spnr.sin(angle);
+
+    return spnr.v(v.x * cos - v.y * sin,
+        v.x * sin + v.y * cos);
 }
 
 /**
@@ -1095,6 +1170,37 @@ spnr.v.cross = function(v1, v2) {
     crossP.y = v1.z * v2.x - v1.x * v2.z;
     crossP.z = v1.x * v2.y - v1.y * v2.x;
     return crossP;
+}
+
+/**
+ * Map a vectors components to specific ranges. Modifies the vector.
+ * @param {spnr.Vector} v 
+ * @param {spnr.Vector} oldMin 
+ * @param {spnr.Vector} oldMax 
+ * @param {spnr.Vector} newMin 
+ * @param {spnr.Vector} newMax 
+ */
+spnr.v.map = function(v, oldMin, oldMax, newMin, newMax) {
+    v.x = spnr.mapNum(v.x, oldMin.x, oldMax.x, newMin.x, newMax.x);
+    v.y = spnr.mapNum(v.y, oldMin.y, oldMax.y, newMin.y, newMax.y);
+    v.z = spnr.mapNum(v.z, oldMin.z, oldMax.z, newMin.z, newMax.z);
+}
+
+/**
+ * Return a copy of a vector mapped to a specific range. Doesn't modify the vector.
+ * @param {spnr.Vector} v 
+ * @param {spnr.Vector} oldMin
+ * @param {spnr.Vector} oldMax 
+ * @param {spnr.Vector} newMin 
+ * @param {spnr.Vector} newMax 
+ * @returns {spnr.Vector}
+ */
+spnr.v.copyMap = function(v, oldMin, oldMax, newMin, newMax) {
+    return spnr.v(
+        spnr.mapNum(v.x, oldMin.x, oldMax.x, newMin.x, newMax.x),
+        spnr.mapNum(v.y, oldMin.y, oldMax.y, newMin.y, newMax.y),
+        spnr.mapNum(v.z, oldMin.z, oldMax.z, newMin.z, newMax.z)
+    );
 }
 
 /**
@@ -3219,6 +3325,85 @@ spnr.GameEngine.ParticleEffect = class extends spnr.GameEngine.Entity {
 }
 
 /**
+ * Class that shows the current frame rate of the engine.
+ * Mainly useful for performance purposes but you can also include it in a finished game.
+ * @class
+ * @extends {spnr.GameEngine.Label}
+ */
+spnr.GameEngine.FrameRateDisplay = class extends spnr.GameEngine.Label {
+    /**
+     * 
+     * @param {string} name 
+     * @param {spnr.GameEngine.FrameRateDisplayCorner} [corner] - what corner of the screen to display in
+     * @param {spnr.Vector} [padding=spnr.v(20, 20)] - padding from edge of screen
+     * @param {number} [updateInterval=5] - update every n frames
+     * @param {number} [decimalPlaces=0] - round fps values to this many decimal places
+     */
+    constructor(name, corner=spnr.GameEngine.FrameRateDisplayCorner.bottomRight, padding=spnr.v(20, 20), updateInterval=5, decimalPlaces=0) {
+        super(name, '', spnr.v(0, 0), spnr.PI);
+        this.useDefaultTextFormat();
+        this.corner = corner;
+        this.padding = padding;
+        this.updateInterval = updateInterval;
+        this.decimalPlaces = decimalPlaces;
+
+        this.frameCount = 0;
+        this.runningTotal = 0;
+    }
+
+    /**
+     * Use the default format
+     */
+    useDefaultTextFormat() {
+        this.setTextFormat({
+            fill: '#ffffff',
+            fontSize: 28,
+            stroke: '#000000',
+            strokeThickness: 1
+        })
+    }
+
+    internalUpdate() {
+        this.frameCount ++;
+        this.runningTotal += 1 / spnr.GameEngine.deltaTime;
+        if (this.frameCount % this.updateInterval == 0) {
+            var average = this.runningTotal / this.updateInterval;
+            this.setText(spnr.round(average, this.decimalPlaces).toFixed(this.decimalPlaces));
+            this.runningTotal = 0;
+        }
+
+        switch (this.corner) {
+            case spnr.GameEngine.FrameRateDisplayCorner.topLeft:
+                this.setLocalPosition(this.padding);
+                break;
+            case spnr.GameEngine.FrameRateDisplayCorner.topRight:
+                this.setLocalPosition(spnr.v(spnr.GameEngine.canvasSize.x - this.padding.x, 0));
+                break;
+            case spnr.GameEngine.FrameRateDisplayCorner.bottomLeft:
+                this.setLocalPosition(spnr.v(0, spnr.GameEngine.canvasSize.y - this.padding.y));
+                break;
+            case spnr.GameEngine.FrameRateDisplayCorner.bottomRight:
+                this.setLocalPosition(spnr.v.copySub(spnr.GameEngine.canvasSize, this.padding));
+                break;
+        }
+        super.internalUpdate();
+    }
+}
+
+/**
+ * @memberof spnr.GameEngine
+ * @readonly
+ * @enum
+ */
+spnr.GameEngine.FrameRateDisplayCorner = {
+    topLeft: 0,
+    topRight: 0,
+    bottomLeft: 0,
+    bottomRight: 0
+};
+spnr.obj.toEnum(spnr.GameEngine.FrameRateDisplayCorner);
+
+/**
  * Abstract canvas sizer
  * @class
  */
@@ -3328,3 +3513,7 @@ spnr.GameEngine.FillPageCanvasSizer = class extends spnr.GameEngine.AbstractCanv
     }
 }
 
+// appended at end of compiled spnr (when compiled to .js)
+// handles exporting
+
+if (! spnrInBrowser) module.exports = spnr;

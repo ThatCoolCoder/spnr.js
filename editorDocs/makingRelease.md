@@ -6,9 +6,11 @@
 
 There is no strict release schedule for spnr.js - a new release is made if a critical bug has been fixed, or if there have been a number of modifications since the last release.
 
-## Step 1: Update version number
+## Step 1: Update version number & year
 
 Choose a new version number according to [Semantic versioning](https://semver.org/). Then insert it into `/package.json`.
+
+Make sure that the year listed in `/src _license.js` is correct.
 
 ## Step 2: Build and minify
 
@@ -22,7 +24,7 @@ See [About User Docs](userDocsInfo.md) for info on how to build the documentatio
 
 ## Step 4: Put in CDN folder
 
-Create a new subdirectory in `/cdn/` with the name of the new spnr.js version (do not put a `v` at the start). Copy `spnr.js` and `spnr.min.js` from the `/build/` directory into the new folder. Also copy those two files into `/cdn/latest/` (overwrite the existing files there).
+Create a new subdirectory in `/cdn/` with the name of the new spnr.js version (do not put a `v` at the start). Copy `spnr.js`, `spnr.mjs`, and `spnr.min.js` from the `/build/` directory into the new folder. Also copy those two files into `/cdn/latest/` (overwrite the existing files there).
 
 For more detailed info on the CDN folder, see [cdn](cdn.md).
 

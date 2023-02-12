@@ -302,7 +302,7 @@ spnr.v.rotate = function(v, angle=0, useDegrees=false) {
  * @param {spnr.Vector} v - vector to rotate
  * @param {number} angle - angle to rotate the vector by
  * @param {boolean} [useDegrees=false] - whether the angle provided is in degrees or radians. If this value is not provided then defaults to radians.
- * @returns 
+ * @returns {spnr.Vector}
  */
 spnr.v.copyRotate = function(v, angle=0, useDegrees=false) {
     if (useDegrees) {
@@ -376,7 +376,7 @@ spnr.v.map = function(v, oldMin, oldMax, newMin, newMax) {
  * @param {spnr.Vector} oldMax 
  * @param {spnr.Vector} newMin 
  * @param {spnr.Vector} newMax 
- * @returns 
+ * @returns {spnr.Vector}
  */
 spnr.v.copyMap = function(v, oldMin, oldMax, newMin, newMax) {
     return spnr.v(

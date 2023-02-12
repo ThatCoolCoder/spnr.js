@@ -40,7 +40,7 @@
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="spnr.FunctionGroup.html">spnr.FunctionGroup</a></li><li><a href="spnr.GameEngine.AbstractCanvasSizer.html">spnr.GameEngine.AbstractCanvasSizer</a></li><li><a href="spnr.GameEngine.BaseCollider.html">spnr.GameEngine.BaseCollider</a></li><li><a href="spnr.GameEngine.Button.html">spnr.GameEngine.Button</a></li><li><a href="spnr.GameEngine.CircleCollider.html">spnr.GameEngine.CircleCollider</a></li><li><a href="spnr.GameEngine.DrawableEntity.html">spnr.GameEngine.DrawableEntity</a></li><li><a href="spnr.GameEngine.Entity.html">spnr.GameEngine.Entity</a></li><li><a href="spnr.GameEngine.FillPageCanvasSizer.html">spnr.GameEngine.FillPageCanvasSizer</a></li><li><a href="spnr.GameEngine.FixedARCanvasSizer.html">spnr.GameEngine.FixedARCanvasSizer</a></li><li><a href="spnr.GameEngine.Label.html">spnr.GameEngine.Label</a></li><li><a href="spnr.GameEngine.Particle.html">spnr.GameEngine.Particle</a></li><li><a href="spnr.GameEngine.ParticleEffect.html">spnr.GameEngine.ParticleEffect</a></li><li><a href="spnr.GameEngine.Scene.html">spnr.GameEngine.Scene</a></li><li><a href="spnr.GameEngine.Texture.html">spnr.GameEngine.Texture</a></li><li><a href="spnr.KeyWatcher.html">spnr.KeyWatcher</a></li><li><a href="spnr.MouseWatcher.html">spnr.MouseWatcher</a></li><li><a href="spnr.Sound.html">spnr.Sound</a></li>
+					<li><a href="spnr.FunctionGroup.html">spnr.FunctionGroup</a></li><li><a href="spnr.GameEngine.AbstractCanvasSizer.html">spnr.GameEngine.AbstractCanvasSizer</a></li><li><a href="spnr.GameEngine.BaseCollider.html">spnr.GameEngine.BaseCollider</a></li><li><a href="spnr.GameEngine.Button.html">spnr.GameEngine.Button</a></li><li><a href="spnr.GameEngine.CircleCollider.html">spnr.GameEngine.CircleCollider</a></li><li><a href="spnr.GameEngine.DrawableEntity.html">spnr.GameEngine.DrawableEntity</a></li><li><a href="spnr.GameEngine.Entity.html">spnr.GameEngine.Entity</a></li><li><a href="spnr.GameEngine.FillPageCanvasSizer.html">spnr.GameEngine.FillPageCanvasSizer</a></li><li><a href="spnr.GameEngine.FixedARCanvasSizer.html">spnr.GameEngine.FixedARCanvasSizer</a></li><li><a href="spnr.GameEngine.FrameRateDisplay.html">spnr.GameEngine.FrameRateDisplay</a></li><li><a href="spnr.GameEngine.Label.html">spnr.GameEngine.Label</a></li><li><a href="spnr.GameEngine.Particle.html">spnr.GameEngine.Particle</a></li><li><a href="spnr.GameEngine.ParticleEffect.html">spnr.GameEngine.ParticleEffect</a></li><li><a href="spnr.GameEngine.Scene.html">spnr.GameEngine.Scene</a></li><li><a href="spnr.GameEngine.Texture.html">spnr.GameEngine.Texture</a></li><li><a href="spnr.KeyWatcher.html">spnr.KeyWatcher</a></li><li><a href="spnr.MouseWatcher.html">spnr.MouseWatcher</a></li><li><a href="spnr.Sound.html">spnr.Sound</a></li>
 				</ul>
 			</li>
 			
@@ -758,6 +758,165 @@ Assumes that the length of the values is greater than or equal to the amount of 
             
 <hr>
 <dt>
+    <h4 class="name" id=".toEnum"><span class="type-signature">&lt;static> </span>toEnum(obj, stringKeys)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Create an enum-like object from another object.
+Useful because you might be too lazy to have distinct keys on the original object so you create it like:</p>
+<pre class="prettyprint source"><code>{a : 0, b : 0, c : 0}
+</code></pre>
+<p>and this function returns:</p>
+<pre class="prettyprint source"><code>{a : 1, b : 1, c : 1} or {a : 'a', b : 'b', c : 'c'}
+</code></pre>
+<p>Takes an object as an input and not a string of keys because that way intellisense can tell there's an object there</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>object to convert to an enum (is modified)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>stringKeys</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>whether the keys of the enum should be numbers (0, 1, 2) or strings (the keys of the object)</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
     <h4 class="name" id=".values"><span class="type-signature">&lt;static> </span>values(obj)</h4>
     
     
@@ -960,7 +1119,7 @@ Assumes that the length of the values is greater than or equal to the amount of 
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a>
 	
-		on 2022-02-13
+		on 2023-02-12
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

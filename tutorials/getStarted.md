@@ -32,11 +32,13 @@ You can of course download the file and put in the full path manually.
 
 #### ES6 module (.mjs) - browser or node
 
-The urls for the ES6 modules are the same as the others but end in `.mjs`. Note that ES6 modules are currently not available on for any stable version of spnr.js - this is being worked on!
+The urls for the ES6 modules are the same as the others but end in `.mjs`. Note that ES6 modules are only available for spnr versions >= 1.8.0
 
 ```js
 import { spnr } from 'https://cdn.jsdelivr.net/npm/spnr/cdn/latest/spnr.mjs';
 ```
+
+If you are using a library that requires non-mjs spnr but you want to use mjs for your code, it should work to just include the `.js` version before your script.
 
 ## First project
 
