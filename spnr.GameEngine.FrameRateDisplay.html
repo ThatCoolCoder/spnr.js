@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>spnr.js Class: Button</title>
+	<title>spnr.js Class: FrameRateDisplay</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -72,7 +72,7 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: Button</h1>
+	<h1 class="page-title">Class: FrameRateDisplay</h1>
 <section>
 
 <header>
@@ -80,10 +80,11 @@
         <h2>
             <span class="ancestors"><a href="spnr.html">spnr</a><a href="spnr.GameEngine.html">.GameEngine</a>.</span>
         
-        Button
+        FrameRateDisplay
         </h2>
         
-            <div class="class-description"><p>Clickable button.</p></div>
+            <div class="class-description"><p>Class that shows the current frame rate of the engine.
+Mainly useful for performance purposes but you can also include it in a finished game.</p></div>
         
     
 </header>
@@ -95,16 +96,12 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="Button"><span class="type-signature"></span>new Button(name, localPosition, localAngle, size, background, text, textFormat, anchor)</h4>
+    <h4 class="name" id="FrameRateDisplay"><span class="type-signature"></span>new FrameRateDisplay(name [, corner] [, padding] [, updateInterval] [, decimalPlaces])</h4>
     
     
 </dt>
 <dd>
 
-    
-    <div class="description">
-        <p>Create a new button. Yes constructor is confusing, maybe in future we will use a dictionary to emulate named parameters</p>
-    </div>
     
 
     
@@ -125,6 +122,8 @@
 
         <th>Type</th>
 
+        
+        <th>Argument</th>
         
 
         
@@ -154,6 +153,14 @@
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
                 <td class="default">
@@ -168,7 +175,45 @@
 
         <tr>
             
-                <td class="name"><code>localPosition</code></td>
+                <td class="name"><code>corner</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="spnr.GameEngine.html#.FrameRateDisplayCorner">spnr.GameEngine.FrameRateDisplayCorner</a></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>what corner of the screen to display in</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>padding</code></td>
             
 
             <td class="type">
@@ -182,27 +227,39 @@
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-            
-                <td class="default">
+                
+
                 
                 </td>
             
 
-            <td class="description last"></td>
+            
+                <td class="default">
+                
+                    spnr.v(20, 20)
+                
+                </td>
+            
+
+            <td class="description last"><p>padding from edge of screen</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>localAngle</code></td>
+                <td class="name"><code>updateInterval</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">name</span>
+<span class="param-type">number</span>
 
 
 
@@ -210,27 +267,39 @@
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-            
-                <td class="default">
+                
+
                 
                 </td>
             
 
-            <td class="description last"></td>
+            
+                <td class="default">
+                
+                    5
+                
+                </td>
+            
+
+            <td class="description last"><p>update every n frames</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>size</code></td>
+                <td class="name"><code>decimalPlaces</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="spnr.html#.Vector">spnr.Vector</a></span>
+<span class="param-type">number</span>
 
 
 
@@ -238,128 +307,26 @@
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
-            
-                <td class="default">
+                
+
                 
                 </td>
-            
-
-            <td class="description last"><p>size in pixels of the button background. If null then defaults to a transparent background.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>background</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="spnr.GameEngine.Texture.html">spnr.GameEngine.Texture</a></span>
-
-
-
-            
-            </td>
-
             
 
             
                 <td class="default">
                 
-                    null
+                    0
                 
                 </td>
             
 
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>text</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>textFormat</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last"><p>see <a href="spnr.GameEngine.Label.html">spnr.GameEngine.Label</a></p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>anchor</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="spnr.html#.Vector">spnr.Vector</a></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last"></td>
+            <td class="description last"><p>round fps values to this many decimal places</p></td>
         </tr>
 
     
@@ -433,7 +400,7 @@
 
 
     <ul>
-        <li><a href="spnr.GameEngine.DrawableEntity.html">spnr.GameEngine.DrawableEntity</a></li>
+        <li><a href="spnr.GameEngine.Label.html">spnr.GameEngine.Label</a></li>
     </ul>
 
 
@@ -451,91 +418,6 @@
         <h3 class="subsection-title">Members</h3>
 
         <dl>
-            
-<hr>
-<dt class="name" id="alpha">
-    <h4 id="alpha"><span class="type-signature">&lt;readonly> </span>alpha<span class="type-signature"> :number</span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>Transparency of the entity from 0 to 1</p>
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">number</span>
-
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="spnr.GameEngine.DrawableEntity.html#alpha">spnr.GameEngine.DrawableEntity#alpha</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-    
-    <dt class="tag-overrides">Overrides:</dt>
-    <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#alpha">spnr.GameEngine.DrawableEntity#alpha</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
             
 <hr>
 <dt class="name" id="globalAngle">
@@ -586,7 +468,7 @@ Avoid where possible because it's recursive and thus slow.</p>
     
     <dt class="tag-overrides">Overrides:</dt>
     <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#globalAngle">spnr.GameEngine.DrawableEntity#globalAngle</a>
+        <a href="spnr.GameEngine.Label.html#globalAngle">spnr.GameEngine.Label#globalAngle</a>
     </li></ul></dd>
     
 
@@ -673,7 +555,7 @@ Avoid where possible it very much because it's recursive and thus slow.
     
     <dt class="tag-overrides">Overrides:</dt>
     <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#globalPosition">spnr.GameEngine.DrawableEntity#globalPosition</a>
+        <a href="spnr.GameEngine.Label.html#globalPosition">spnr.GameEngine.Label#globalPosition</a>
     </li></ul></dd>
     
 
@@ -758,79 +640,8 @@ Avoid where possible it very much because it's recursive and thus slow.
     
     <dt class="tag-overrides">Overrides:</dt>
     <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#isInScene">spnr.GameEngine.DrawableEntity#isInScene</a>
+        <a href="spnr.GameEngine.Label.html#isInScene">spnr.GameEngine.Label#isInScene</a>
     </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt class="name" id="label">
-    <h4 id="label"><span class="type-signature"></span>label<span class="type-signature"> :<a href="spnr.GameEngine.Label.html">spnr.GameEngine.Label</a></span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>Text of the button.</p>
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type"><a href="spnr.GameEngine.Label.html">spnr.GameEngine.Label</a></span>
-
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
     
 
     
@@ -914,7 +725,7 @@ Avoid where possible it very much because it's recursive and thus slow.
     
     <dt class="tag-overrides">Overrides:</dt>
     <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#localAngle">spnr.GameEngine.DrawableEntity#localAngle</a>
+        <a href="spnr.GameEngine.Label.html#localAngle">spnr.GameEngine.Label#localAngle</a>
     </li></ul></dd>
     
 
@@ -999,7 +810,7 @@ Avoid where possible it very much because it's recursive and thus slow.
     
     <dt class="tag-overrides">Overrides:</dt>
     <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#localPosition">spnr.GameEngine.DrawableEntity#localPosition</a>
+        <a href="spnr.GameEngine.Label.html#localPosition">spnr.GameEngine.Label#localPosition</a>
     </li></ul></dd>
     
 
@@ -1037,15 +848,15 @@ Avoid where possible it very much because it's recursive and thus slow.
         
             
 <hr>
-<dt class="name" id="mouseDownCallbacks">
-    <h4 id="mouseDownCallbacks"><span class="type-signature"></span>mouseDownCallbacks<span class="type-signature"> :<a href="spnr.FunctionGroup.html">spnr.FunctionGroup</a></span></h4>
+<dt class="name" id="textFormat">
+    <h4 id="textFormat"><span class="type-signature">&lt;readonly> </span>textFormat<span class="type-signature"> :object</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>Function group called when mouse or touchscreen press starts over this</p>
+        <p>see <a href="https://pixijs.io/pixi-text-style/">https://pixijs.io/pixi-text-style/</a></p>
     </div>
     
 
@@ -1054,7 +865,7 @@ Avoid where possible it very much because it's recursive and thus slow.
         <ul>
             <li>
                 
-<span class="param-type"><a href="spnr.FunctionGroup.html">spnr.FunctionGroup</a></span>
+<span class="param-type">object</span>
 
 
 
@@ -1075,7 +886,7 @@ Avoid where possible it very much because it's recursive and thus slow.
 	<dd class="inherited-from">
 		<ul class="dummy">
 			<li>
-				<a href="spnr.GameEngine.DrawableEntity.html#mouseDownCallbacks">spnr.GameEngine.DrawableEntity#mouseDownCallbacks</a>
+				<a href="spnr.GameEngine.Label.html#textFormat">spnr.GameEngine.Label#textFormat</a>
 			</li>
 		</ul>
 	</dd>
@@ -1084,517 +895,7 @@ Avoid where possible it very much because it's recursive and thus slow.
     
     <dt class="tag-overrides">Overrides:</dt>
     <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#mouseDownCallbacks">spnr.GameEngine.DrawableEntity#mouseDownCallbacks</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt class="name" id="mouseHovering">
-    <h4 id="mouseHovering"><span class="type-signature"></span>mouseHovering<span class="type-signature"> :boolean</span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>Whether the mouse is currently hovering over this</p>
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">boolean</span>
-
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="spnr.GameEngine.DrawableEntity.html#mouseHovering">spnr.GameEngine.DrawableEntity#mouseHovering</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-    
-    <dt class="tag-overrides">Overrides:</dt>
-    <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#mouseHovering">spnr.GameEngine.DrawableEntity#mouseHovering</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt class="name" id="mouseOutCallbacks">
-    <h4 id="mouseOutCallbacks"><span class="type-signature"></span>mouseOutCallbacks<span class="type-signature"> :<a href="spnr.FunctionGroup.html">spnr.FunctionGroup</a></span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>Function group called when mouse or touchscreen touch exits this</p>
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type"><a href="spnr.FunctionGroup.html">spnr.FunctionGroup</a></span>
-
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="spnr.GameEngine.DrawableEntity.html#mouseOutCallbacks">spnr.GameEngine.DrawableEntity#mouseOutCallbacks</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-    
-    <dt class="tag-overrides">Overrides:</dt>
-    <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#mouseOutCallbacks">spnr.GameEngine.DrawableEntity#mouseOutCallbacks</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt class="name" id="mouseOverCallbacks">
-    <h4 id="mouseOverCallbacks"><span class="type-signature"></span>mouseOverCallbacks<span class="type-signature"> :<a href="spnr.FunctionGroup.html">spnr.FunctionGroup</a></span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>Function group called when mouse or touchscreen touch enters this</p>
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type"><a href="spnr.FunctionGroup.html">spnr.FunctionGroup</a></span>
-
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="spnr.GameEngine.DrawableEntity.html#mouseOverCallbacks">spnr.GameEngine.DrawableEntity#mouseOverCallbacks</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-    
-    <dt class="tag-overrides">Overrides:</dt>
-    <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#mouseOverCallbacks">spnr.GameEngine.DrawableEntity#mouseOverCallbacks</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt class="name" id="mouseUpCallbacks">
-    <h4 id="mouseUpCallbacks"><span class="type-signature"></span>mouseUpCallbacks<span class="type-signature"> :<a href="spnr.FunctionGroup.html">spnr.FunctionGroup</a></span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>Function group called when mouse or touchscreen press ends over this</p>
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type"><a href="spnr.FunctionGroup.html">spnr.FunctionGroup</a></span>
-
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="spnr.GameEngine.DrawableEntity.html#mouseUpCallbacks">spnr.GameEngine.DrawableEntity#mouseUpCallbacks</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-    
-    <dt class="tag-overrides">Overrides:</dt>
-    <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#mouseUpCallbacks">spnr.GameEngine.DrawableEntity#mouseUpCallbacks</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt class="name" id="textureSize">
-    <h4 id="textureSize"><span class="type-signature">&lt;readonly> </span>textureSize<span class="type-signature"> :<a href="spnr.html#.Vector">spnr.Vector</a></span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>Size of the texture, in pixels</p>
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type"><a href="spnr.html#.Vector">spnr.Vector</a></span>
-
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="spnr.GameEngine.DrawableEntity.html#textureSize">spnr.GameEngine.DrawableEntity#textureSize</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-    
-    <dt class="tag-overrides">Overrides:</dt>
-    <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#textureSize">spnr.GameEngine.DrawableEntity#textureSize</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt class="name" id="tint">
-    <h4 id="tint"><span class="type-signature">&lt;readonly> </span>tint<span class="type-signature"> :number</span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>Tint of the entity</p>
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">number</span>
-
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="spnr.GameEngine.DrawableEntity.html#tint">spnr.GameEngine.DrawableEntity#tint</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-    
-    <dt class="tag-overrides">Overrides:</dt>
-    <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#tint">spnr.GameEngine.DrawableEntity#tint</a>
+        <a href="spnr.GameEngine.Label.html#textFormat">spnr.GameEngine.Label#textFormat</a>
     </li></ul></dd>
     
 
@@ -1640,7 +941,7 @@ Avoid where possible it very much because it's recursive and thus slow.
 <dd>
     
     <div class="description">
-        <p>Whether the entity is visible</p>
+        <p>Whether the text is visible</p>
     </div>
     
 
@@ -1670,7 +971,7 @@ Avoid where possible it very much because it's recursive and thus slow.
 	<dd class="inherited-from">
 		<ul class="dummy">
 			<li>
-				<a href="spnr.GameEngine.DrawableEntity.html#visible">spnr.GameEngine.DrawableEntity#visible</a>
+				<a href="spnr.GameEngine.Label.html#visible">spnr.GameEngine.Label#visible</a>
 			</li>
 		</ul>
 	</dd>
@@ -1679,7 +980,7 @@ Avoid where possible it very much because it's recursive and thus slow.
     
     <dt class="tag-overrides">Overrides:</dt>
     <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#visible">spnr.GameEngine.DrawableEntity#visible</a>
+        <a href="spnr.GameEngine.Label.html#visible">spnr.GameEngine.Label#visible</a>
     </li></ul></dd>
     
 
@@ -1815,7 +1116,7 @@ Avoid where possible it very much because it's recursive and thus slow.
     
     <dt class="tag-overrides">Overrides:</dt>
     <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#addChild">spnr.GameEngine.DrawableEntity#addChild</a>
+        <a href="spnr.GameEngine.Label.html#addChild">spnr.GameEngine.Label#addChild</a>
     </li></ul></dd>
     
 
@@ -1984,7 +1285,7 @@ An entity can have multiple tags. You can add the same tag multiple times but wh
     
     <dt class="tag-overrides">Overrides:</dt>
     <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#addTag">spnr.GameEngine.DrawableEntity#addTag</a>
+        <a href="spnr.GameEngine.Label.html#addTag">spnr.GameEngine.Label#addTag</a>
     </li></ul></dd>
     
 
@@ -2126,7 +1427,7 @@ An entity can have multiple tags. You can add the same tag multiple times but wh
     
     <dt class="tag-overrides">Overrides:</dt>
     <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#addTags">spnr.GameEngine.DrawableEntity#addTags</a>
+        <a href="spnr.GameEngine.Label.html#addTags">spnr.GameEngine.Label#addTags</a>
     </li></ul></dd>
     
 
@@ -2169,122 +1470,6 @@ An entity can have multiple tags. You can add the same tag multiple times but wh
     
 
     
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="getGlobalCornerPositions"><span class="type-signature"></span>getGlobalCornerPositions()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Get the corner positions of this. Not sure why it was implemented.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="spnr.GameEngine.DrawableEntity.html#getGlobalCornerPositions">spnr.GameEngine.DrawableEntity#getGlobalCornerPositions</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-    
-    <dt class="tag-overrides">Overrides:</dt>
-    <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#getGlobalCornerPositions">spnr.GameEngine.DrawableEntity#getGlobalCornerPositions</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>corners in order [topLeft, topRight, bottomRight, bottomLeft]</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Array.&lt;<a href="spnr.html#.Vector">spnr.Vector</a>></span>
-
-
-
-    </dd>
-</dl>
-
-
-        
 
     
 </dd>
@@ -2384,7 +1569,7 @@ An entity can have multiple tags. You can add the same tag multiple times but wh
     
     <dt class="tag-overrides">Overrides:</dt>
     <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#removeChild">spnr.GameEngine.DrawableEntity#removeChild</a>
+        <a href="spnr.GameEngine.Label.html#removeChild">spnr.GameEngine.Label#removeChild</a>
     </li></ul></dd>
     
 
@@ -2502,7 +1687,7 @@ An entity can have multiple tags. You can add the same tag multiple times but wh
     
     <dt class="tag-overrides">Overrides:</dt>
     <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#removeChildren">spnr.GameEngine.DrawableEntity#removeChildren</a>
+        <a href="spnr.GameEngine.Label.html#removeChildren">spnr.GameEngine.Label#removeChildren</a>
     </li></ul></dd>
     
 
@@ -2644,7 +1829,7 @@ An entity can have multiple tags. You can add the same tag multiple times but wh
     
     <dt class="tag-overrides">Overrides:</dt>
     <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#removeTag">spnr.GameEngine.DrawableEntity#removeTag</a>
+        <a href="spnr.GameEngine.Label.html#removeTag">spnr.GameEngine.Label#removeTag</a>
     </li></ul></dd>
     
 
@@ -2786,291 +1971,7 @@ An entity can have multiple tags. You can add the same tag multiple times but wh
     
     <dt class="tag-overrides">Overrides:</dt>
     <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#rename">spnr.GameEngine.DrawableEntity#rename</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="setAlpha"><span class="type-signature"></span>setAlpha(alpha)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Set alpha (transparency) of the entity</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>alpha</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>transparency from 0 to 1</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="spnr.GameEngine.DrawableEntity.html#setAlpha">spnr.GameEngine.DrawableEntity#setAlpha</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-    
-    <dt class="tag-overrides">Overrides:</dt>
-    <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#setAlpha">spnr.GameEngine.DrawableEntity#setAlpha</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="setAnchor"><span class="type-signature"></span>setAnchor(position)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Set anchor of the texture, from 0,0 to 1,1</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>position</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="spnr.html#.Vector">spnr.Vector</a></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="spnr.GameEngine.DrawableEntity.html#setAnchor">spnr.GameEngine.DrawableEntity#setAnchor</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-    
-    <dt class="tag-overrides">Overrides:</dt>
-    <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#setAnchor">spnr.GameEngine.DrawableEntity#setAnchor</a>
+        <a href="spnr.GameEngine.Label.html#rename">spnr.GameEngine.Label#rename</a>
     </li></ul></dd>
     
 
@@ -3212,7 +2113,7 @@ An entity can have multiple tags. You can add the same tag multiple times but wh
     
     <dt class="tag-overrides">Overrides:</dt>
     <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#setGlobalAngle">spnr.GameEngine.DrawableEntity#setGlobalAngle</a>
+        <a href="spnr.GameEngine.Label.html#setGlobalAngle">spnr.GameEngine.Label#setGlobalAngle</a>
     </li></ul></dd>
     
 
@@ -3355,7 +2256,7 @@ Avoid where possible because it's recursive and thus slow.</p>
     
     <dt class="tag-overrides">Overrides:</dt>
     <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#setGlobalPosition">spnr.GameEngine.DrawableEntity#setGlobalPosition</a>
+        <a href="spnr.GameEngine.Label.html#setGlobalPosition">spnr.GameEngine.Label#setGlobalPosition</a>
     </li></ul></dd>
     
 
@@ -3497,7 +2398,7 @@ Avoid where possible because it's recursive and thus slow.</p>
     
     <dt class="tag-overrides">Overrides:</dt>
     <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#setLocalAngle">spnr.GameEngine.DrawableEntity#setLocalAngle</a>
+        <a href="spnr.GameEngine.Label.html#setLocalAngle">spnr.GameEngine.Label#setLocalAngle</a>
     </li></ul></dd>
     
 
@@ -3639,7 +2540,7 @@ Avoid where possible because it's recursive and thus slow.</p>
     
     <dt class="tag-overrides">Overrides:</dt>
     <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#setLocalPosition">spnr.GameEngine.DrawableEntity#setLocalPosition</a>
+        <a href="spnr.GameEngine.Label.html#setLocalPosition">spnr.GameEngine.Label#setLocalPosition</a>
     </li></ul></dd>
     
 
@@ -3690,7 +2591,7 @@ Avoid where possible because it's recursive and thus slow.</p>
             
 <hr>
 <dt>
-    <h4 class="name" id="setTexture"><span class="type-signature"></span>setTexture(texture, textureSize)</h4>
+    <h4 class="name" id="setText"><span class="type-signature"></span>setText(text)</h4>
     
     
 </dt>
@@ -3698,7 +2599,7 @@ Avoid where possible because it's recursive and thus slow.</p>
 
     
     <div class="description">
-        <p>Set the texture size of this entity</p>
+        <p>Set the text. Quite slow so only call if you need to</p>
     </div>
     
 
@@ -3733,37 +2634,13 @@ Avoid where possible because it's recursive and thus slow.</p>
 
         <tr>
             
-                <td class="name"><code>texture</code></td>
+                <td class="name"><code>text</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="spnr.GameEngine.Texture.html">spnr.GameEngine.Texture</a></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>textureSize</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="spnr.html#.Vector">spnr.Vector</a></span>
+<span class="param-type">string</span>
 
 
 
@@ -3796,7 +2673,7 @@ Avoid where possible because it's recursive and thus slow.</p>
 	<dd class="inherited-from">
 		<ul class="dummy">
 			<li>
-				<a href="spnr.GameEngine.DrawableEntity.html#setTexture">spnr.GameEngine.DrawableEntity#setTexture</a>
+				<a href="spnr.GameEngine.Label.html#setText">spnr.GameEngine.Label#setText</a>
 			</li>
 		</ul>
 	</dd>
@@ -3805,7 +2682,7 @@ Avoid where possible because it's recursive and thus slow.</p>
     
     <dt class="tag-overrides">Overrides:</dt>
     <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#setTexture">spnr.GameEngine.DrawableEntity#setTexture</a>
+        <a href="spnr.GameEngine.Label.html#setText">spnr.GameEngine.Label#setText</a>
     </li></ul></dd>
     
 
@@ -3856,7 +2733,7 @@ Avoid where possible because it's recursive and thus slow.</p>
             
 <hr>
 <dt>
-    <h4 class="name" id="setTextureSize"><span class="type-signature"></span>setTextureSize(size)</h4>
+    <h4 class="name" id="setTextFormat"><span class="type-signature"></span>setTextFormat(format)</h4>
     
     
 </dt>
@@ -3864,7 +2741,7 @@ Avoid where possible because it's recursive and thus slow.</p>
 
     
     <div class="description">
-        <p>Set the texture size</p>
+        <p>Set the format/styling of the text.</p>
     </div>
     
 
@@ -3899,13 +2776,13 @@ Avoid where possible because it's recursive and thus slow.</p>
 
         <tr>
             
-                <td class="name"><code>size</code></td>
+                <td class="name"><code>format</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="spnr.html#.Vector">spnr.Vector</a></span>
+<span class="param-type">object</span>
 
 
 
@@ -3916,7 +2793,7 @@ Avoid where possible because it's recursive and thus slow.</p>
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>see <a href="https://pixijs.io/pixi-text-style/">https://pixijs.io/pixi-text-style/</a></p></td>
         </tr>
 
     
@@ -3938,7 +2815,7 @@ Avoid where possible because it's recursive and thus slow.</p>
 	<dd class="inherited-from">
 		<ul class="dummy">
 			<li>
-				<a href="spnr.GameEngine.DrawableEntity.html#setTextureSize">spnr.GameEngine.DrawableEntity#setTextureSize</a>
+				<a href="spnr.GameEngine.Label.html#setTextFormat">spnr.GameEngine.Label#setTextFormat</a>
 			</li>
 		</ul>
 	</dd>
@@ -3947,149 +2824,7 @@ Avoid where possible because it's recursive and thus slow.</p>
     
     <dt class="tag-overrides">Overrides:</dt>
     <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#setTextureSize">spnr.GameEngine.DrawableEntity#setTextureSize</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="setTint"><span class="type-signature"></span>setTint(tint)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Set tint (color) of entity. If the entity is a white texture, then tint will directly correspond to color.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>tint</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="spnr.GameEngine.DrawableEntity.html#setTint">spnr.GameEngine.DrawableEntity#setTint</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-    
-    <dt class="tag-overrides">Overrides:</dt>
-    <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#setTint">spnr.GameEngine.DrawableEntity#setTint</a>
+        <a href="spnr.GameEngine.Label.html#setTextFormat">spnr.GameEngine.Label#setTextFormat</a>
     </li></ul></dd>
     
 
@@ -4148,7 +2883,7 @@ Avoid where possible because it's recursive and thus slow.</p>
 
     
     <div class="description">
-        <p>Set whether the entity is visible</p>
+        <p>Set whether the text is visible</p>
     </div>
     
 
@@ -4222,7 +2957,7 @@ Avoid where possible because it's recursive and thus slow.</p>
 	<dd class="inherited-from">
 		<ul class="dummy">
 			<li>
-				<a href="spnr.GameEngine.DrawableEntity.html#setVisible">spnr.GameEngine.DrawableEntity#setVisible</a>
+				<a href="spnr.GameEngine.Label.html#setVisible">spnr.GameEngine.Label#setVisible</a>
 			</li>
 		</ul>
 	</dd>
@@ -4231,7 +2966,7 @@ Avoid where possible because it's recursive and thus slow.</p>
     
     <dt class="tag-overrides">Overrides:</dt>
     <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#setVisible">spnr.GameEngine.DrawableEntity#setVisible</a>
+        <a href="spnr.GameEngine.Label.html#setVisible">spnr.GameEngine.Label#setVisible</a>
     </li></ul></dd>
     
 
@@ -4323,8 +3058,178 @@ Avoid where possible because it's recursive and thus slow.</p>
     
     <dt class="tag-overrides">Overrides:</dt>
     <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="spnr.GameEngine.DrawableEntity.html#update">spnr.GameEngine.DrawableEntity#update</a>
+        <a href="spnr.GameEngine.Label.html#update">spnr.GameEngine.Label#update</a>
     </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="updateTextSprite"><span class="type-signature"></span>updateTextSprite()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Force-update the text sprite (mainly used by the engine). Quite slow so don't call unless you need to.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="spnr.GameEngine.Label.html#updateTextSprite">spnr.GameEngine.Label#updateTextSprite</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="spnr.GameEngine.Label.html#updateTextSprite">spnr.GameEngine.Label#updateTextSprite</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="useDefaultTextFormat"><span class="type-signature"></span>useDefaultTextFormat()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Use the default format</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
     
 
     
