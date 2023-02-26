@@ -8,7 +8,7 @@
   },
   "author": "thatcoolcoder",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "ink-docstrap": "^1.3.2"
   }
 }
