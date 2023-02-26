@@ -107,16 +107,30 @@ spnr.mean = function(a, b) {
 }
 
 /**
- * Constraint a value to be no lesser than min and no greater than max
+ * Constrain a value to be no lesser than min and no greater than max
  * @param {number} num 
  * @param {number} min 
  * @param {number} max 
  * @returns {number}
  */
 spnr.constrain = function(num, min, max) {
-    // Constrain num between min and max
 
     return Math.max(min, Math.min(num, max))
+}
+
+/**
+ * Calculate the factorial of a number. Throws an error if the number is not a positive integer
+ * @param {number} num 
+ * @returns {number}
+ */
+spnr.factorial = function(num) {
+    if (num <= 0 && num % 1 != 0) throw new Error('Attempted to compute factorial of a number which is not a positive integer');
+
+    var result = 1;
+    for (var i = 2; i < num + 1; i ++) {
+        result *= i;
+    }
+    return result;
 }
 
 /**
