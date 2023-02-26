@@ -20,7 +20,7 @@ If you want to target a specific version, replace `latest` with a version such a
 
 If instead you want to download spnr.js, stable versions can be found at the [GitHub release page](https://github.com/That-Cool-Coder/spnr.js/releases/). Select a release, scroll down to the assets section and download `spnr.js`.
 
-#### Node JS
+#### Node JS - require() syntax
 
 You should be able to add it through npm, then you can import it like so:
 
@@ -28,14 +28,21 @@ You should be able to add it through npm, then you can import it like so:
 var spnr = require('spnr');
 ```
 
-You can of course download the file and put in the full path manually.
+You can of course manually download the file and put in the relative path.
 
 #### ES6 module (.mjs) - browser or node
 
-The urls for the ES6 modules are the same as the others but end in `.mjs`. Note that ES6 modules are only available for spnr versions >= 1.8.0
+The paths/urls for the ES6 modules are the same as the others but end in `.mjs`. Note that ES6 modules are only available for spnr versions >= 1.8.0
 
 ```js
+// browser
 import { spnr } from 'https://cdn.jsdelivr.net/npm/spnr/cdn/latest/spnr.mjs';
+
+// node, added through npm
+import { spnr } from 'spnr';
+
+// node, with manually obtained spnr
+import { spnr } from 'path/to/spnr.mjs';
 ```
 
 If you are using a library that requires non-mjs spnr but you want to use mjs for your code, it should work to just include the `.js` version before your script.
