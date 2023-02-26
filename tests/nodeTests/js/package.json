@@ -1,0 +1,11 @@
+{
+    "name": "spnr-node-js-test",
+    "version": "0.1.0",
+    "description": "Testing if require() imports work in node",
+    "author": "thatcoolcoder",
+    "license": "MIT",
+    "dependencies": {
+      "spnr": "file:../../"
+    }
+  }
+  
