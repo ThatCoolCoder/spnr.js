@@ -31,8 +31,11 @@ else {
     if (spnrInBrowser && spnrAsMjs) window.spnr = spnr; // Make it global
 
     // Make a 'hello' message
-    console.log(`%c  \n${spnr.consoleLogHeader} spnr.js ${spnr.VERSION}  \n  `,
-        spnr.consoleLogStyling);
+    if (spnrInBrowser)
+    {
+        console.log(`%c  \n${spnr.consoleLogHeader} spnr.js ${spnr.VERSION}  \n  `,
+            spnr.consoleLogStyling);
+    }
 
     // Load the consts & functions from math
     Object.getOwnPropertyNames(Math).forEach(key => {
